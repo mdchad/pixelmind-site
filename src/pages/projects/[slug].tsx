@@ -12,7 +12,6 @@ interface Props {
 }
 
 const Project = ({ datas }: Props) => {
-	console.log(datas)
 
 	return (
 		<main key={datas._id}>
