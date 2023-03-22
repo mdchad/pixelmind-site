@@ -1,9 +1,6 @@
 'use client'
 
 import { usePreview } from '@root/lib/sanity.preview'
-
-import groq from 'groq'
-import Link from 'next/link'
 import PreviewLayout from "@components/layout_preview"
 
 import Hero from '@/components/hero'
