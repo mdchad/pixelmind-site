@@ -4,6 +4,7 @@ import { usePreview } from '@root/lib/sanity.preview'
 import PreviewLayout from "@components/layout_preview"
 import Blog from '@/components/blog'
 import { allPosts } from '@lib/sanity.queries'
+import { Post } from '@root/typings'
 
 export default function PreviewBlogPage() {
 	const post = usePreview(null, allPosts);

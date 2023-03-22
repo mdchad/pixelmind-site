@@ -14,6 +14,7 @@ import Testimonials from '@/components/testimonials'
 import Blog from '@/components/blog'
 
 import { allPosts, allProjects, allServices } from '@lib/sanity.queries'
+import { Post } from '@root/typings'
 
 export default function PreviewDocumentsCount() {
 	const post = usePreview(null, allPosts);
