@@ -13,7 +13,7 @@ const inter = Inter({
 	variable: '--font-inter',
 })
 
-const PreviewIndexPage = lazy(() => import('@components/Studio/PreviewIndexPage'))
+const PreviewProjectPage = lazy(() => import('@components/Studio/PreviewProjectPage'))
 
 export const getStaticProps = async ({ preview = false }) => {
 	if (preview) {
@@ -46,7 +46,7 @@ export default function ProjectPage({ preview, data }: {
 		return (
 			<PreviewSuspense fallback={loading()}>
 				{/* set how you want to preview the document */}
-				<PreviewIndexPage />
+				<PreviewProjectPage />
 			</PreviewSuspense>
 		)
 	}

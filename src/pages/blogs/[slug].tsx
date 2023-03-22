@@ -1,53 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import Layout from '@/components/layout'
-
-import { groq } from 'next-sanity';
-import client from '@root/lib/sanity.client';
 import PortableText from 'react-portable-text';
-import { postBySlugQuery, allPosts } from 'lib/sanity.queries'
-import { Post } from '@root/typings'
+import { PreviewSuspense } from 'next-sanity/preview'
+import { lazy } from 'react'
+import client from '@lib/sanity.client'
+import Layout from '@/components/layout'
+import { Post, Preview } from '@root/typings'
+import { postBySlugQuery, allPosts } from '@lib/sanity.queries'
 
-interface Props {
-	post: Post;
-}
+import { Inter } from 'next/font/google'
 
-const Post = ({ post }: Props) => {
-	return (
-		<main key={post._id}>
-			<Layout>
-				<article>
-					<div className="rounded-xl overflow-hidden flex flex-col gap-5">
-						<section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">
-							<div className="w-full xl:w-[50%]">
-								<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{post.title}</h1>
-								<p className="text-2xl md:text-3xl lg:text-4xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
-									{/* {post.body} */}
-								</p>
-							</div>
-						</section>
-					</div>
+const inter = Inter({
+	subsets: ['latin'],
+	variable: '--font-inter',
+})
 
-					<div>
-						<PortableText
-							dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-							projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-							content={post.body}
-							serializers={{
-								h1: (props: any) => (<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{props.children}</h1>),
-								h2: (props: any) => (<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">{props.children}</h2>),
-								li: (props: any) => (<li className="text-2xl md:text-3xl lg:text-4xl font-light">{props.children}</li>),
-								link: (props: any) => (<a href={props.mark.href} className="text-2xl md:text-3xl lg:text-4xl font-light">{props.children}</a>),
-							}}
-						/>
-					</div>
+const PreviewBlogInnerPage = lazy(() => import('@components/Studio/PreviewBlogInnerPage'))
 
-				</article>
-			</Layout>
-		</main>
-	)
-}
-
-export default Post
 
 export const getStaticPaths = async () => {
 	const posts = await client.fetch(allPosts)
@@ -62,7 +29,11 @@ export const getStaticPaths = async () => {
 	}
 }
 
-export const getStaticProps = async ({ params }: any) => {
+export const getStaticProps = async ({ preview = false, params }: any) => {
+	if (preview) {
+		return { props: { preview } }
+	}
+
 	const post = await client.fetch(postBySlugQuery, { slug: params?.slug })
 
 	if (!post) {
@@ -79,4 +50,61 @@ export const getStaticProps = async ({ params }: any) => {
 		revalidate: 60 // after 60 seconds, it will be regenerated
 	}
 }
+
+// loading the preview component
+export const loading = () => (
+	<div className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}>
+		<h1>Loading...</h1>
+	</div>
+)
+
+export default function IndexPage({ preview, post }: {
+	preview: Preview;
+	post: Post;
+}) {
+	if (preview) {
+		return (
+			<PreviewSuspense fallback={loading()}>
+				<PreviewBlogInnerPage />
+			</PreviewSuspense>
+		)
+	}
+
+	return (
+		<main key={post._id}>
+			<Layout>
+				<article>
+					<div className="rounded-xl overflow-hidden flex flex-col gap-5">
+						<section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">
+							<div className="w-full xl:w-[50%]">
+								<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{post.title}</h1>
+								<p className="text-2xl md:text-3xl lg:text-4xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
+									{/* {post.body} */}
+								</p>
+							</div>
+						</section>
+					</div>
+
+					{post.body && (
+						<div>
+							<PortableText
+								dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+								projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+								content={post.body}
+								serializers={{
+									h1: (props: any) => (<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{props.children}</h1>),
+									h2: (props: any) => (<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">{props.children}</h2>),
+									li: (props: any) => (<li className="text-2xl md:text-3xl lg:text-4xl font-light">{props.children}</li>),
+									link: (props: any) => (<a href={props.mark.href} className="text-2xl md:text-3xl lg:text-4xl font-light">{props.children}</a>),
+								}}
+							/>
+						</div>
+					)}
+
+				</article>
+			</Layout>
+		</main>
+	)
+}
+
 
