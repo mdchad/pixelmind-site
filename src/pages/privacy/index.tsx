@@ -1,6 +1,6 @@
 import Layout from '@/components/layout'
 
-function index() {
+function Index() {
 	return (
 		<Layout>
 			<div className="rounded-xl overflow-hidden flex flex-col gap-5">
@@ -41,4 +41,4 @@ function index() {
 	)
 }
 
-export default index
+export default Index

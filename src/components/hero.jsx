@@ -3,7 +3,7 @@ import { useGlitch } from 'react-powerglitch'
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-function hero() {
+function Hero() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const glitch = useGlitch();
 
@@ -55,4 +55,4 @@ function hero() {
   )
 }
 
-export default hero
+export default Hero
