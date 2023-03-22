@@ -86,7 +86,7 @@ interface Cards {
 	xl?: number,
 	children: React.ReactNode,
 	key?: any,
-	// uid?: any,
+	uid?: any
 }
 
 interface Services extends Base {
