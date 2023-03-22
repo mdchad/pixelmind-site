@@ -1,7 +1,7 @@
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './schemas'
+import { schemaTypes } from './src/sanity/schemas'
 import StudioNavbar from '@/components/Studio/StudioNavbar'
 import Logo from '@/components/Studio/Logo'
 

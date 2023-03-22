@@ -30,15 +30,9 @@ export const getStaticProps = async ({ preview = false }) => {
 	const featuredPost = getPost.filter((post: Post) => post.featured === true)
 	const allPost = getPost.filter((post: Post) => post.featured === false)
 
-	const getProjects = await client.fetch(allProjects)
-
-	const getServices = await client.fetch(allServices)
-
 	const data = {
 		featuredPost,
 		allPost,
-		getProjects,
-		getServices
 	}
 
 	return { props: { preview, data } }
@@ -56,15 +50,25 @@ export default function IndexPage({ preview, data }: {
 	data: {
 		featuredPost: Post[];
 		allPost: Post[];
-		getProjects: ProjectsType[]
-		getServices: ServicesType
 	}
 }) {
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>
-				{/* set how you want to preview the document */}
-				<PreviewIndexPage />
+				<Layout>
+					<div className="rounded-xl overflow-hidden flex flex-col gap-5">
+						<section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">
+							<div className="w-full xl:w-[50%]">
+								<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Blogs</h1>
+								<p className="text-2xl md:text-3xl lg:text-4xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
+									from stunning web designs to captivating graphics and logos,each project reflects our commitment to quality and excellence.
+								</p>
+							</div>
+						</section>
+					</div>
+
+					<Blog allPost={data.allPost} featuredPost={data.featuredPost} />
+				</Layout>
 			</PreviewSuspense>
 		)
 	}
@@ -73,17 +77,17 @@ export default function IndexPage({ preview, data }: {
 		<PreviewSuspense fallback={loading()}>
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
-					<Hero />
-					<Projects projects={data.getProjects} />
-					<div className="grid grid-cols-3">
-						<div className="col-span-3 lg:col-span-2 lg:col-start-2 p-5">
-							<Services services={data.getServices} />
+					<section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">
+						<div className="w-full xl:w-[50%]">
+							<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Blogs</h1>
+							<p className="text-2xl md:text-3xl lg:text-4xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
+								from stunning web designs to captivating graphics and logos,each project reflects our commitment to quality and excellence.
+							</p>
 						</div>
-					</div>
-					{/* <Testimonials /> */}
-					{/* <Team /> */}
-					<Blog allPost={data.allPost} featuredPost={data.featuredPost} />
+					</section>
 				</div>
+
+				<Blog allPost={data.allPost} featuredPost={data.featuredPost} />
 			</Layout>
 		</PreviewSuspense>
 	)

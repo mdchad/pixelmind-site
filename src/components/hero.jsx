@@ -30,7 +30,7 @@ function hero() {
   }, [controls, inView]);
 
   return (
-    <section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-16 text-black rounded-2xl">
+    <section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">
       <div className="w-full xl:w-[50%]">
         <motion.div
           ref={ref}
@@ -50,7 +50,7 @@ function hero() {
           </p>
         </motion.div>
       </div>
-      <a onClick={scrollToBottom}>Get in touch</a>
+      <a onClick={scrollToBottom} className="cursor-pointer hover:text-gray-600">Get in touch</a>
     </section >
   )
 }

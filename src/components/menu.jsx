@@ -61,8 +61,8 @@ export default function Menu() {
 				>
 					<div className="menu-item-submenu-con">
 						<Link href="/" className="menu-item-submenu-con-item">Home</Link>
-						<Link href="/projects" className="menu-item-submenu-con-item">Projects</Link>
 						<Link href="/about" className="menu-item-submenu-con-item">About</Link>
+						<Link href="/projects" className="menu-item-submenu-con-item">Projects</Link>
 						<Link href="/blogs" className="menu-item-submenu-con-item">Blogs</Link>
 						<a onClick={scrollToBottom} className="menu-item-submenu-con-item">Contact</a>
 					</div>
