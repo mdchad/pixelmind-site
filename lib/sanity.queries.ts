@@ -56,3 +56,11 @@ export const allServices = groq`
 *[_type == "services"] | order(_createdAt desc) {
   ...,
 }`
+
+/*
+	This is for linktree
+*/
+export const allLinktree = groq`
+*[_type == "linktree" && status == "active"] | order(_createdAt desc) {
+  ...,
+}`

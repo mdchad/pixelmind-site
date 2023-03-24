@@ -115,3 +115,11 @@ interface SEO {
 	keywords?: string;
 	image?: string;
 }
+
+interface Linktree {
+	_id: string;
+	title?: string;
+	href?: string;
+	image?: string | null;
+	status?: string;
+}
