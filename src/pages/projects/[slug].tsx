@@ -9,6 +9,7 @@ import { allProjects, projectsPostsQuery } from 'lib/sanity.queries'
 import { Inter } from 'next/font/google'
 import Image from 'next/image';
 import { urlForImage } from '@root/lib/sanity.image';
+import HeadMeta from '@/components/head-meta';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -74,6 +75,13 @@ export default function IndexPage({ preview, data }: {
 
 	return (
 		<main key={data._id}>
+			<HeadMeta
+				title={data.title}
+				description={data.excerpt}
+				keywords={data.categories.map((category) => category.title).join(', ')}
+				image={urlForImage(data.mainImage).url()}
+			/>
+
 			<Layout>
 				<article>
 					<div className="rounded-xl overflow-hidden flex flex-col gap-5">

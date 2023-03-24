@@ -13,6 +13,7 @@ import Testimonials from '@/components/testimonials'
 import Blog from '@/components/blog'
 
 import { Inter } from 'next/font/google'
+import HeadMeta from '@/components/head-meta'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -62,6 +63,10 @@ export default function IndexPage({ preview, data }: {
 
 	return (
 		<PreviewSuspense fallback={loading()}>
+			<HeadMeta
+				title='Pixelmind Studio | Blogs'
+			/>
+
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
 					<section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">

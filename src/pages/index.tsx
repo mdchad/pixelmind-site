@@ -5,6 +5,7 @@ import Layout from '@/components/layout'
 import { Post, Preview, Services as ServicesType, Projects as ProjectsType } from '@root/typings'
 import { allPosts, allProjects, allServices } from '@lib/sanity.queries'
 
+import HeadMeta from '@/components/head-meta';
 import Hero from '@/components/hero'
 import Projects from '@/components/projects'
 import Services from '@/components/services'
@@ -71,6 +72,8 @@ export default function IndexPage({ preview, data }: {
 
 	return (
 		<PreviewSuspense fallback={loading()}>
+			<HeadMeta />
+
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
 					<Hero />
