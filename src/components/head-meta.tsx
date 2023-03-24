@@ -10,7 +10,7 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 	let ogImage = '';
 
 	if (!image) {
-		const url = window.location.href;
+		const url = typeof window !== 'undefined' ? window.location.origin : '';
 		ogImage = url + ogUrl;
 	}
 
