@@ -108,3 +108,10 @@ interface Projects extends Base {
 	client: string;
 	uid: number;
 }
+
+interface SEO {
+	title?: string;
+	description?: string;
+	keywords?: string;
+	image?: string;
+}

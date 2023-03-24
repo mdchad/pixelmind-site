@@ -1,8 +1,13 @@
+import HeadMeta from '@/components/head-meta'
 import Layout from '@/components/layout'
 
 function index() {
 	return (
 		<Layout>
+			<HeadMeta
+				title='Pixelmind Studio | About'
+			/>
+
 			<div className="rounded-xl overflow-hidden flex flex-col gap-5">
 				<section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">
 					<div className="w-full xl:w-[50%]">
