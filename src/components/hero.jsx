@@ -30,7 +30,7 @@ function Hero() {
   }, [controls, inView]);
 
   return (
-    <section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl">
+    <section className="h-[94vh] w-full bg-slate-50 flex justify-end flex-col gap-10 p-5 md:p-16 text-black rounded-2xl" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #dadada 1px, transparent 0)', backgroundSize: '20px 20px'}}>
       <div className="w-full xl:w-[50%]">
         <motion.div
           ref={ref}
