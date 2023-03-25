@@ -21,6 +21,9 @@ function Linktree({ getLinktree }: Props) {
 
 	return (
 		<section className={`grid place-content-center text-center h-screen gap-10 ${inter.variable} font-sans`}>
+			<HeadMeta
+				title='Pixelmind Studio | Linktree'
+			/>
 			<div>
 				<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold" ref={glitch.ref}>Pixelmind Studio</h1>
 				<p className="text-sm text-gray-500"> Tech, Design, and Development </p>
