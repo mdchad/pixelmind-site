@@ -77,7 +77,7 @@ export default function IndexPage({ preview, post }: {
 			<HeadMeta
 				title={post.title}
 				description={post.excerpt}
-				keywords={post.categories.map((category) => category.title).join(', ')}
+				keywords={post?.categories?.map((category) => category.title).join(', ')}
 				image={urlForImage(post.mainImage).url()}
 			/>
 
