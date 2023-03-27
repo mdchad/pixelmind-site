@@ -3,9 +3,9 @@ import Head from 'next/head';
 import React from 'react'
 
 function HeadMeta({ title, description, keywords, image }: SEO) {
-	const defaultTitle = "Pixelmind Studio";
-	const defaultDescription = "Innovative digital design solutions that capture thee ssence of your message and engage your audience";
-	const defaultKey = "ai tool, marketing, copywriting";
+	const defaultTitle = "Pixelmind Studio | Building Bridges Between Business and Technology";
+	const defaultDescription = "At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.";
+	const defaultKey = "custom technology solutions, web design, software development, digital marketing, business growth, technology consulting, innovation, digital transformation, project management, user experience";
 	const ogUrl = "/api/og-image";
 	let ogImage = '';
 
