@@ -28,7 +28,7 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 			{/*<meta property="og:image" content={meta.cardImage} />*/}
 
 			{/* OG image */}
-			<meta property="og:url" content="https://www.pixelmindstudio.co/" />
+			<meta property="og:url" content="https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app/" />
 			<meta property="og:type" content="website" />
 			<meta property="og:site_name" content={defaultTitle} />
 			<meta property="og:description" content={defaultDescription} />
