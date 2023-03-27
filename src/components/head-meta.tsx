@@ -24,16 +24,21 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 			<meta property="og:image" content={image ?? ogImage} />
 			<meta property="og:url" content="https://www.pixelmindstudio.co/" />
 			<meta property="og:type" content="website" />
-			<meta property="og:title" content="Pixelmind Studio" />
+			<meta property="og:site_name" content={title ?? defaultTitle} />
+			<meta property="og:title" content={title ?? defaultTitle} />
 			<meta property="og:description" content={description ?? defaultDescription} />
 
 			{/* twitter OG Meta */}
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:domain" content="pixelmindstudio.co" />
+			<meta name="twitter:site" content="@pixelmindstudio" />
 			<meta property="twitter:url" content="https://www.pixelmindstudio.co/" />
 			<meta name="twitter:title" content={title ?? defaultTitle} />
 			<meta name="twitter:description" content={description ?? defaultDescription} />
 			<meta name="twitter:image" content={image ?? ogImage} />
+
+			<meta name="robots" content="follow, index" />
+			<link href="/favicon.ico" rel="shortcut icon" />
 		</Head>
 	)
 }
