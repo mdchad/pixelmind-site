@@ -28,12 +28,12 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 			<meta property="og:description" content={description ?? defaultDescription} />
 
 			{/* twitter OG Meta */}
-			<meta name="twitter:card" content="summary_large_image" />
+			{/* <meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:domain" content="pixelmindstudio.co" />
 			<meta property="twitter:url" content="https://www.pixelmindstudio.co/" />
 			<meta name="twitter:title" content={title ?? defaultTitle} />
 			<meta name="twitter:description" content={description ?? defaultDescription} />
-			<meta name="twitter:image" content={image ?? ogImage} />
+			<meta name="twitter:image" content={image ?? ogImage} /> */}
 		</Head>
 	)
 }
