@@ -30,10 +30,10 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 			{/* OG image */}
 			<meta property="og:url" content="https://www.pixelmindstudio.co/" />
 			<meta property="og:type" content="website" />
-			<meta property="og:site_name" content={title ?? defaultTitle} />
-			<meta property="og:description" content={description ?? defaultDescription} />
-			<meta property="og:image" content={image ?? ogImage} />
-			<meta property="og:title" content={title ?? defaultTitle} />
+			<meta property="og:site_name" content={defaultTitle} />
+			<meta property="og:description" content={defaultDescription} />
+			<meta property="og:image" content={ogImage} />
+			<meta property="og:title" content={defaultTitle} />
 
 			{/* twitter OG Meta */}
 			<meta name="twitter:card" content="summary_large_image" />
