@@ -11,6 +11,14 @@ export default function Menu() {
 		toggleHover(!isHover);
 	};
 
+	const onMouseEnterMenu = () => {
+		toggleHover(true);
+	};
+
+	const onMouseLeaveMenu = () => {
+		toggleHover(false);
+	};
+
 	const subMenuAnimate = {
 		enter: {
 			opacity: 1,
@@ -44,8 +52,8 @@ export default function Menu() {
 		<div className="fixed right-0 top-0 rounded-b-full z-20">
 			<motion.div
 				className="menu-item"
-				onMouseEnter={toggleHoverMenu}
-				onMouseLeave={toggleHoverMenu}
+				onMouseEnter={onMouseEnterMenu}
+				onMouseLeave={onMouseLeaveMenu}
 			>
 				<div className="menu-item-icon">
 					<div className="w-20 h-20 flex items-center justify-center">
