@@ -6,7 +6,7 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 	const defaultTitle = "Pixelmind Studio";
 	const defaultDescription = "Innovative digital design solutions that capture thee ssence of your message and engage your audience";
 	const defaultKey = "ai tool, marketing, copywriting";
-	const ogUrl = "api/og-image";
+	const ogUrl = "/api/og-image";
 	let ogImage = '';
 
 	if (!image) {
