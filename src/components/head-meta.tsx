@@ -19,13 +19,20 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 			<title>{title ?? defaultTitle}</title>
 			<meta name="description" content={description ?? defaultDescription} />
 			<meta name="keywords" content={keywords ?? defaultKey} />
-			<meta name="robots" content="index, follow" />
-			<meta name="language" content="EN" />
 
+			{/* OG image */}
 			<meta
 				property="og:image"
 				content={image ?? ogImage}
 			/>
+
+			{/* twitter OG Meta */}
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@pixelmindstudio" />
+			<meta name="twitter:creator" content="@pixelmindstudio" />
+			<meta name="twitter:title" content={title ?? defaultTitle} />
+			<meta name="twitter:description" content={description ?? defaultDescription} />
+			<meta name="twitter:image" content={image ?? ogImage} />
 		</Head>
 	)
 }
