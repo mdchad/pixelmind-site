@@ -9,10 +9,10 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 	const ogUrl = "/api/og-image";
 	let ogImage = "/og2.png";
 
-	if (!image) {
-		const url = typeof window !== 'undefined' ? window.location.origin : '';
-		ogImage = url + ogUrl;
-	}
+	// if (!image) {
+	// 	const url = typeof window !== 'undefined' ? window.location.origin : '';
+	// 	ogImage = url + ogUrl;
+	// }
 
 	return (
 		<Head>
