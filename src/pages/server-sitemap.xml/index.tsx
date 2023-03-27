@@ -23,22 +23,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	}))
 
 	const fields = [
-		{
-			loc: URL,
-			lastmod: new Date().toISOString(),
-		},
-		{
-			loc: URL + 'about',
-			lastmod: new Date().toISOString(),
-		},
-		{
-			loc: URL + 'projects',
-			lastmod: new Date().toISOString(),
-		},
-		{
-			loc: URL + 'blogs',
-			lastmod: new Date().toISOString(),
-		},
 		...postField,
 		...projectField,
 	]
