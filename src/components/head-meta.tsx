@@ -24,6 +24,8 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 			{/*<meta property="og:description" content={defaultDescription} />*/}
 			{/*<meta property="og:title" content={defaultTitle} />*/}
 
+			<meta name="robots" content="follow, index" />
+			<link href="/favicon.ico" rel="shortcut icon" />
 			<meta name="description" content={description ?? defaultDescription} />
 			<meta name="keywords" content={keywords ?? defaultKey} />
 
@@ -50,9 +52,6 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 			<meta name="twitter:title" content={title ?? defaultTitle} />
 			<meta name="twitter:description" content={description ?? defaultDescription} />
 			<meta name="twitter:image" content={image ?? ogImage} />
-
-			<meta name="robots" content="follow, index" />
-			<link href="/favicon.ico" rel="shortcut icon" />
 		</Head>
 	)
 }

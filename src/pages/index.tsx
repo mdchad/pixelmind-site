@@ -72,8 +72,6 @@ export default function IndexPage({ preview, data }: {
 
 	return (
 		<PreviewSuspense fallback={loading()}>
-			<HeadMeta />
-
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
 					<Hero />
