@@ -15,6 +15,8 @@ import Blog from '@/components/blog'
 
 import { Inter } from 'next/font/google'
 
+import Head from 'next/head';
+
 const inter = Inter({
 	subsets: ['latin'],
 	variable: '--font-inter',
@@ -70,9 +72,40 @@ export default function IndexPage({ preview, data }: {
 		)
 	}
 
+	const defaultTitle = "Pixelmind Studio | Building Bridges Between Business and Technology";
+	const defaultDescription = "At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.";
+	const defaultKey = "custom technology solutions, web design, software development, digital marketing, business growth, technology consulting, innovation, digital transformation, project management, user experience";
+	const ogUrl = "/api/og-image";
+	let ogImage = "https://www.pixelmindstudio.co" + ogUrl;
+
 	return (
 		<PreviewSuspense fallback={loading()}>
-			<HeadMeta />
+			{/* <HeadMeta /> */}
+			<Head>
+				<title>{defaultTitle}</title>
+				<meta name="description" content={defaultDescription} />
+				<meta name="keywords" content={defaultKey} />
+
+				{/* OG image */}
+				<meta property="og:image" content={ogImage} />
+				<meta property="og:url" content="https://www.pixelmindstudio.co/" />
+				<meta property="og:type" content="website" />
+				<meta property="og:site_name" content={defaultTitle} />
+				<meta property="og:title" content={defaultTitle} />
+				<meta property="og:description" content={defaultDescription} />
+
+				{/* twitter OG Meta */}
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:domain" content="pixelmindstudio.co" />
+				<meta name="twitter:site" content="@pixelmindstudio" />
+				<meta property="twitter:url" content="https://www.pixelmindstudio.co/" />
+				<meta name="twitter:title" content={defaultTitle} />
+				<meta name="twitter:description" content={defaultDescription} />
+				<meta name="twitter:image" content={ogImage} />
+
+				<meta name="robots" content="follow, index" />
+				<link href="/favicon.ico" rel="shortcut icon" />
+			</Head>
 
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
