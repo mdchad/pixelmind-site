@@ -15,24 +15,22 @@ function footer() {
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-10">
-                    <div className="flex-1">
+                    {/* <div className="flex-1">
                         <address>
-                            10 Montgomery
-                            San Francisco
-                            CA, United States
+                           Singapore
                         </address>
                         <a href="#">Map</a>
-                    </div>
+                    </div> */}
 
                     <div className="flex-1 flex flex-col gap-5">
                         <div className="flex flex-col">
-                            <a href="mailto:hello@pixelmind.co">hello@pixelmind.co</a>
-                            <a href="tel:#">+1 (123) 456 7890</a>
+                            <a href="mailto:hello@pixelmind.co" className='hover:text-gray-700'>hello@pixelmind.co</a>
+                            {/* <a href="tel:#">+1 (123) 456 7890</a> */}
                         </div>
 
                         <div className="flex flex-col">
-                            <a href="https://instagram.com/pixelmindstudio" target='_blank'>Instagram</a>
-                            <a href="https://twitter.com/pixelmindstudio" target='_blank'>Twitter</a>
+                            <a href="https://instagram.com/pixelmind.studio" target='_blank' className='hover:text-gray-700'>Instagram</a>
+                            <a href="https://twitter.com/pixelmind.studio" target='_blank' className='hover:text-gray-700'>Twitter</a>
                         </div>
                     </div>
                 </div>
