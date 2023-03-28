@@ -17,7 +17,8 @@ function services({ services }: Services) {
 		<section className="gap-10 flex flex-col">
 			<div className="mb-5">
 				<h4 className="text-3xl md:text-4xl font-bold">Services</h4>
-				<p className="text-xl md:text-xl font-light">Our work spans brand identity, art direction, product design and packaging.</p>
+				{/* <p className="text-xl md:text-xl font-light">Our work spans brand identity, art direction, product design and packaging.</p> */}
+				<p className="text-xl md:text-xl font-light">Transform your business with our comprehensive services.</p>
 			</div>
 
 			{services && services.map((service: ServicesType, index: number) => (

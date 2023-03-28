@@ -25,7 +25,8 @@ export default function Blogs({ allPost, featuredPost }: { allPost: Post[], feat
 				<div className="text-black flex flex-col flex-1 justify-end h-full gap-10">
 					<div>
 						<h4 className="text-3xl md:text-4xl font-bold">Explore, be curious.</h4>
-						<p className="text-base md:text-lg lg:text-xl font-light">Discover stories, thinking, and expertise from writers on any topic.</p>
+						{/* <p className="text-base md:text-lg lg:text-xl font-light">Discover stories, thinking, and expertise from writers on any topic.</p> */}
+						<p className="text-base md:text-lg lg:text-xl font-light">Discover valuable business insights and fresh perspectives</p>
 					</div>
 					<Link href="/blogs">
 						View All Posts
