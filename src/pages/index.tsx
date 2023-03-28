@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-key */
 import { PreviewSuspense } from 'next-sanity/preview'
-import { lazy, useState } from 'react'
+import { Key, lazy, useState } from 'react'
 import client from '@lib/sanity.client'
 import Layout from '@/components/layout'
 import { Post, Preview, Services as ServicesType, Projects as ProjectsType } from '@root/typings'
@@ -14,6 +15,8 @@ import Testimonials from '@/components/testimonials'
 import Blog from '@/components/blog'
 
 import { Inter } from 'next/font/google'
+
+import Head from 'next/head';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -39,7 +42,51 @@ export const getStaticProps = async ({ preview = false }) => {
 		featuredPost,
 		allPost,
 		getProjects,
-		getServices
+		getServices,
+		openGraph: [
+			{
+				property: "og:image",
+				content:
+					"https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z",
+				key: "ogimage",
+			},
+			{
+				property: "og:image:width",
+				content: "400",
+				key: "ogimagewidth",
+			},
+			{
+				property: "og:image:height",
+				content: "300",
+				key: "ogimageheight",
+			},
+			{
+				property: "og:url",
+				content: `http://foobar.com/events`,
+				key: "ogurl",
+			},
+			{
+				property: "og:image:secure_url",
+				content:
+					"https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z",
+				key: "ogimagesecureurl",
+			},
+			{
+				property: "og:title",
+				content: "Hey hey",
+				key: "ogtitle",
+			},
+			{
+				property: "og:description",
+				content: "Ima description",
+				key: "ogdesc",
+			},
+			{
+				property: "og:type",
+				content: "website",
+				key: "website",
+			},
+		],
 	}
 
 	return { props: { preview, data } }
@@ -59,19 +106,67 @@ export default function IndexPage({ preview, data }: {
 		allPost: Post[];
 		getProjects: ProjectsType[]
 		getServices: ServicesType
+		openGraph: []
 	}
 }) {
+
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>
 				{/* set how you want to preview the document */}
 				<PreviewIndexPage />
+				<Head>
+					<title>Pixelmind Studio | Building Bridges Between Business and Technology</title>
+					<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
+
+					<meta property="og:url" content="https://www.pixelmindstudio.co" />
+					<meta property="og:type" content="website" />
+					<meta property="og:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
+					<meta property="og:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
+					<meta property="og:image" content="https://www.pixelmindstudio.co/api/og" />
+
+					<meta name="twitter:card" content="summary_large_image" />
+					<meta property="twitter:domain" content="pixelmindstudio.co" />
+					<meta property="twitter:url" content="https://www.pixelmindstudio.co" />
+					<meta name="twitter:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
+					<meta name="twitter:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
+					<meta name="twitter:image" content="https://www.pixelmindstudio.co/api/og" />
+				</Head>
 			</PreviewSuspense>
 		)
 	}
 
+	const defaultTitle = "Pixelmind Studio | Building Bridges Between Business and Technology";
+	const defaultDescription = "At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.";
+	const defaultKey = "custom technology solutions, web design, software development, digital marketing, business growth, technology consulting, innovation, digital transformation, project management, user experience";
+	const ogUrl = "/api/og-image";
+	let ogImage = "https://www.pixelmindstudio.co" + ogUrl;
+
 	return (
 		<PreviewSuspense fallback={loading()}>
+			{/* <HeadMeta /> */}
+			<Head>
+				{data.openGraph && data.openGraph.map((og: any, index: number) => (
+					<meta {...og} />
+				))}
+
+				{/* <title>Pixelmind Studio | Building Bridges Between Business and Technology</title>
+				<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." /> /
+
+				<meta property="og:url" content="https://www.pixelmindstudio.co" />
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
+				<meta property="og:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
+				<meta property="og:image" content="/api/og-image" /> /
+
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta property="twitter:domain" content="pixelmindstudio.co" />
+				<meta property="twitter:url" content="https://www.pixelmindstudio.co" />
+				<meta name="twitter:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
+				<meta name="twitter:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
+				<meta name="twitter:image" content="/api/og-image" /> */}
+			</Head>
+
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
 					<Hero />

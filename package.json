@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-	"postbuild": "next-sitemap",
-	"export": "next export",
-	"deploy": "next build && next export && vercel --prod"
+    "postbuild": "next-sitemap",
+    "export": "next export",
+    "deploy": "next build && next export && vercel --prod"
   },
   "dependencies": {
     "@portabletext/react": "^2.0.2",
