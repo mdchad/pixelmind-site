@@ -17,6 +17,13 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 	return (
 		<Head>
 			<title>{title ?? defaultTitle}</title>
+			<meta property="og:image" content={ogImage} />
+			<meta property="og:url" content="https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app" />
+			<meta property="og:type" content="website" />
+			<meta property="og:site_name" content={defaultTitle} />
+			<meta property="og:description" content={defaultDescription} />
+			<meta property="og:title" content={defaultTitle} />
+
 			<meta name="description" content={description ?? defaultDescription} />
 			<meta name="keywords" content={keywords ?? defaultKey} />
 
@@ -28,12 +35,12 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 			{/*<meta property="og:image" content={meta.cardImage} />*/}
 
 			{/* OG image */}
-			<meta property="og:url" content="https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app" />
-			<meta property="og:type" content="website" />
-			<meta property="og:site_name" content={defaultTitle} />
-			<meta property="og:description" content={defaultDescription} />
-			<meta property="og:image" content={ogImage} />
-			<meta property="og:title" content={defaultTitle} />
+			{/*<meta property="og:url" content="https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app" />*/}
+			{/*<meta property="og:type" content="website" />*/}
+			{/*<meta property="og:site_name" content={defaultTitle} />*/}
+			{/*<meta property="og:description" content={defaultDescription} />*/}
+			{/*<meta property="og:image" content={ogImage} />*/}
+			{/*<meta property="og:title" content={defaultTitle} />*/}
 
 			{/* twitter OG Meta */}
 			<meta name="twitter:card" content="summary_large_image" />
