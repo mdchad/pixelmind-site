@@ -87,18 +87,18 @@ export default function IndexPage({ preview, data }: {
 				<meta name="keywords" content={defaultKey} />
 
 				{/* OG image */}
-				<meta property="og:image" content={ogUrl} />
-				<meta property="og:url" content="https://www.pixelmindstudio.co/" />
-				<meta property="og:type" content="website" />
-				<meta property="og:site_name" content={defaultTitle} />
-				<meta property="og:title" content={defaultTitle} />
-				<meta property="og:description" content={defaultDescription} />
+				<meta name="og:image" content={ogUrl} />
+				<meta name="og:url" content="https://www.pixelmindstudio.co/" />
+				<meta name="og:type" content="website" />
+				<meta name="og:site_name" content={defaultTitle} />
+				<meta name="og:title" content={defaultTitle} />
+				<meta name="og:description" content={defaultDescription} />
 
 				{/* twitter OG Meta */}
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:domain" content="pixelmindstudio.co" />
 				<meta name="twitter:site" content="@pixelmindstudio" />
-				<meta property="twitter:url" content="https://www.pixelmindstudio.co/" />
+				<meta name="twitter:url" content="https://www.pixelmindstudio.co/" />
 				<meta name="twitter:title" content={defaultTitle} />
 				<meta name="twitter:description" content={defaultDescription} />
 				<meta name="twitter:image" content={ogUrl} />
