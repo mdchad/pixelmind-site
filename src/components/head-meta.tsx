@@ -17,22 +17,22 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 	return (
 		<Head>
 			<title>{title ?? defaultTitle}</title>
-			<meta property="og:image" content={ogImage} />
-			<meta property="og:url" content="https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app" />
-			<meta property="og:type" content="website" />
-			<meta property="og:site_name" content={defaultTitle} />
-			<meta property="og:description" content={defaultDescription} />
-			<meta property="og:title" content={defaultTitle} />
+			{/*<meta property="og:image" content={ogImage} />*/}
+			{/*<meta property="og:url" content="https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app" />*/}
+			{/*<meta property="og:type" content="website" />*/}
+			{/*<meta property="og:site_name" content={defaultTitle} />*/}
+			{/*<meta property="og:description" content={defaultDescription} />*/}
+			{/*<meta property="og:title" content={defaultTitle} />*/}
 
 			<meta name="description" content={description ?? defaultDescription} />
 			<meta name="keywords" content={keywords ?? defaultKey} />
 
-			{/*<meta property="og:url" content={`https://subscription-starter.vercel.app${router.asPath}`} />*/}
-			{/*<meta property="og:type" content="website" />*/}
-			{/*<meta property="og:site_name" content={meta.title} />*/}
-			{/*<meta property="og:description" content={meta.description} />*/}
-			{/*<meta property="og:title" content={meta.title} />*/}
-			{/*<meta property="og:image" content={meta.cardImage} />*/}
+			<meta property="og:url" content={`https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app`} />
+			<meta property="og:type" content="website" />
+			<meta property="og:site_name" content={`Pixelmind Studio | Building Bridges Between Business and Technology`} />
+			<meta property="og:description" content={`At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.`} />
+			<meta property="og:title" content={`Pixelmind Studio | Building Bridges Between Business and Technology`} />
+			<meta property="og:image" content={`/og2.png`} />
 
 			{/* OG image */}
 			{/*<meta property="og:url" content="https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app" />*/}
