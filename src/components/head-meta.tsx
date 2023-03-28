@@ -11,7 +11,7 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 
 	if (!image) {
 		const url = typeof window !== 'undefined' ? window.location.origin : '';
-		ogImage = url + ogUrl;
+		ogImage = 'https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app' + ogUrl;
 	}
 
 	return (
