@@ -45,41 +45,48 @@ export const getStaticProps = async ({ preview = false }) => {
 		getServices,
 		openGraph: [
 			{
-				property: 'og:title',
-				content: 'Pixelmind Studio | Building Bridges Between Business and Technology',
-				key: 'og:title' as Key,
+				property: "og:image",
+				content:
+					"https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z",
+				key: "ogimage",
 			},
 			{
-				property: 'og:description',
-				content: 'At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.',
-				key: 'og:description' as Key,
+				property: "og:image:width",
+				content: "400",
+				key: "ogimagewidth",
 			},
 			{
-				property: 'og:image',
-				content: 'https://www.pixelmindstudio.co/api/og',
-				key: 'og:image' as Key,
+				property: "og:image:height",
+				content: "300",
+				key: "ogimageheight",
 			},
 			{
-				property: 'og:url',
-				content: 'https://www.pixelmindstudio.co/',
-				key: 'og:url' as Key,
+				property: "og:url",
+				content: `http://foobar.com/events`,
+				key: "ogurl",
 			},
 			{
-				property: 'og:type',
-				content: 'website',
-				key: 'og:type' as Key,
+				property: "og:image:secure_url",
+				content:
+					"https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z",
+				key: "ogimagesecureurl",
 			},
 			{
-				property: 'twitter:title',
-				content: 'Pixelmind Studio | Building Bridges Between Business and Technology',
-				key: 'twitter:title' as Key,
+				property: "og:title",
+				content: "Hey hey",
+				key: "ogtitle",
 			},
 			{
-				property: 'twitter:description',
-				content: 'custom technology solutions, web design, software development, digital marketing, business growth, technology consulting, innovation, digital transformation, project management, user experience',
-				key: 'twitter:description' as Key,
-			}
-		]
+				property: "og:description",
+				content: "Ima description",
+				key: "ogdesc",
+			},
+			{
+				property: "og:type",
+				content: "website",
+				key: "website",
+			},
+		],
 	}
 
 	return { props: { preview, data } }
