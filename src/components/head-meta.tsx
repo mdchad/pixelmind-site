@@ -29,7 +29,7 @@ function HeadMeta({ title= "", description= "", keywords= "", image= "" }: SEO) 
 			<meta name="description" content={description ?? defaultDescription} />
 			<meta name="keywords" content={keywords ?? defaultKey} />
 
-			<meta property="og:url" content={`https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app`} />
+			<meta property="og:url" content={`https://pixelmind-site-git-bugfix-og-image-mdchad.vercel.app/`} />
 			<meta property="og:type" content="website" />
 			<meta property="og:site_name" content={`Pixelmind Studio | Building Bridges Between Business and Technology`} />
 			<meta property="og:description" content={`At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.`} />
