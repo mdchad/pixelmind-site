@@ -88,6 +88,8 @@ export default function IndexPage({ preview, data }: {
 
 				{/* OG image */}
 				<meta name="og:image" property='og:image' content={ogImage} />
+				<meta property='og:image:width' content='1200' />
+				<meta property='og:image:height' content='630' />
 				<meta name="og:title" property="og:title" content={defaultTitle} />
 				<meta name="og:description" property="og:description" content={defaultDescription} />
 				<meta name="og:url" property="og:url" content="https://www.pixelmindstudio.co/" />
