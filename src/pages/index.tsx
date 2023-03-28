@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-key */
 import { PreviewSuspense } from 'next-sanity/preview'
-import { lazy, useState } from 'react'
+import { Key, lazy, useState } from 'react'
 import client from '@lib/sanity.client'
 import Layout from '@/components/layout'
 import { Post, Preview, Services as ServicesType, Projects as ProjectsType } from '@root/typings'
@@ -41,7 +42,44 @@ export const getStaticProps = async ({ preview = false }) => {
 		featuredPost,
 		allPost,
 		getProjects,
-		getServices
+		getServices,
+		openGraph: [
+			{
+				property: 'og:title',
+				content: 'Pixelmind Studio | Building Bridges Between Business and Technology',
+				key: 'og:title' as Key,
+			},
+			{
+				property: 'og:description',
+				content: 'At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.',
+				key: 'og:description' as Key,
+			},
+			{
+				property: 'og:image',
+				content: 'https://www.pixelmindstudio.co/api/og',
+				key: 'og:image' as Key,
+			},
+			{
+				property: 'og:url',
+				content: 'https://www.pixelmindstudio.co/',
+				key: 'og:url' as Key,
+			},
+			{
+				property: 'og:type',
+				content: 'website',
+				key: 'og:type' as Key,
+			},
+			{
+				property: 'twitter:title',
+				content: 'Pixelmind Studio | Building Bridges Between Business and Technology',
+				key: 'twitter:title' as Key,
+			},
+			{
+				property: 'twitter:description',
+				content: 'custom technology solutions, web design, software development, digital marketing, business growth, technology consulting, innovation, digital transformation, project management, user experience',
+				key: 'twitter:description' as Key,
+			}
+		]
 	}
 
 	return { props: { preview, data } }
@@ -61,6 +99,7 @@ export default function IndexPage({ preview, data }: {
 		allPost: Post[];
 		getProjects: ProjectsType[]
 		getServices: ServicesType
+		openGraph: []
 	}
 }) {
 
@@ -71,7 +110,7 @@ export default function IndexPage({ preview, data }: {
 				<PreviewIndexPage />
 				<Head>
 					<title>Pixelmind Studio | Building Bridges Between Business and Technology</title>
-					<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." /> 
+					<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
 
 					<meta property="og:url" content="https://www.pixelmindstudio.co" />
 					<meta property="og:type" content="website" />
@@ -100,7 +139,11 @@ export default function IndexPage({ preview, data }: {
 		<PreviewSuspense fallback={loading()}>
 			{/* <HeadMeta /> */}
 			<Head>
-				<title>Pixelmind Studio | Building Bridges Between Business and Technology</title>
+				{data.openGraph && data.openGraph.map((og: any, index: number) => (
+					<meta {...og} />
+				))}
+
+				{/* <title>Pixelmind Studio | Building Bridges Between Business and Technology</title>
 				<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." /> /
 
 				<meta property="og:url" content="https://www.pixelmindstudio.co" />
@@ -114,7 +157,7 @@ export default function IndexPage({ preview, data }: {
 				<meta property="twitter:url" content="https://www.pixelmindstudio.co" />
 				<meta name="twitter:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
 				<meta name="twitter:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
-				<meta name="twitter:image" content="/api/og-image" />
+				<meta name="twitter:image" content="/api/og-image" /> */}
 			</Head>
 
 			<Layout>
