@@ -89,7 +89,6 @@ export default function IndexPage({ preview, post }: {
 			<NextSeo
 				title={post.title}
 				description={post.excerpt}
-				canonical="https://www.canonical.ie/"
 				openGraph={{
 					locale: 'en_GB',
 					type: 'article',
@@ -104,16 +103,16 @@ export default function IndexPage({ preview, post }: {
 				}}
 				twitter={{
 					handle: '@handle',
-					site: '@site',
+					site: '@pixelmindstudio',
 					cardType: 'summary_large_image',
 				}}
 			/>
-			<HeadMeta
-				title={post.title}
-				description={post.excerpt}
-				keywords={post?.categories?.map((category) => category.title).join(', ')}
-				image={urlForImage(post.mainImage).url()}
-			/>
+			{/*<HeadMeta*/}
+			{/*	title={post.title}*/}
+			{/*	description={post.excerpt}*/}
+			{/*	keywords={post?.categories?.map((category) => category.title).join(', ')}*/}
+			{/*	image={urlForImage(post.mainImage).url()}*/}
+			{/*/>*/}
 
 			<Layout>
 				<article>
