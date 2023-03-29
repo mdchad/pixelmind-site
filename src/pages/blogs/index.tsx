@@ -14,6 +14,8 @@ import Blog from '@/components/blog'
 
 import { Inter } from 'next/font/google'
 import HeadMeta from '@/components/head-meta'
+import {NextSeo} from "next-seo";
+import ogUrl from "@/common/imageUrl";
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -53,6 +55,7 @@ export default function IndexPage({ preview, data }: {
 		allPost: Post[];
 	}
 }) {
+
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>
@@ -63,8 +66,26 @@ export default function IndexPage({ preview, data }: {
 
 	return (
 		<PreviewSuspense fallback={loading()}>
-			<HeadMeta
-				title='Pixelmind Studio | Blogs'
+			<NextSeo
+				key={'Pixelmind Studio | Blogs'}
+				title="Pixelmind Studio | Blogs"
+				description="All our learnings and opinions are here"
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: 'Pixelmind Studio | Blogs',
+					description: 'All our learnings and opinions are here',
+					images: [
+						{ url: ogUrl }
+					],
+					siteName: 'Pixelmind Studio | Blogs',
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
 			/>
 
 			<Layout>

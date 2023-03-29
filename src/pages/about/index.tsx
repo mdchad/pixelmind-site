@@ -1,17 +1,9 @@
 import HeadMeta from '@/components/head-meta'
 import Layout from '@/components/layout'
 import {NextSeo} from "next-seo";
+import ogUrl from "@/common/imageUrl";
 
-function index() {
-	const ogUrl = "api/og";
-	let ogImage = "";
-
-	if (process.env.NODE_ENV === 'production') {
-		ogImage = process.env.NEXT_PUBLIC_URL + ogUrl;
-	} else {
-		ogImage = 'http://localhost:3000/' + ogUrl;
-	}
-
+function About() {
 	return (
 		<Layout>
 			<NextSeo
@@ -25,7 +17,7 @@ function index() {
 					title: 'Pixelmind Studio | About',
 					description: 'Learn about our team and expertise',
 					images: [
-						{ url: ogImage }
+						{ url: ogUrl }
 					],
 					siteName: 'Pixelmind Studio | About',
 				}}
@@ -54,4 +46,4 @@ function index() {
 	)
 }
 
-export default index
+export default About

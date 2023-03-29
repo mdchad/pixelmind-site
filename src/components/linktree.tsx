@@ -6,6 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import { MdOutlineMail } from 'react-icons/md'
+import {NextSeo} from "next-seo";
+import ogUrl from "@/common/imageUrl";
 
 type Props = {
 	getLinktree: Linktree[]
@@ -21,11 +23,28 @@ function Linktree({ getLinktree }: Props) {
 
 	return (
 		<section className={`grid place-content-center text-center h-screen gap-10 ${inter.variable} font-sans`}>
-
-			<HeadMeta
-				title='Pixelmind Studio | Linktree'
+			<NextSeo
+				key={'Pixelmind Studio | Linktree'}
+				title="Pixelmind Studio | Linktree"
+				description="All the links to our social media"
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: 'Pixelmind Studio | Linktree',
+					description: 'All the links to our social media',
+					images: [
+						{ url: ogUrl }
+					],
+					siteName: 'Pixelmind Studio | Linktree',
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
 			/>
-      
+
 			<div>
 				<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold" ref={glitch.ref}>Pixelmind Studio</h1>
 				<p className="text-sm text-gray-500"> Tech, Design, and Development </p>

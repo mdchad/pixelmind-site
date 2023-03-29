@@ -8,6 +8,8 @@ import Projects from '@/components/projects'
 
 import { Inter } from 'next/font/google'
 import HeadMeta from '@/components/head-meta'
+import ogUrl from "@/common/imageUrl";
+import {NextSeo} from "next-seo";
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -54,8 +56,26 @@ export default function ProjectPage({ preview, data }: {
 
 	return (
 		<PreviewSuspense fallback={loading()}>
-			<HeadMeta
-				title='Pixelmind Studio | Projects'
+			<NextSeo
+				key={'Pixelmind Studio | Projects'}
+				title="Pixelmind Studio | Projects"
+				description="Our projects"
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: 'Pixelmind Studio | Projects',
+					description: 'Our projects',
+					images: [
+						{ url: ogUrl }
+					],
+					siteName: 'Pixelmind Studio | Projects',
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
 			/>
 
 			<Layout>
