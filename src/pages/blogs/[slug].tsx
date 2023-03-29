@@ -97,8 +97,8 @@ export default function IndexPage({ preview, post }: {
 					title: post.title,
 					description: post.excerpt,
 					images: [
+						{ url: ogImage },
 						{ url: ogImage2 },
-						{ url: ogImage }
 					],
 					siteName: post.title,
 				}}
