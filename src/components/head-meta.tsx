@@ -1,5 +1,4 @@
 import { SEO } from '@root/typings';
-import Head from 'next/head';
 import React from 'react'
 import { DefaultSeo } from "next-seo";
 

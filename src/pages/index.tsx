@@ -115,23 +115,23 @@ export default function IndexPage({ preview, data }: {
 			<PreviewSuspense fallback={loading()}>
 				{/* set how you want to preview the document */}
 				<PreviewIndexPage />
-				<Head>
-					<title>Pixelmind Studio | Building Bridges Between Business and Technology</title>
-					<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
+				{/*<Head>*/}
+				{/*	<title>Pixelmind Studio | Building Bridges Between Business and Technology</title>*/}
+				{/*	<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />*/}
 
-					<meta property="og:url" content="https://www.pixelmindstudio.co" />
-					<meta property="og:type" content="website" />
-					<meta property="og:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
-					<meta property="og:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
-					<meta property="og:image" content="https://www.pixelmindstudio.co/api/og" />
+				{/*	<meta property="og:url" content="https://www.pixelmindstudio.co" />*/}
+				{/*	<meta property="og:type" content="website" />*/}
+				{/*	<meta property="og:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />*/}
+				{/*	<meta property="og:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />*/}
+				{/*	<meta property="og:image" content="https://www.pixelmindstudio.co/api/og" />*/}
 
-					<meta name="twitter:card" content="summary_large_image" />
-					<meta property="twitter:domain" content="pixelmindstudio.co" />
-					<meta property="twitter:url" content="https://www.pixelmindstudio.co" />
-					<meta name="twitter:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
-					<meta name="twitter:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
-					<meta name="twitter:image" content="https://www.pixelmindstudio.co/api/og" />
-				</Head>
+				{/*	<meta name="twitter:card" content="summary_large_image" />*/}
+				{/*	<meta property="twitter:domain" content="pixelmindstudio.co" />*/}
+				{/*	<meta property="twitter:url" content="https://www.pixelmindstudio.co" />*/}
+				{/*	<meta name="twitter:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />*/}
+				{/*	<meta name="twitter:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />*/}
+				{/*	<meta name="twitter:image" content="https://www.pixelmindstudio.co/api/og" />*/}
+				{/*</Head>*/}
 			</PreviewSuspense>
 		)
 	}
@@ -145,11 +145,6 @@ export default function IndexPage({ preview, data }: {
 	return (
 		<PreviewSuspense fallback={loading()}>
 			{/* <HeadMeta /> */}
-			<Head>
-				{data.openGraph && data.openGraph.map((og: any, index: number) => (
-					<meta {...og} />
-				))}
-
 				{/* <title>Pixelmind Studio | Building Bridges Between Business and Technology</title>
 				<meta name="description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." /> /
 
@@ -165,7 +160,6 @@ export default function IndexPage({ preview, data }: {
 				<meta name="twitter:title" content="Pixelmind Studio | Building Bridges Between Business and Technology" />
 				<meta name="twitter:description" content="At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow." />
 				<meta name="twitter:image" content="/api/og-image" /> */}
-			</Head>
 
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
