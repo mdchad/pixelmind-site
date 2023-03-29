@@ -66,7 +66,7 @@ export default function IndexPage({ preview, post }: {
 	post: Post;
 }) {
 	const ogImage = urlForImage(post.mainImage).url()
-	const tags: string[] = [...post.categories.map((category) => category.title)]
+	const tags: string[] = [...post?.categories?.map((category) => category.title)]
 
 	if (preview) {
 		return (

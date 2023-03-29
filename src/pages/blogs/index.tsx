@@ -71,7 +71,7 @@ export default function IndexPage({ preview, data }: {
 				title="Pixelmind Studio | Blogs"
 				description="All our learnings and opinions are here"
 				openGraph={{
-					type: 'article',
+					type: 'website',
 					locale: 'en_GB',
 					url: process.env.NEXT_PUBLIC_URL,
 					title: 'Pixelmind Studio | Blogs',
