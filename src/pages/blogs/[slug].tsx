@@ -65,8 +65,9 @@ export default function IndexPage({ preview, post }: {
 	preview: Preview;
 	post: Post;
 }) {
+	console.log(post)
 	const ogImage = urlForImage(post.mainImage).url()
-	const tags: string[] = [...post?.categories?.map((category) => category.title)]
+	const tags: string[] = post?.categories ? [...post?.categories?.map((category) => category.title)] : []
 
 	if (preview) {
 		return (
@@ -92,7 +93,7 @@ export default function IndexPage({ preview, post }: {
 						publishedTime: post._createdAt,
 						modifiedTime: post._updatedAt,
 						authors: [
-							post.author.name
+							post?.author?.name
 						],
 						tags: tags,
 					},
