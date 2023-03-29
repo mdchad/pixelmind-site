@@ -5,6 +5,7 @@ import client from '@lib/sanity.client'
 import Layout from '@/components/layout'
 import { Post, Preview } from '@root/typings'
 import { postBySlugQuery, allPosts } from '@lib/sanity.queries'
+import { NextSeo } from 'next-seo';
 
 import { Inter } from 'next/font/google'
 import HeadMeta from '@/components/head-meta';
@@ -64,6 +65,8 @@ export default function IndexPage({ preview, post }: {
 	preview: Preview;
 	post: Post;
 }) {
+	const ogImage = urlForImage(post.mainImage).url()
+
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>
@@ -74,11 +77,26 @@ export default function IndexPage({ preview, post }: {
 
 	return (
 		<main key={post._id}>
-			<HeadMeta
+			<NextSeo
+				key={post.title}
 				title={post.title}
 				description={post.excerpt}
-				keywords={post?.categories?.map((category) => category.title).join(', ')}
-				image={urlForImage(post.mainImage).url()}
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: post.title,
+					description: post.excerpt,
+					images: [
+						{ url: ogImage }
+					],
+					siteName: post.title,
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
 			/>
 
 			<Layout>

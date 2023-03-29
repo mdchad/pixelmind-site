@@ -1,11 +1,31 @@
 import HeadMeta from '@/components/head-meta'
 import Layout from '@/components/layout'
+import {NextSeo} from "next-seo";
+import ogUrl from "@/common/imageUrl";
 
-function index() {
+function About() {
 	return (
 		<Layout>
-			<HeadMeta
-				title='Pixelmind Studio | About'
+			<NextSeo
+				key={'Pixelmind Studio | About'}
+				title="Pixelmind Studio | About"
+				description="Learn about our team and expertise"
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: 'Pixelmind Studio | About',
+					description: 'Learn about our team and expertise',
+					images: [
+						{ url: ogUrl }
+					],
+					siteName: 'Pixelmind Studio | About',
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
 			/>
 
 			<div className="rounded-xl overflow-hidden flex flex-col gap-5">
@@ -26,4 +46,4 @@ function index() {
 	)
 }
 
-export default index
+export default About

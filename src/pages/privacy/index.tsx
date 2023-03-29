@@ -1,11 +1,31 @@
 import HeadMeta from '@/components/head-meta'
 import Layout from '@/components/layout'
+import ogUrl from "@/common/imageUrl";
+import {NextSeo} from "next-seo";
 
-function Index() {
+function Privacy() {
 	return (
 		<Layout>
-			<HeadMeta
-				title='Pixelmind Studio | Privacy Policy'
+			<NextSeo
+				key={'Pixelmind Studio | Privacy Policy'}
+				title="Pixelmind Studio | Privacy Policy"
+				description="Our privacy policy"
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: 'Pixelmind Studio | Privacy Policy',
+					description: 'Our privacy policy',
+					images: [
+						{ url: ogUrl }
+					],
+					siteName: 'Pixelmind Studio | Privacy Policy',
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
 			/>
 
 			<div className="rounded-xl overflow-hidden flex flex-col gap-5">
@@ -46,4 +66,4 @@ function Index() {
 	)
 }
 
-export default Index
+export default Privacy
