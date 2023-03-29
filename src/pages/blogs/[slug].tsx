@@ -66,6 +66,7 @@ export default function IndexPage({ preview, post }: {
 	post: Post;
 }) {
 	const ogImage = urlForImage(post.mainImage).url()
+	const tags: string[] = [...post.categories.map((category) => category.title)]
 
 	if (preview) {
 		return (
@@ -87,6 +88,14 @@ export default function IndexPage({ preview, post }: {
 					url: process.env.NEXT_PUBLIC_URL,
 					title: post.title,
 					description: post.excerpt,
+					article: {
+						publishedTime: post._createdAt,
+						modifiedTime: post._updatedAt,
+						authors: [
+							post.author.name
+						],
+						tags: tags,
+					},
 					images: [
 						{ url: ogImage }
 					],
