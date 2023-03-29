@@ -19,17 +19,17 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 
 	return (
 		<DefaultSeo
-			key={defaultKey}
-			defaultTitle={defaultTitle}
-			title={defaultTitle}
-			description={defaultDescription}
+			key={keywords ?? defaultKey}
+			defaultTitle={title ?? defaultTitle}
+			title={title ?? defaultTitle}
+			description={description ?? defaultDescription}
 			openGraph={{
 				type: 'website',
 				locale: 'en_GB',
 				url: process.env.NEXT_PUBLIC_URL,
-				siteName: defaultTitle,
-				title: defaultTitle,
-				description: defaultDescription,
+				siteName: title ?? defaultTitle,
+				title: title ?? defaultTitle,
+				description: description ?? defaultDescription,
 				images: [
 					{ url: ogImage }
 				]

@@ -20,7 +20,7 @@ export default function () {
 					justifyContent: 'center',
 				}}
 			>
-				Hello world!
+				Pixelmind Studio
 			</div>
 		),
 		{
