@@ -1,6 +1,7 @@
 import { SEO } from '@root/typings';
 import Head from 'next/head';
 import React from 'react'
+import { DefaultSeo } from "next-seo";
 
 function HeadMeta({ title, description, keywords, image }: SEO) {
 	const defaultTitle = "Pixelmind Studio | Building Bridges Between Business and Technology";
@@ -18,31 +19,56 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 	}
 
 	return (
-		<Head>
-			<title>{title ?? defaultTitle}</title>
-			<meta name="robots" content="follow, index" />
-			<link href="/favicon.ico" rel="shortcut icon" />
-			<meta name="description" content={description ?? defaultDescription} />
-			<meta name="keywords" content={keywords ?? defaultKey} />
+		<DefaultSeo
+			key={defaultKey}
+			defaultTitle={defaultTitle}
+			title={defaultTitle}
+			description={defaultDescription}
+			openGraph={{
+				type: 'website',
+				locale: 'en_GB',
+				url: process.env.NEXT_PUBLIC_URL,
+				siteName: defaultTitle,
+				title: defaultTitle,
+				description: defaultDescription,
+				images: [
+					{ url: ogImage }
+				]
+			}}
+			twitter={{
+				handle: '@handle',
+				site: '@pixelmindstudio',
+				cardType: 'summary_large_image'
+			}}
+		/>
+	);
 
-			{/* OG image */}
-			<meta property="og:image" content={image ?? ogImage} />
-			<meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
-			<meta property="og:type" content="website" />
-			<meta property="og:site_name" content={title ?? defaultTitle} />
-			<meta property="og:title" content={title ?? defaultTitle} />
-			<meta property="og:description" content={description ?? defaultDescription} />
-
-			{/* twitter OG Meta */}
-			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:domain" content="pixelmindstudio.co" />
-			<meta name="twitter:site" content="@pixelmindstudio" />
-			<meta property="twitter:url" content="https://www.pixelmindstudio.co/" />
-			<meta name="twitter:title" content={title ?? defaultTitle} />
-			<meta name="twitter:description" content={description ?? defaultDescription} />
-			<meta name="twitter:image" content={image ?? ogImage} />
-		</Head>
-	)
+	// return (
+	// 	<Head>
+	// 		<title>{title ?? defaultTitle}</title>
+	// 		<meta name="robots" content="follow, index" />
+	// 		<link href="/favicon.ico" rel="shortcut icon" />
+	// 		<meta name="description" content={description ?? defaultDescription} />
+	// 		<meta name="keywords" content={keywords ?? defaultKey} />
+	//
+	// 		{/* OG image */}
+	// 		<meta property="og:image" content={image ?? ogImage} />
+	// 		<meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
+	// 		<meta property="og:type" content="website" />
+	// 		<meta property="og:site_name" content={title ?? defaultTitle} />
+	// 		<meta property="og:title" content={title ?? defaultTitle} />
+	// 		<meta property="og:description" content={description ?? defaultDescription} />
+	//
+	// 		{/* twitter OG Meta */}
+	// 		<meta name="twitter:card" content="summary_large_image" />
+	// 		<meta name="twitter:domain" content="pixelmindstudio.co" />
+	// 		<meta name="twitter:site" content="@pixelmindstudio" />
+	// 		<meta property="twitter:url" content="https://www.pixelmindstudio.co/" />
+	// 		<meta name="twitter:title" content={title ?? defaultTitle} />
+	// 		<meta name="twitter:description" content={description ?? defaultDescription} />
+	// 		<meta name="twitter:image" content={image ?? ogImage} />
+	// 	</Head>
+	// )
 }
 
 export default HeadMeta
