@@ -65,7 +65,7 @@ export default function IndexPage({ preview, post }: {
 	preview: Preview;
 	post: Post;
 }) {
-	const ogImage2 = urlForImage(post.mainImage).url()
+	const ogImage = urlForImage(post.mainImage).url()
 
 	if (preview) {
 		return (
@@ -78,16 +78,17 @@ export default function IndexPage({ preview, post }: {
 	return (
 		<main key={post._id}>
 			<NextSeo
+				key={post.title}
 				title={post.title}
 				description={post.excerpt}
 				openGraph={{
-					locale: 'en_GB',
 					type: 'article',
+					locale: 'en_GB',
 					url: process.env.NEXT_PUBLIC_URL,
 					title: post.title,
 					description: post.excerpt,
 					images: [
-						{ url: ogImage2 }
+						{ url: ogImage }
 					],
 					siteName: post.title,
 				}}

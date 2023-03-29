@@ -1,12 +1,40 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import HeadMeta from '@/components/head-meta'
+import {NextSeo} from "next-seo";
 
-function index() {
+function Index() {
+	const ogUrl = "api/og";
+	let ogImage = "";
+
+	if (process.env.NODE_ENV === 'production') {
+		ogImage = process.env.NEXT_PUBLIC_URL + ogUrl;
+	} else {
+		ogImage = 'http://localhost:3000/' + ogUrl;
+	}
+
 	return (
 		<Layout>
-			<HeadMeta
-				title='Pixelmind Studio | Terms & Condition'
+			<NextSeo
+				key={'Pixelmind Studio | Terms & Condition'}
+				title="Pixelmind Studio | Terms & Condition"
+				description="Terms and conditions"
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: 'Pixelmind Studio | Terms & Conditions',
+					description: 'Terms and conditions',
+					images: [
+						{ url: ogImage }
+					],
+					siteName: 'Pixelmind Studio | Terms & Condition',
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
 			/>
 
 			<div className="rounded-xl overflow-hidden flex flex-col gap-5">
@@ -72,4 +100,4 @@ function index() {
 	)
 }
 
-export default index
+export default Index
