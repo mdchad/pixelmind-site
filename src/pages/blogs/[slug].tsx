@@ -65,15 +65,6 @@ export default function IndexPage({ preview, post }: {
 	preview: Preview;
 	post: Post;
 }) {
-	const ogUrl = "api/og";
-	let ogImage = "";
-
-	if (process.env.NODE_ENV === 'production') {
-		ogImage = process.env.NEXT_PUBLIC_URL + ogUrl;
-	} else {
-		ogImage = 'http://localhost:3000/' + ogUrl;
-	}
-
 	const ogImage2 = urlForImage(post.mainImage).url()
 
 	if (preview) {
@@ -96,8 +87,7 @@ export default function IndexPage({ preview, post }: {
 					title: post.title,
 					description: post.excerpt,
 					images: [
-						{ url: ogImage },
-						{ url: ogImage2 },
+						{ url: ogImage2 }
 					],
 					siteName: post.title,
 				}}
@@ -107,12 +97,6 @@ export default function IndexPage({ preview, post }: {
 					cardType: 'summary_large_image',
 				}}
 			/>
-			{/*<HeadMeta*/}
-			{/*	title={post.title}*/}
-			{/*	description={post.excerpt}*/}
-			{/*	keywords={post?.categories?.map((category) => category.title).join(', ')}*/}
-			{/*	image={urlForImage(post.mainImage).url()}*/}
-			{/*/>*/}
 
 			<Layout>
 				<article>
