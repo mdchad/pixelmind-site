@@ -32,7 +32,7 @@ function Hero() {
 
 	return (
 		<section className="h-[94vh] w-full bg-slate-50 flex text-black rounded-2xl" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #dadada 1px, transparent 0)', backgroundSize: '20px 20px' }}>
-			<div className="h-full w-2/3 w-full flex justify-end flex-col gap-10 p-5 md:p-16 ">
+			<div className="h-full w-full xl:w-7/12 w-full flex justify-end flex-col gap-10 p-5 md:p-16 ">
 				<div className="w-full">
 					<motion.div
 						ref={ref}
@@ -55,7 +55,7 @@ function Hero() {
 				</div>
 				<a onClick={scrollToBottom} className="cursor-pointer hover:text-gray-600">Get in touch</a>
 			</div>
-			<div className="h-full w-1/3 hidden xl:block pr-16">
+			<div className="h-full xl:w-5/12 hidden xl:block">
 				<Spline scene="https://prod.spline.design/Xx3GVJIimtGkVwmI/scene.splinecode" />
 			</div>
 		</section >
