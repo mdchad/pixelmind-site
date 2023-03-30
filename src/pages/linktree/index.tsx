@@ -7,6 +7,8 @@ import { allLinktree } from '@lib/sanity.queries'
 
 import { Inter } from 'next/font/google'
 import Linktree from '@/components/linktree'
+import ogUrl from "@/common/imageUrl";
+import {NextSeo} from "next-seo";
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -45,8 +47,31 @@ export default function IndexPage({ preview, getLinktree }: {
 	}
 
 	return (
-		<PreviewSuspense fallback={loading()}>
-			<Linktree getLinktree={getLinktree} />
-		</PreviewSuspense>
+		<>
+			<NextSeo
+				key={'Pixelmind Studio | Linktree'}
+				title="Pixelmind Studio | Linktree"
+				description="All the links to our social media"
+				openGraph={{
+					type: 'article',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					title: 'Pixelmind Studio | Linktree',
+					description: 'All the links to our social media',
+					images: [
+						{ url: ogUrl }
+					],
+					siteName: 'Pixelmind Studio | Linktree',
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
+				}}
+			/>
+			<PreviewSuspense fallback={loading()}>
+				<Linktree getLinktree={getLinktree} />
+			</PreviewSuspense>
+		</>
 	)
 }
