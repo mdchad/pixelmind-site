@@ -1,6 +1,7 @@
 import { SEO } from '@root/typings';
 import React from 'react'
 import { DefaultSeo } from "next-seo";
+import Head from 'next/head';
 
 function HeadMeta({ title, description, keywords, image }: SEO) {
 	const defaultTitle = "Pixelmind Studio | Building Bridges Between Business and Technology";
@@ -41,7 +42,9 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 					cardType: 'summary_large_image'
 				}}
 			/>
-			<meta name="google-site-verification" content="zaNyWUg7p8IwSpbD_oEv_rVc8J_i4FGlHinRB3EZIZA" />
+			<Head>
+				<meta name="google-site-verification" content="zaNyWUg7p8IwSpbD_oEv_rVc8J_i4FGlHinRB3EZIZA" />
+			</Head>
 		</>
 	);
 
