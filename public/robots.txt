@@ -8,6 +8,7 @@ Disallow: /api/*
 # Host
 Host: https://www.pixelmindstudio.co/
 
+
 # Sitemaps
 Sitemap: https://www.pixelmindstudio.co/sitemap.xml
 Sitemap: https://www.pixelmindstudio.co//sitemap.xml
