@@ -119,12 +119,6 @@ export default function IndexPage({ preview, data }: {
 		)
 	}
 
-	const defaultTitle = "Pixelmind Studio | Building Bridges Between Business and Technology";
-	const defaultDescription = "At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, web design, and digital marketing services that help businesses grow.";
-	const defaultKey = "custom technology solutions, web design, software development, digital marketing, business growth, technology consulting, innovation, digital transformation, project management, user experience";
-	const ogUrl = "/api/og-image";
-	let ogImage = "https://www.pixelmindstudio.co" + ogUrl;
-
 	return (
 		<PreviewSuspense fallback={loading()}>
 			<Layout>
