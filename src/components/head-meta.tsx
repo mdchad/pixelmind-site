@@ -1,6 +1,7 @@
 import { SEO } from '@root/typings';
 import React from 'react'
 import { DefaultSeo } from "next-seo";
+import Head from 'next/head';
 
 function HeadMeta({ title, description, keywords, image }: SEO) {
 	const defaultTitle = "Pixelmind Studio | Building Bridges Between Business and Technology";
@@ -18,28 +19,33 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 	}
 
 	return (
-		<DefaultSeo
-			key={keywords ?? defaultKey}
-			defaultTitle={title ?? defaultTitle}
-			title={title ?? defaultTitle}
-			description={description ?? defaultDescription}
-			openGraph={{
-				type: 'website',
-				locale: 'en_GB',
-				url: process.env.NEXT_PUBLIC_URL,
-				siteName: title ?? defaultTitle,
-				title: title ?? defaultTitle,
-				description: description ?? defaultDescription,
-				images: [
-					{ url: ogImage }
-				]
-			}}
-			twitter={{
-				handle: '@handle',
-				site: '@pixelmindstudio',
-				cardType: 'summary_large_image'
-			}}
-		/>
+		<>
+			<DefaultSeo
+				key={keywords ?? defaultKey}
+				defaultTitle={title ?? defaultTitle}
+				title={title ?? defaultTitle}
+				description={description ?? defaultDescription}
+				openGraph={{
+					type: 'website',
+					locale: 'en_GB',
+					url: process.env.NEXT_PUBLIC_URL,
+					siteName: title ?? defaultTitle,
+					title: title ?? defaultTitle,
+					description: description ?? defaultDescription,
+					images: [
+						{ url: ogImage }
+					]
+				}}
+				twitter={{
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image'
+				}}
+			/>
+			<Head>
+				<meta name="google-site-verification" content="zaNyWUg7p8IwSpbD_oEv_rVc8J_i4FGlHinRB3EZIZA" />
+			</Head>
+		</>
 	);
 
 	// return (
