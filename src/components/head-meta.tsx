@@ -43,6 +43,7 @@ function HeadMeta({ title, description, keywords, image }: SEO) {
 				}}
 			/>
 			<Head>
+				<link rel="icon" type="image/png" href="favicon.ico"></link>
 				<meta name="google-site-verification" content="zaNyWUg7p8IwSpbD_oEv_rVc8J_i4FGlHinRB3EZIZA" />
 			</Head>
 		</>
