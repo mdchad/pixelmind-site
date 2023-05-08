@@ -1,25 +1,25 @@
-import { Linktree } from "@root/typings";
-import { urlForImage } from "@root/lib/sanity.image";
-import { useGlitch } from "react-powerglitch";
-import HeadMeta from "@/components/head-meta";
-import Image from "next/image";
-import Link from "next/link";
-import { Inter } from "next/font/google";
-import { MdOutlineMail } from "react-icons/md";
-import { NextSeo } from "next-seo";
-import ogUrl from "@/common/imageUrl";
+import { Linktree } from '@root/typings'
+import { urlForImage } from '@root/lib/sanity.image'
+import { useGlitch } from 'react-powerglitch'
+import HeadMeta from '@/components/head-meta'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Inter } from 'next/font/google'
+import { MdOutlineMail } from 'react-icons/md'
+import { NextSeo } from 'next-seo'
+import ogUrl from '@/common/imageUrl'
 
 type Props = {
-	getLinktree: Linktree[];
-};
+	getLinktree: Linktree[]
+}
 
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
+	subsets: ['latin'],
+	variable: '--font-inter',
+})
 
 function Linktree({ getLinktree }: Props) {
-	const glitch = useGlitch();
+	const glitch = useGlitch()
 
 	return (
 		<section
@@ -32,10 +32,7 @@ function Linktree({ getLinktree }: Props) {
 				>
 					Pixelmind Studio
 				</h1>
-				<p className="text-sm text-gray-500">
-					{" "}
-					Tech, Design, and Development{" "}
-				</p>
+				<p className="text-sm text-gray-500"> Tech, Design, and Development </p>
 			</div>
 
 			<div className="grid grid-cols-1 gap-4">
@@ -60,10 +57,8 @@ function Linktree({ getLinktree }: Props) {
 											<Image
 												width={30}
 												height={30}
-												src={urlForImage(
-													linktree.image
-												).url()}
-												alt={linktree.title ?? "icon"}
+												src={urlForImage(linktree.image).url()}
+												alt={linktree.title ?? 'icon'}
 												className="rounded-full"
 											/>
 										)}
@@ -93,7 +88,7 @@ function Linktree({ getLinktree }: Props) {
 				©Pixelmind Studio {new Date().getFullYear()}
 			</p>
 		</section>
-	);
+	)
 }
 
-export default Linktree;
+export default Linktree

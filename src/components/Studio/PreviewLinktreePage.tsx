@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { usePreview } from "@root/lib/sanity.preview";
-import PreviewLayout from "@components/layout_preview";
-import Blog from "@/components/blog";
-import { allLinktree } from "@lib/sanity.queries";
-import { Linktree as LinktreeType } from "@root/typings";
-import { MdOutlineMail } from "react-icons/md";
-import { Inter } from "next/font/google";
-import Image from "next/image";
-import { useGlitch } from "react-powerglitch";
-import { urlForImage } from "@root/lib/sanity.image";
+import { usePreview } from '@root/lib/sanity.preview'
+import PreviewLayout from '@components/layout_preview'
+import Blog from '@/components/blog'
+import { allLinktree } from '@lib/sanity.queries'
+import { Linktree as LinktreeType } from '@root/typings'
+import { MdOutlineMail } from 'react-icons/md'
+import { Inter } from 'next/font/google'
+import Image from 'next/image'
+import { useGlitch } from 'react-powerglitch'
+import { urlForImage } from '@root/lib/sanity.image'
 
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
+	subsets: ['latin'],
+	variable: '--font-inter',
+})
 
 export default function PreviewLinktreePage() {
-	const getLinktree = usePreview(null, allLinktree);
-	const glitch = useGlitch();
+	const getLinktree = usePreview(null, allLinktree)
+	const glitch = useGlitch()
 
 	return (
 		<section
@@ -31,10 +31,7 @@ export default function PreviewLinktreePage() {
 				>
 					Pixelmind Studio
 				</h1>
-				<p className="text-sm text-gray-500">
-					{" "}
-					Tech, Design, and Development{" "}
-				</p>
+				<p className="text-sm text-gray-500"> Tech, Design, and Development </p>
 			</div>
 
 			<div className="grid grid-cols-1 gap-4">
@@ -59,10 +56,8 @@ export default function PreviewLinktreePage() {
 											<Image
 												width={30}
 												height={30}
-												src={urlForImage(
-													linktree.image
-												).url()}
-												alt={linktree.title ?? "icon"}
+												src={urlForImage(linktree.image).url()}
+												alt={linktree.title ?? 'icon'}
 												className="rounded-full"
 											/>
 										)}
@@ -92,5 +87,5 @@ export default function PreviewLinktreePage() {
 				©Pixelmind Studio {new Date().getFullYear()}
 			</p>
 		</section>
-	);
+	)
 }

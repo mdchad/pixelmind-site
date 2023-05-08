@@ -1,14 +1,14 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-	siteUrl: process.env.NEXT_PUBLIC_URL || "https://pixelmindstudio.co",
+	siteUrl: process.env.NEXT_PUBLIC_URL || 'https://pixelmindstudio.co',
 	generateRobotsTxt: true, // (optional)
 	robotsTxtOptions: {
 		policies: [
 			{
-				userAgent: "*",
-				disallow: ["/admin", "/api", "/api/*"],
-				allow: "/",
+				userAgent: '*',
+				disallow: ['/admin', '/api', '/api/*'],
+				allow: '/',
 			},
 		],
 		additionalSitemaps: [
@@ -16,5 +16,5 @@ module.exports = {
 			`${process.env.NEXT_PUBLIC_URL}/server-sitemap.xml`, // server generated sitemap
 		],
 	},
-	exclude: ["/admin", "/api", "/api/*", "/server-sitemap.xml"],
-};
+	exclude: ['/admin', '/api', '/api/*', '/server-sitemap.xml'],
+}

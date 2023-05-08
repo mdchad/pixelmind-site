@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { usePreview } from "@root/lib/sanity.preview";
-import PreviewLayout from "@components/layout_preview";
-import { projectsPostsQuery } from "@lib/sanity.queries";
-import PortableText from "react-portable-text";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import { urlForImage } from "@root/lib/sanity.image";
+import { usePreview } from '@root/lib/sanity.preview'
+import PreviewLayout from '@components/layout_preview'
+import { projectsPostsQuery } from '@lib/sanity.queries'
+import PortableText from 'react-portable-text'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
+import { urlForImage } from '@root/lib/sanity.image'
 
 export default function PreviewBlogInnerPage() {
-	const router = useRouter();
-	const { slug } = router.query;
+	const router = useRouter()
+	const { slug } = router.query
 
-	const data = usePreview(null, projectsPostsQuery, { slug: slug });
+	const data = usePreview(null, projectsPostsQuery, { slug: slug })
 
 	return (
 		<PreviewLayout>
@@ -57,9 +57,7 @@ export default function PreviewBlogInnerPage() {
 									<h2 className="text-gray-400 font-light text-sm mb-[.8em]">
 										Description
 									</h2>
-									<p className="text-sm">
-										{data.description}
-									</p>
+									<p className="text-sm">{data.description}</p>
 								</div>
 							)}
 
@@ -69,13 +67,9 @@ export default function PreviewBlogInnerPage() {
 										Services
 									</h2>
 									<ul className="text-sm">
-										{data.categories.map(
-											(category: any) => (
-												<li key={category._id}>
-													{category.title}
-												</li>
-											)
-										)}
+										{data.categories.map((category: any) => (
+											<li key={category._id}>{category.title}</li>
+										))}
 									</ul>
 								</div>
 							)}
@@ -85,9 +79,7 @@ export default function PreviewBlogInnerPage() {
 					{data.body && (
 						<PortableText
 							dataset={process.env.NEXT_PUBLIC_SANITY_DATAET}
-							projectId={
-								process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-							}
+							projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
 							content={data.body}
 							serializers={{
 								h1: (props: any) => (
@@ -124,5 +116,5 @@ export default function PreviewBlogInnerPage() {
 				</div>
 			</article>
 		</PreviewLayout>
-	);
+	)
 }

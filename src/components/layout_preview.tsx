@@ -1,13 +1,13 @@
-import Menu from "@/components/menu";
-import Footer from "@/components/footer";
+import Menu from '@/components/menu'
+import Footer from '@/components/footer'
 
-import { Inter } from "next/font/google";
-import Link from "next/link";
+import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
+	subsets: ['latin'],
+	variable: '--font-inter',
+})
 
 function layout({ children }: any) {
 	return (
@@ -36,7 +36,7 @@ function layout({ children }: any) {
 				<Footer />
 			</div>
 		</main>
-	);
+	)
 }
 
-export default layout;
+export default layout

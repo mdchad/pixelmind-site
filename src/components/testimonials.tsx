@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function testimonials() {
 	return (
@@ -46,7 +46,7 @@ function testimonials() {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
-export default testimonials;
+export default testimonials

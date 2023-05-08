@@ -1,49 +1,49 @@
-import PortableText from "react-portable-text";
-import { PreviewSuspense } from "next-sanity/preview";
-import { lazy } from "react";
-import client from "@lib/sanity.client";
-import Layout from "@/components/layout";
-import { Post, Preview } from "@root/typings";
-import { postBySlugQuery, allPosts } from "@lib/sanity.queries";
-import { NextSeo } from "next-seo";
+import PortableText from 'react-portable-text'
+import { PreviewSuspense } from 'next-sanity/preview'
+import { lazy } from 'react'
+import client from '@lib/sanity.client'
+import Layout from '@/components/layout'
+import { Post, Preview } from '@root/typings'
+import { postBySlugQuery, allPosts } from '@lib/sanity.queries'
+import { NextSeo } from 'next-seo'
 
-import { Inter } from "next/font/google";
-import HeadMeta from "@/components/head-meta";
-import { urlForImage } from "@root/lib/sanity.image";
+import { Inter } from 'next/font/google'
+import HeadMeta from '@/components/head-meta'
+import { urlForImage } from '@root/lib/sanity.image'
 
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
+	subsets: ['latin'],
+	variable: '--font-inter',
+})
 
 const PreviewBlogInnerPage = lazy(
-	() => import("@components/Studio/PreviewBlogInnerPage")
-);
+	() => import('@components/Studio/PreviewBlogInnerPage')
+)
 
 export const getStaticPaths = async () => {
-	const posts = await client.fetch(allPosts);
+	const posts = await client.fetch(allPosts)
 
 	const path = posts.map((post: any) => ({
 		params: { slug: post.slug.current },
-	}));
+	}))
 
 	return {
 		paths: path,
-		fallback: "blocking",
-	};
-};
+		fallback: 'blocking',
+	}
+}
 
 export const getStaticProps = async ({ preview = false, params }: any) => {
 	if (preview) {
-		return { props: { preview } };
+		return { props: { preview } }
 	}
 
-	const post = await client.fetch(postBySlugQuery, { slug: params?.slug });
+	const post = await client.fetch(postBySlugQuery, { slug: params?.slug })
 
 	if (!post) {
 		return {
 			notFound: true,
-		};
+		}
 	}
 
 	return {
@@ -52,8 +52,8 @@ export const getStaticProps = async ({ preview = false, params }: any) => {
 		},
 
 		revalidate: 60, // after 60 seconds, it will be regenerated
-	};
-};
+	}
+}
 
 // loading the preview component
 export const loading = () => (
@@ -62,27 +62,27 @@ export const loading = () => (
 	>
 		<h1>Loading...</h1>
 	</div>
-);
+)
 
 export default function IndexPage({
 	preview,
 	post,
 }: {
-	preview: Preview;
-	post: Post;
+	preview: Preview
+	post: Post
 }) {
-	console.log(post);
-	const ogImage = urlForImage(post.mainImage).url();
+	console.log(post)
+	const ogImage = urlForImage(post.mainImage).url()
 	const tags: string[] = post?.categories
 		? [...post?.categories?.map((category) => category.title)]
-		: [];
+		: []
 
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>
 				<PreviewBlogInnerPage />
 			</PreviewSuspense>
-		);
+		)
 	}
 
 	return (
@@ -92,8 +92,8 @@ export default function IndexPage({
 				title={post.title}
 				description={post.excerpt}
 				openGraph={{
-					type: "article",
-					locale: "en_GB",
+					type: 'article',
+					locale: 'en_GB',
 					url: process.env.NEXT_PUBLIC_URL,
 					title: post.title,
 					description: post.excerpt,
@@ -107,9 +107,9 @@ export default function IndexPage({
 					siteName: post.title,
 				}}
 				twitter={{
-					handle: "@handle",
-					site: "@pixelmindstudio",
-					cardType: "summary_large_image",
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
 				}}
 			/>
 
@@ -132,9 +132,7 @@ export default function IndexPage({
 						<div>
 							<PortableText
 								dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-								projectId={
-									process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-								}
+								projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
 								content={post.body}
 								serializers={{
 									h1: (props: any) => (
@@ -167,5 +165,5 @@ export default function IndexPage({
 				</article>
 			</Layout>
 		</main>
-	);
+	)
 }

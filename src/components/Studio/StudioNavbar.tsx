@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
+import Link from 'next/link'
+import { FiArrowLeft, FiExternalLink } from 'react-icons/fi'
 
 function StudioNavbar(props: any) {
 	return (
@@ -22,7 +22,7 @@ function StudioNavbar(props: any) {
 
 			{props.renderDefault(props)}
 		</div>
-	);
+	)
 }
 
-export default StudioNavbar;
+export default StudioNavbar

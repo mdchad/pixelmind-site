@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 // import "./styles.css";
-import { motion } from "framer-motion";
-import { HiPlus } from "react-icons/hi";
-import Link from "next/link";
+import { motion } from 'framer-motion'
+import { HiPlus } from 'react-icons/hi'
+import Link from 'next/link'
 
 export default function Menu() {
-	const [isHover, toggleHover] = useState(false);
+	const [isHover, toggleHover] = useState(false)
 
 	const toggleHoverMenu = () => {
-		toggleHover(!isHover);
-	};
+		toggleHover(!isHover)
+	}
 
 	const onMouseEnterMenu = () => {
-		toggleHover(true);
-	};
+		toggleHover(true)
+	}
 
 	const onMouseLeaveMenu = () => {
-		toggleHover(false);
-	};
+		toggleHover(false)
+	}
 
 	const subMenuAnimate = {
 		enter: {
@@ -26,7 +26,7 @@ export default function Menu() {
 			transition: {
 				duration: 0.2,
 			},
-			display: "block",
+			display: 'block',
 		},
 		exit: {
 			opacity: 0,
@@ -36,17 +36,17 @@ export default function Menu() {
 				// delay: 0.3
 			},
 			transitionEnd: {
-				display: "none",
+				display: 'none',
 			},
 		},
-	};
+	}
 
 	const scrollToBottom = () => {
 		window.scrollTo({
 			top: document.documentElement.scrollHeight,
-			behavior: "smooth",
-		});
-	};
+			behavior: 'smooth',
+		})
+	}
 
 	return (
 		<div className="fixed right-0 top-0 rounded-b-full z-20">
@@ -64,40 +64,28 @@ export default function Menu() {
 				<motion.div
 					className="menu-item-submenu"
 					initial="exit"
-					animate={isHover ? "enter" : "exit"}
+					animate={isHover ? 'enter' : 'exit'}
 					variants={subMenuAnimate}
 				>
 					<div className="menu-item-submenu-con">
 						<Link href="/" className="menu-item-submenu-con-item">
 							Home
 						</Link>
-						<Link
-							href="/about"
-							className="menu-item-submenu-con-item"
-						>
+						<Link href="/about" className="menu-item-submenu-con-item">
 							About
 						</Link>
-						<Link
-							href="/projects"
-							className="menu-item-submenu-con-item"
-						>
+						<Link href="/projects" className="menu-item-submenu-con-item">
 							Projects
 						</Link>
-						<Link
-							href="/blogs"
-							className="menu-item-submenu-con-item"
-						>
+						<Link href="/blogs" className="menu-item-submenu-con-item">
 							Blogs
 						</Link>
-						<a
-							onClick={scrollToBottom}
-							className="menu-item-submenu-con-item"
-						>
+						<a onClick={scrollToBottom} className="menu-item-submenu-con-item">
 							Contact
 						</a>
 					</div>
 				</motion.div>
 			</motion.div>
 		</div>
-	);
+	)
 }

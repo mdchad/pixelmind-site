@@ -1,8 +1,8 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
 function footer() {
-	const year = new Date().getFullYear();
+	const year = new Date().getFullYear()
 
 	return (
 		<footer id="footer">
@@ -58,7 +58,7 @@ function footer() {
 			<div className="flex justify-between gap-5 pt-3">
 				<div className="flex items-center justify-center">
 					<p className="text-sm text-gray-400">
-						©Pixelmind Studio {year ?? ""}
+						©Pixelmind Studio {year ?? ''}
 					</p>
 				</div>
 
@@ -74,7 +74,7 @@ function footer() {
 				</div>
 			</div>
 		</footer>
-	);
+	)
 }
 
-export default footer;
+export default footer

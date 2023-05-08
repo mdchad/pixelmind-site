@@ -1,52 +1,50 @@
-import { PreviewSuspense } from "next-sanity/preview";
-import { lazy, useState } from "react";
-import client from "@lib/sanity.client";
-import Layout from "@/components/layout";
+import { PreviewSuspense } from 'next-sanity/preview'
+import { lazy, useState } from 'react'
+import client from '@lib/sanity.client'
+import Layout from '@/components/layout'
 import {
 	Post,
 	Preview,
 	Services as ServicesType,
 	Projects as ProjectsType,
-} from "@root/typings";
-import { allPosts, allProjects, allServices } from "@lib/sanity.queries";
+} from '@root/typings'
+import { allPosts, allProjects, allServices } from '@lib/sanity.queries'
 
-import Hero from "@/components/hero";
-import Projects from "@/components/projects";
-import Services from "@/components/services";
-import Team from "@/components/team";
-import Testimonials from "@/components/testimonials";
-import Blog from "@/components/blog";
+import Hero from '@/components/hero'
+import Projects from '@/components/projects'
+import Services from '@/components/services'
+import Team from '@/components/team'
+import Testimonials from '@/components/testimonials'
+import Blog from '@/components/blog'
 
-import { Inter } from "next/font/google";
-import HeadMeta from "@/components/head-meta";
-import { NextSeo } from "next-seo";
-import ogUrl from "@/common/imageUrl";
+import { Inter } from 'next/font/google'
+import HeadMeta from '@/components/head-meta'
+import { NextSeo } from 'next-seo'
+import ogUrl from '@/common/imageUrl'
 
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
+	subsets: ['latin'],
+	variable: '--font-inter',
+})
 
-const PreviewBlogPage = lazy(
-	() => import("@components/Studio/PreviewBlogPage")
-);
+const PreviewBlogPage = lazy(() => import('@components/Studio/PreviewBlogPage'))
 
 export const getStaticProps = async ({ preview = false }) => {
 	if (preview) {
-		return { props: { preview } };
+		return { props: { preview } }
 	}
 
-	const getPost = await client.fetch(allPosts);
-	const featuredPost = getPost.filter((post: Post) => post.featured === true);
-	const allPost = getPost.filter((post: Post) => post.featured === false);
+	const getPost = await client.fetch(allPosts)
+	const featuredPost = getPost.filter((post: Post) => post.featured === true)
+	const allPost = getPost.filter((post: Post) => post.featured === false)
 
 	const data = {
 		featuredPost,
 		allPost,
-	};
+	}
 
-	return { props: { preview, data } };
-};
+	return { props: { preview, data } }
+}
 
 // loading the preview component
 export const loading = () => (
@@ -55,45 +53,45 @@ export const loading = () => (
 	>
 		<h1>Loading...</h1>
 	</div>
-);
+)
 
 export default function IndexPage({
 	preview,
 	data,
 }: {
-	preview: Preview;
+	preview: Preview
 	data: {
-		featuredPost: Post[];
-		allPost: Post[];
-	};
+		featuredPost: Post[]
+		allPost: Post[]
+	}
 }) {
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>
 				<PreviewBlogPage />
 			</PreviewSuspense>
-		);
+		)
 	}
 
 	return (
 		<>
 			<NextSeo
-				key={"Pixelmind Studio | Blogs"}
+				key={'Pixelmind Studio | Blogs'}
 				title="Pixelmind Studio | Blogs"
 				description="All our learnings and opinions are here"
 				openGraph={{
-					type: "website",
-					locale: "en_GB",
+					type: 'website',
+					locale: 'en_GB',
 					url: process.env.NEXT_PUBLIC_URL,
-					title: "Pixelmind Studio | Blogs",
-					description: "All our learnings and opinions are here",
+					title: 'Pixelmind Studio | Blogs',
+					description: 'All our learnings and opinions are here',
 					images: [{ url: ogUrl }],
-					siteName: "Pixelmind Studio | Blogs",
+					siteName: 'Pixelmind Studio | Blogs',
 				}}
 				twitter={{
-					handle: "@handle",
-					site: "@pixelmindstudio",
-					cardType: "summary_large_image",
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
 				}}
 			/>
 			<PreviewSuspense fallback={loading()}>
@@ -105,20 +103,17 @@ export default function IndexPage({
 									Blogs
 								</h1>
 								<p className="text-2xl md:text-3xl lg:text-4xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
-									from stunning web designs to captivating
-									graphics and logos,each project reflects our
-									commitment to quality and excellence.
+									from stunning web designs to captivating graphics and
+									logos,each project reflects our commitment to quality and
+									excellence.
 								</p>
 							</div>
 						</section>
 					</div>
 
-					<Blog
-						allPost={data.allPost}
-						featuredPost={data.featuredPost}
-					/>
+					<Blog allPost={data.allPost} featuredPost={data.featuredPost} />
 				</Layout>
 			</PreviewSuspense>
 		</>
-	);
+	)
 }

@@ -1,12 +1,12 @@
 const people = [
 	{
-		name: "Michael Foster",
-		role: "Co-Founder / CTO",
+		name: 'Michael Foster',
+		role: 'Co-Founder / CTO',
 		imageUrl:
-			"https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+			'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
 	},
 	// More people...
-];
+]
 
 export default function Team() {
 	return (
@@ -17,9 +17,8 @@ export default function Team() {
 						Our team
 					</h2>
 					<p className="mt-6 text-lg leading-8 text-gray-600">
-						We’re a dynamic group of individuals who are passionate
-						about what we do and dedicated to delivering the best
-						results for our clients.
+						We’re a dynamic group of individuals who are passionate about what
+						we do and dedicated to delivering the best results for our clients.
 					</p>
 				</div>
 				<ul
@@ -36,13 +35,11 @@ export default function Team() {
 							<h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
 								{person.name}
 							</h3>
-							<p className="text-sm leading-6 text-gray-600">
-								{person.role}
-							</p>
+							<p className="text-sm leading-6 text-gray-600">{person.role}</p>
 						</li>
 					))}
 				</ul>
 			</div>
 		</div>
-	);
+	)
 }

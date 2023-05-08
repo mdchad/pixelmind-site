@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import { usePreview } from "@root/lib/sanity.preview";
-import PreviewLayout from "@components/layout_preview";
-import { postBySlugQuery } from "@lib/sanity.queries";
-import PortableText from "react-portable-text";
-import { useRouter } from "next/router";
+import { usePreview } from '@root/lib/sanity.preview'
+import PreviewLayout from '@components/layout_preview'
+import { postBySlugQuery } from '@lib/sanity.queries'
+import PortableText from 'react-portable-text'
+import { useRouter } from 'next/router'
 
 export default function PreviewBlogInnerPage() {
-	const router = useRouter();
-	const { slug } = router.query;
+	const router = useRouter()
+	const { slug } = router.query
 
-	const post = usePreview(null, postBySlugQuery, { slug: slug });
+	const post = usePreview(null, postBySlugQuery, { slug: slug })
 
 	return (
 		<PreviewLayout>
@@ -34,9 +34,7 @@ export default function PreviewBlogInnerPage() {
 					<div>
 						<PortableText
 							dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-							projectId={
-								process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-							}
+							projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
 							content={post.body}
 							serializers={{
 								h1: (props: any) => (
@@ -68,5 +66,5 @@ export default function PreviewBlogInnerPage() {
 				)}
 			</article>
 		</PreviewLayout>
-	);
+	)
 }

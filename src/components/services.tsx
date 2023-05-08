@@ -1,15 +1,15 @@
-import React from "react";
-import { Services as ServicesType } from "@root/typings";
+import React from 'react'
+import { Services as ServicesType } from '@root/typings'
 
 type Services = {
-	services: ServicesType;
-};
+	services: ServicesType
+}
 
 const Shine = () => {
 	return (
 		<div className="flex-1 relative isolate overflow-hidden rounded-2xl bg-white/10 shadow-xl shadow-black/5 before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:border-t before:border-rose-100/10 before:bg-gradient-to-r before:from-transparent before:via-rose-100/10 before:to-transparent"></div>
-	);
-};
+	)
+}
 
 function services({ services }: Services) {
 	return (
@@ -27,17 +27,15 @@ function services({ services }: Services) {
 					<div
 						key={service._id}
 						className={`col-span-2 flex gap-5 ${
-							index % 2 === 0 ? "flex-row-reverse" : ""
+							index % 2 === 0 ? 'flex-row-reverse' : ''
 						}`}
 					>
-						<p className="text-2xl md:text-3xl font-light">
-							{service.title}
-						</p>
+						<p className="text-2xl md:text-3xl font-light">{service.title}</p>
 						<Shine />
 					</div>
 				))}
 		</section>
-	);
+	)
 }
 
-export default services;
+export default services

@@ -1,49 +1,49 @@
-import PortableText from "react-portable-text";
-import { PreviewSuspense } from "next-sanity/preview";
-import { lazy } from "react";
-import client from "@lib/sanity.client";
-import Layout from "@/components/layout";
-import { Projects, Preview } from "@root/typings";
-import { allProjects, projectsPostsQuery } from "lib/sanity.queries";
+import PortableText from 'react-portable-text'
+import { PreviewSuspense } from 'next-sanity/preview'
+import { lazy } from 'react'
+import client from '@lib/sanity.client'
+import Layout from '@/components/layout'
+import { Projects, Preview } from '@root/typings'
+import { allProjects, projectsPostsQuery } from 'lib/sanity.queries'
 
-import { Inter } from "next/font/google";
-import Image from "next/image";
-import { urlForImage } from "@root/lib/sanity.image";
-import HeadMeta from "@/components/head-meta";
+import { Inter } from 'next/font/google'
+import Image from 'next/image'
+import { urlForImage } from '@root/lib/sanity.image'
+import HeadMeta from '@/components/head-meta'
 
 const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
+	subsets: ['latin'],
+	variable: '--font-inter',
+})
 
 const PreviewProjectsInnerPage = lazy(
-	() => import("@components/Studio/PreviewProjectsInnerPage")
-);
+	() => import('@components/Studio/PreviewProjectsInnerPage')
+)
 
 export const getStaticPaths = async () => {
-	const posts = await client.fetch(allProjects);
+	const posts = await client.fetch(allProjects)
 
 	const path = posts.map((post: any) => ({
 		params: { slug: post.slug.current },
-	}));
+	}))
 
 	return {
 		paths: path,
-		fallback: "blocking",
-	};
-};
+		fallback: 'blocking',
+	}
+}
 
 export const getStaticProps = async ({ preview = false, params }: any) => {
 	if (preview) {
-		return { props: { preview } };
+		return { props: { preview } }
 	}
 
-	const post = await client.fetch(projectsPostsQuery, { slug: params?.slug });
+	const post = await client.fetch(projectsPostsQuery, { slug: params?.slug })
 
 	if (!post) {
 		return {
 			notFound: true,
-		};
+		}
 	}
 
 	return {
@@ -52,8 +52,8 @@ export const getStaticProps = async ({ preview = false, params }: any) => {
 		},
 
 		revalidate: 60, // after 60 seconds, it will be regenerated
-	};
-};
+	}
+}
 
 // loading the preview component
 export const loading = () => (
@@ -62,21 +62,21 @@ export const loading = () => (
 	>
 		<h1>Loading...</h1>
 	</div>
-);
+)
 
 export default function IndexPage({
 	preview,
 	data,
 }: {
-	preview: Preview;
-	data: Projects;
+	preview: Preview
+	data: Projects
 }) {
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>
 				<PreviewProjectsInnerPage />
 			</PreviewSuspense>
-		);
+		)
 	}
 
 	return (
@@ -84,9 +84,7 @@ export default function IndexPage({
 			<HeadMeta
 				title={data.title}
 				description={data.excerpt}
-				keywords={data.categories
-					.map((category) => category.title)
-					.join(", ")}
+				keywords={data.categories.map((category) => category.title).join(', ')}
 				image={urlForImage(data.mainImage).url()}
 			/>
 
@@ -105,9 +103,7 @@ export default function IndexPage({
 									<div className="relative w-full h-80 drop-shadow-xl">
 										<Image
 											className="object-cover object-left lg:object-center py-4"
-											src={urlForImage(
-												data.mainImage
-											).url()}
+											src={urlForImage(data.mainImage).url()}
 											alt={
 												data.mainImage.alt
 													? data.mainImage.alt.current
@@ -134,9 +130,7 @@ export default function IndexPage({
 										<h2 className="text-gray-400 font-light text-sm mb-[.8em]">
 											Description
 										</h2>
-										<p className="text-sm">
-											{data.description}
-										</p>
+										<p className="text-sm">{data.description}</p>
 									</div>
 								)}
 
@@ -146,13 +140,9 @@ export default function IndexPage({
 											Services
 										</h2>
 										<ul className="text-sm">
-											{data.categories.map(
-												(category: any) => (
-													<li key={category._id}>
-														{category.title}
-													</li>
-												)
-											)}
+											{data.categories.map((category: any) => (
+												<li key={category._id}>{category.title}</li>
+											))}
 										</ul>
 									</div>
 								)}
@@ -162,9 +152,7 @@ export default function IndexPage({
 						{data.body && (
 							<PortableText
 								dataset={process.env.NEXT_PUBLIC_SANITY_DATAET}
-								projectId={
-									process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-								}
+								projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
 								content={data.body}
 								serializers={{
 									h1: (props: any) => (
@@ -202,5 +190,5 @@ export default function IndexPage({
 				</article>
 			</Layout>
 		</main>
-	);
+	)
 }

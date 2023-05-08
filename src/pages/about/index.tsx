@@ -1,28 +1,28 @@
-import HeadMeta from "@/components/head-meta";
-import Layout from "@/components/layout";
-import { NextSeo } from "next-seo";
-import ogUrl from "@/common/imageUrl";
+import HeadMeta from '@/components/head-meta'
+import Layout from '@/components/layout'
+import { NextSeo } from 'next-seo'
+import ogUrl from '@/common/imageUrl'
 
 function About() {
 	return (
 		<Layout>
 			<NextSeo
-				key={"Pixelmind Studio | About"}
+				key={'Pixelmind Studio | About'}
 				title="Pixelmind Studio | About"
 				description="Learn about our team and expertise"
 				openGraph={{
-					type: "article",
-					locale: "en_GB",
+					type: 'article',
+					locale: 'en_GB',
 					url: process.env.NEXT_PUBLIC_URL,
-					title: "Pixelmind Studio | About",
-					description: "Learn about our team and expertise",
+					title: 'Pixelmind Studio | About',
+					description: 'Learn about our team and expertise',
 					images: [{ url: ogUrl }],
-					siteName: "Pixelmind Studio | About",
+					siteName: 'Pixelmind Studio | About',
 				}}
 				twitter={{
-					handle: "@handle",
-					site: "@pixelmindstudio",
-					cardType: "summary_large_image",
+					handle: '@handle',
+					site: '@pixelmindstudio',
+					cardType: 'summary_large_image',
 				}}
 			/>
 
@@ -33,9 +33,8 @@ function About() {
 							About
 						</h1>
 						<p className="text-2xl md:text-3xl lg:text-4xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
-							from stunning web designs to captivating graphics
-							and logos,each project reflects our commitment to
-							quality and excellence.
+							from stunning web designs to captivating graphics and logos,each
+							project reflects our commitment to quality and excellence.
 						</p>
 					</div>
 				</section>
@@ -45,7 +44,7 @@ function About() {
 				</section>
 			</div>
 		</Layout>
-	);
+	)
 }
 
-export default About;
+export default About
