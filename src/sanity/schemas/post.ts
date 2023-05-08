@@ -8,8 +8,7 @@ export default defineType({
 	type: 'document',
 	icon: DocumentTextIcon,
 
-	options: {
-	},
+	options: {},
 
 	groups: [
 		{
@@ -27,8 +26,9 @@ export default defineType({
 			name: 'title',
 			title: 'Title',
 			type: 'string',
-			validation: (Rule) => Rule.max(60).warning('Should be under 60 characters.'),
-			group: ['content', 'meta']
+			validation: (Rule) =>
+				Rule.max(60).warning('Should be under 60 characters.'),
+			group: ['content', 'meta'],
 		}),
 		defineField({
 			name: 'slug',
@@ -44,8 +44,10 @@ export default defineType({
 			name: 'excerpt',
 			title: 'Excerpt',
 			type: 'text',
-			description: 'This ends up on summary pages, on Google, when people share your post in social media.',
-			validation: (Rule) => Rule.max(155).warning('Should be under 155 characters.'),
+			description:
+				'This ends up on summary pages, on Google, when people share your post in social media.',
+			validation: (Rule) =>
+				Rule.max(155).warning('Should be under 155 characters.'),
 			group: 'meta',
 		}),
 		defineField({
@@ -64,18 +66,18 @@ export default defineType({
 			},
 			fields: [
 				{
-					name: "alt",
-					type: "slug",
-					title: "Alt Text",
+					name: 'alt',
+					type: 'slug',
+					title: 'Alt Text',
 					description: 'Important for SEO and accessibility',
 					options: {
 						isHighlighted: true,
 						// the source should be the same as the image name
-						source: "title",
+						source: 'title',
 					},
 				},
 			],
-			group: ['content', 'meta']
+			group: ['content', 'meta'],
 		}),
 		defineField({
 			name: 'categories',

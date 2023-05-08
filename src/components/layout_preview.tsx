@@ -18,12 +18,10 @@ function layout({ children }: any) {
 					<span>Preview Mode</span>
 				</p>
 				<p className="text-sm font-sans hover:text-gray-500">
-					<Link href="/api/exit-preview">
-						Exit Preview Mode
-					</Link>
+					<Link href="/api/exit-preview">Exit Preview Mode</Link>
 				</p>
 			</div>
-			
+
 			<div className="flex-1 m-5 gap-5 flex flex-col">
 				{/* fake black bar */}
 				<div className="w-full fixed top-0 left-0 right-0 bg-black z-10">
@@ -32,7 +30,6 @@ function layout({ children }: any) {
 				</div>
 
 				<Menu />
-
 
 				{children}
 

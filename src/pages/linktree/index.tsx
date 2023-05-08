@@ -7,15 +7,17 @@ import { allLinktree } from '@lib/sanity.queries'
 
 import { Inter } from 'next/font/google'
 import Linktree from '@/components/linktree'
-import ogUrl from "@/common/imageUrl";
-import {NextSeo} from "next-seo";
+import ogUrl from '@/common/imageUrl'
+import { NextSeo } from 'next-seo'
 
 const inter = Inter({
 	subsets: ['latin'],
 	variable: '--font-inter',
 })
 
-const PreviewLinktreePage = lazy(() => import('@components/Studio/PreviewLinktreePage'))
+const PreviewLinktreePage = lazy(
+	() => import('@components/Studio/PreviewLinktreePage')
+)
 
 export const getStaticProps = async ({ preview = false }) => {
 	if (preview) {
@@ -29,14 +31,19 @@ export const getStaticProps = async ({ preview = false }) => {
 
 // loading the preview component
 export const loading = () => (
-	<div className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}>
+	<div
+		className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}
+	>
 		<h1>Loading...</h1>
 	</div>
 )
 
-export default function IndexPage({ preview, getLinktree }: {
-	preview: Preview;
-	getLinktree: LinktreeType[];
+export default function IndexPage({
+	preview,
+	getLinktree,
+}: {
+	preview: Preview
+	getLinktree: LinktreeType[]
 }) {
 	if (preview) {
 		return (
@@ -58,9 +65,7 @@ export default function IndexPage({ preview, getLinktree }: {
 					url: process.env.NEXT_PUBLIC_URL,
 					title: 'Pixelmind Studio | Linktree',
 					description: 'All the links to our social media',
-					images: [
-						{ url: ogUrl }
-					],
+					images: [{ url: ogUrl }],
 					siteName: 'Pixelmind Studio | Linktree',
 				}}
 				twitter={{

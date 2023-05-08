@@ -31,7 +31,8 @@
 		"src/components/hero.jsx",
 		"src/components/Studio/PreviewIndexPage.tsx",
 		"lib/sanity.config.ss",
-		"lib/sanity.config.ts"
-, "src/pages/api/og.tsx"	],
+		"lib/sanity.config.ts",
+		"src/pages/api/og.tsx"
+	],
 	"exclude": ["node_modules"]
 }

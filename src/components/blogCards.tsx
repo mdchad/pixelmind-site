@@ -1,24 +1,26 @@
-import Image from "next/image";
+import Image from 'next/image'
 import { urlForImage } from '@root/lib/sanity.image'
 import { Post, Cards } from '@root/typings'
-import Link from "next/link";
+import Link from 'next/link'
 
 interface Props {
-	post: Post;
-	sm: Cards['sm'];
-	md: Cards['md'];
-	lg: Cards['lg'];
+	post: Post
+	sm: Cards['sm']
+	md: Cards['md']
+	lg: Cards['lg']
 }
 
 const Card = ({ className, children, sm, md, lg }: Cards) => {
-	const column = `col-span-${sm} md:col-span-${md} lg:col-span-${lg}`;
-	const classes = className ? className : '';
+	const column = `col-span-${sm} md:col-span-${md} lg:col-span-${lg}`
+	const classes = className ? className : ''
 
 	return (
-		<div className={`w-full bg-slate-50 overflow-hidden rounded-2xl flex ${classes} ${column}`}>
+		<div
+			className={`w-full bg-slate-50 overflow-hidden rounded-2xl flex ${classes} ${column}`}
+		>
 			{children}
 		</div>
-	);
+	)
 }
 
 export const blogCards = ({ post, sm, md, lg }: Props) => {
@@ -36,14 +38,18 @@ export const blogCards = ({ post, sm, md, lg }: Props) => {
 					</div>
 				)} */}
 
-				<div className="min-h-full bg-cover w-full bg-no-repeat bg-center"
+				<div
+					className="min-h-full bg-cover w-full bg-no-repeat bg-center"
 					style={{
 						backgroundImage: `url(${urlForImage(post.mainImage).url()})`,
 					}}
 				>
 					<div className="h-full flex flex-col p-5">
 						{post._createdAt && (
-							<time dateTime={post._createdAt} className="block text-sm leading-6 text-gray-100">
+							<time
+								dateTime={post._createdAt}
+								className="block text-sm leading-6 text-gray-100"
+							>
 								{new Date(post._createdAt).toLocaleDateString('en-US', {
 									day: 'numeric',
 									month: 'long',
@@ -53,7 +59,7 @@ export const blogCards = ({ post, sm, md, lg }: Props) => {
 						)}
 
 						{post.categories && (
-							<div className='flex gap-2'>
+							<div className="flex gap-2">
 								{post.categories.map((category: string | any) => (
 									<span
 										key={category?.title}
@@ -66,13 +72,18 @@ export const blogCards = ({ post, sm, md, lg }: Props) => {
 						)}
 
 						{post.title && (
-							<h2 id="featured-post" className="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+							<h2
+								id="featured-post"
+								className="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+							>
 								{post.title}
 							</h2>
 						)}
 
 						{post.excerpt && (
-							<p className="mt-4 text-lg leading-8 text-white">{post.excerpt}</p>
+							<p className="mt-4 text-lg leading-8 text-white">
+								{post.excerpt}
+							</p>
 						)}
 
 						<div className="mt-4 flex flex-col justify-between gap-6 sm:mt-8 sm:flex-row-reverse md:flex-col-reverse sm:gap-8 lg:mt-4 lg:flex-col">
@@ -103,12 +114,9 @@ export const blogCards = ({ post, sm, md, lg }: Props) => {
 						</div>
 					</div>
 				</div>
-
-
 			</article>
 		</Card>
 	)
 }
 
 export default blogCards
-

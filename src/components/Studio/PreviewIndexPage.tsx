@@ -1,7 +1,7 @@
 'use client'
 
 import { usePreview } from '@root/lib/sanity.preview'
-import PreviewLayout from "@components/layout_preview"
+import PreviewLayout from '@components/layout_preview'
 
 import Hero from '@/components/hero'
 import Projects from '@/components/projects'
@@ -14,20 +14,20 @@ import { allPosts, allProjects, allServices } from '@lib/sanity.queries'
 import { Post } from '@root/typings'
 
 export default function PreviewDocumentsCount() {
-	const post = usePreview(null, allPosts);
+	const post = usePreview(null, allPosts)
 
 	const featuredPost = post.filter((post: Post) => post.featured === true)
 	const allPost = post.filter((post: Post) => post.featured === false)
 
-	const getProjects = usePreview(null, allProjects);
+	const getProjects = usePreview(null, allProjects)
 
-	const getServices = usePreview(null, allServices);
+	const getServices = usePreview(null, allServices)
 
 	const data = {
 		featuredPost,
 		allPost,
 		getProjects,
-		getServices
+		getServices,
 	}
 
 	return (

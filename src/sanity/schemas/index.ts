@@ -7,4 +7,12 @@ import projects from './projects'
 import services from './services'
 import linktree from './linktree'
 
-export const schemaTypes = [post, author, category, blockContent, projects, services, linktree]
+export const schemaTypes = [
+	post,
+	author,
+	category,
+	blockContent,
+	projects,
+	services,
+	linktree,
+]

@@ -25,9 +25,10 @@ export default defineType({
 			name: 'href',
 			title: 'Link',
 			type: 'url',
-			validation: Rule => Rule.uri({
-				scheme: ['http', 'https', 'mailto', 'tel']
-			})
+			validation: (Rule) =>
+				Rule.uri({
+					scheme: ['http', 'https', 'mailto', 'tel'],
+				}),
 		}),
 		defineField({
 			name: 'status',
@@ -58,6 +59,6 @@ export default defineType({
 				subtitle: `${subtitle}`,
 				media,
 			}
-		}
+		},
 	},
 })

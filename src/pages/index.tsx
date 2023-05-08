@@ -3,10 +3,15 @@ import { PreviewSuspense } from 'next-sanity/preview'
 import { Key, lazy, useState } from 'react'
 import client from '@lib/sanity.client'
 import Layout from '@/components/layout'
-import { Post, Preview, Services as ServicesType, Projects as ProjectsType } from '@root/typings'
+import {
+	Post,
+	Preview,
+	Services as ServicesType,
+	Projects as ProjectsType,
+} from '@root/typings'
 import { allPosts, allProjects, allServices } from '@lib/sanity.queries'
 
-import HeadMeta from '@/components/head-meta';
+import HeadMeta from '@/components/head-meta'
 import Hero from '@/components/hero'
 import Projects from '@/components/projects'
 import Services from '@/components/services'
@@ -16,14 +21,16 @@ import Blog from '@/components/blog'
 
 import { Inter } from 'next/font/google'
 
-import Head from 'next/head';
+import Head from 'next/head'
 
 const inter = Inter({
 	subsets: ['latin'],
 	variable: '--font-inter',
 })
 
-const PreviewIndexPage = lazy(() => import('@components/Studio/PreviewIndexPage'))
+const PreviewIndexPage = lazy(
+	() => import('@components/Studio/PreviewIndexPage')
+)
 
 export const getStaticProps = async ({ preview = false }) => {
 	if (preview) {
@@ -45,46 +52,46 @@ export const getStaticProps = async ({ preview = false }) => {
 		getServices,
 		openGraph: [
 			{
-				property: "og:image",
+				property: 'og:image',
 				content:
-					"https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z",
-				key: "ogimage",
+					'https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z',
+				key: 'ogimage',
 			},
 			{
-				property: "og:image:width",
-				content: "400",
-				key: "ogimagewidth",
+				property: 'og:image:width',
+				content: '400',
+				key: 'ogimagewidth',
 			},
 			{
-				property: "og:image:height",
-				content: "300",
-				key: "ogimageheight",
+				property: 'og:image:height',
+				content: '300',
+				key: 'ogimageheight',
 			},
 			{
-				property: "og:url",
+				property: 'og:url',
 				content: `http://foobar.com/events`,
-				key: "ogurl",
+				key: 'ogurl',
 			},
 			{
-				property: "og:image:secure_url",
+				property: 'og:image:secure_url',
 				content:
-					"https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z",
-				key: "ogimagesecureurl",
+					'https://glievsbwngosqvrxtupy.supabase.co/storage/v1/object/public/event-banners/Jul%208%20Darkest%20Hour%20LONG.jpeg?t=2022-06-28T21%3A47%3A43.910Z',
+				key: 'ogimagesecureurl',
 			},
 			{
-				property: "og:title",
-				content: "Hey hey",
-				key: "ogtitle",
+				property: 'og:title',
+				content: 'Hey hey',
+				key: 'ogtitle',
 			},
 			{
-				property: "og:description",
-				content: "Ima description",
-				key: "ogdesc",
+				property: 'og:description',
+				content: 'Ima description',
+				key: 'ogdesc',
 			},
 			{
-				property: "og:type",
-				content: "website",
-				key: "website",
+				property: 'og:type',
+				content: 'website',
+				key: 'website',
 			},
 		],
 	}
@@ -94,22 +101,26 @@ export const getStaticProps = async ({ preview = false }) => {
 
 // loading the preview component
 export const loading = () => (
-	<div className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}>
+	<div
+		className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}
+	>
 		<h1>Loading...</h1>
 	</div>
 )
 
-export default function IndexPage({ preview, data }: {
-	preview: Preview;
+export default function IndexPage({
+	preview,
+	data,
+}: {
+	preview: Preview
 	data: {
-		featuredPost: Post[];
-		allPost: Post[];
+		featuredPost: Post[]
+		allPost: Post[]
 		getProjects: ProjectsType[]
 		getServices: ServicesType
 		openGraph: []
 	}
 }) {
-
 	if (preview) {
 		return (
 			<PreviewSuspense fallback={loading()}>

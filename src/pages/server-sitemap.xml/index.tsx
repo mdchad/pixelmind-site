@@ -8,7 +8,7 @@ import { allPosts, allProjects } from '@lib/sanity.queries'
 import { Post, Projects } from '@root/typings'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const URL = process.env.NEXT_PUBLIC_URL;
+	const URL = process.env.NEXT_PUBLIC_URL
 
 	const getPost = await client.fetch(allPosts)
 	const postField = getPost.map((post: Post) => ({
@@ -22,13 +22,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		lastmod: new Date().toISOString(),
 	}))
 
-	const fields = [
-		...postField,
-		...projectField,
-	]
+	const fields = [...postField, ...projectField]
 
 	return getServerSideSitemapLegacy(ctx, fields as ISitemapField[])
 }
 
 // Default export to prevent next.js errors
-export default function Sitemap() { }
+export default function Sitemap() {}

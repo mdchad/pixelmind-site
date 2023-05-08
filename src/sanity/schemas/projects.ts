@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import {DocumentTextIcon} from '@sanity/icons'
+import { DocumentTextIcon } from '@sanity/icons'
 // import { PagePreview } from '../page/PagePreview'
 
 export default defineType({
@@ -8,8 +8,7 @@ export default defineType({
 	type: 'document',
 	icon: DocumentTextIcon,
 
-	options: {
-	},
+	options: {},
 
 	fields: [
 		defineField({
@@ -30,14 +29,17 @@ export default defineType({
 			name: 'excerpt',
 			title: 'Excerpt',
 			type: 'text',
-			description: 'This ends up on summary pages, on Google, when people share your post in social media.',
-			validation: (Rule) => Rule.max(165).warning('Should be under 200 characters.'),
+			description:
+				'This ends up on summary pages, on Google, when people share your post in social media.',
+			validation: (Rule) =>
+				Rule.max(165).warning('Should be under 200 characters.'),
 		}),
 		defineField({
 			name: 'description',
 			title: 'Description',
 			type: 'text',
-			description: 'This ends up on summary pages, on Google, when people share your post in social media.',
+			description:
+				'This ends up on summary pages, on Google, when people share your post in social media.',
 		}),
 		defineField({
 			name: 'client',
