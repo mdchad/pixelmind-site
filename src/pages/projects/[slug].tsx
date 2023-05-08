@@ -38,7 +38,9 @@ export const getStaticProps = async ({ preview = false, params }: any) => {
 		return { props: { preview } }
 	}
 
-	const post = await client.fetch(projectsPostsQuery, { slug: params?.slug })
+	const post = await client.fetch(projectsPostsQuery, {
+		slug: params?.slug,
+	})
 
 	if (!post) {
 		return {
