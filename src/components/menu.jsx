@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import "./styles.css";
 import { motion } from "framer-motion";
-import { HiPlus } from 'react-icons/hi';
+import { HiPlus } from "react-icons/hi";
 import Link from "next/link";
 
 export default function Menu() {
@@ -24,9 +24,9 @@ export default function Menu() {
 			opacity: 1,
 			rotateX: 0,
 			transition: {
-				duration: 0.2
+				duration: 0.2,
 			},
-			display: "block"
+			display: "block",
 		},
 		exit: {
 			opacity: 0,
@@ -36,15 +36,15 @@ export default function Menu() {
 				// delay: 0.3
 			},
 			transitionEnd: {
-				display: "none"
-			}
-		}
+				display: "none",
+			},
+		},
 	};
 
 	const scrollToBottom = () => {
 		window.scrollTo({
 			top: document.documentElement.scrollHeight,
-			behavior: "smooth"
+			behavior: "smooth",
 		});
 	};
 
@@ -68,11 +68,33 @@ export default function Menu() {
 					variants={subMenuAnimate}
 				>
 					<div className="menu-item-submenu-con">
-						<Link href="/" className="menu-item-submenu-con-item">Home</Link>
-						<Link href="/about" className="menu-item-submenu-con-item">About</Link>
-						<Link href="/projects" className="menu-item-submenu-con-item">Projects</Link>
-						<Link href="/blogs" className="menu-item-submenu-con-item">Blogs</Link>
-						<a onClick={scrollToBottom} className="menu-item-submenu-con-item">Contact</a>
+						<Link href="/" className="menu-item-submenu-con-item">
+							Home
+						</Link>
+						<Link
+							href="/about"
+							className="menu-item-submenu-con-item"
+						>
+							About
+						</Link>
+						<Link
+							href="/projects"
+							className="menu-item-submenu-con-item"
+						>
+							Projects
+						</Link>
+						<Link
+							href="/blogs"
+							className="menu-item-submenu-con-item"
+						>
+							Blogs
+						</Link>
+						<a
+							onClick={scrollToBottom}
+							className="menu-item-submenu-con-item"
+						>
+							Contact
+						</a>
 					</div>
 				</motion.div>
 			</motion.div>

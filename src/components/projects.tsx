@@ -1,7 +1,7 @@
-import React from 'react'
-import { FiArrowUpRight } from 'react-icons/fi'
-import { Projects } from '@root/typings'
-import { HiDotsVertical } from 'react-icons/hi';
+import React from "react";
+import { FiArrowUpRight } from "react-icons/fi";
+import { Projects } from "@root/typings";
+import { HiDotsVertical } from "react-icons/hi";
 
 const data = [
 	{
@@ -24,8 +24,8 @@ const data = [
 		title: "Spring",
 		client: "Yellow Pages",
 		className: "col-span-2 md:col-span-2 lg:col-span-1",
-	}
-]
+	},
+];
 
 interface ProjectsProps {
 	projects: Projects;
@@ -35,7 +35,14 @@ interface ProjectsProps {
 const Container = ({ projects, uid }: ProjectsProps) => {
 	return (
 		// <a href={`projects/${projects._id}`} className={`${className ?? ''} projects-con`}>
-		<a href={`projects/${projects.slug.current}`} className={`projects-con ${uid % 3 === 0 ? 'col-span-2 md:col-span-2' : 'col-span-2 md:col-span-2 lg:col-span-1'}`}>
+		<a
+			href={`projects/${projects.slug.current}`}
+			className={`projects-con ${
+				uid % 3 === 0
+					? "col-span-2 md:col-span-2"
+					: "col-span-2 md:col-span-2 lg:col-span-1"
+			}`}
+		>
 			<div className="project-title-con rounded-tr-2xl">
 				<div className="arrow-con">
 					<FiArrowUpRight className="arrow text-2xl" />
@@ -46,21 +53,17 @@ const Container = ({ projects, uid }: ProjectsProps) => {
 				</div>
 			</div>
 		</a>
-	)
-}
+	);
+};
 
 function projects({ projects }: { projects: Projects[] }) {
 	return (
 		<div className="projects">
 			{projects.map((item, index) => (
-				<Container
-					key={index}
-					projects={item}
-					uid={index}
-				/>
+				<Container key={index} projects={item} uid={index} />
 			))}
 		</div>
-	)
+	);
 }
 
-export default projects
+export default projects;

@@ -1,41 +1,41 @@
 .menu {
-    margin-top: 50px;
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	margin-top: 50px;
+	max-width: 500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 
-    &-item {
-        @apply bg-black rounded-full relative z-20;
+	&-item {
+		@apply bg-black rounded-full relative z-20;
 
-        &-submenu {
-            @apply rounded-2xl bg-black;
-            position: absolute;
-            width: max-content;
-            padding: 1em;
-            top: 4px;
-            right: 4px;
-            transform-origin: 50% -30px;
-            z-index: 1;
+		&-submenu {
+			@apply rounded-2xl bg-black;
+			position: absolute;
+			width: max-content;
+			padding: 1em;
+			top: 4px;
+			right: 4px;
+			transform-origin: 50% -30px;
+			z-index: 1;
 
-            &-con {
-                @apply rounded-2xl;
-                background: white;
-                padding: 3em;
-                padding-right: 6em;
-                display: flex;
-                flex-direction: column;
-                gap: 1em;
+			&-con {
+				@apply rounded-2xl;
+				background: white;
+				padding: 3em;
+				padding-right: 6em;
+				display: flex;
+				flex-direction: column;
+				gap: 1em;
 
-                &-item {
-                    @apply text-gray-900 cursor-pointer text-3xl;
+				&-item {
+					@apply text-gray-900 cursor-pointer text-3xl;
 
-                    &:hover {
-                        @apply text-gray-500;
-                    }
-                }
-            }
-        }
-    }
+					&:hover {
+						@apply text-gray-500;
+					}
+				}
+			}
+		}
+	}
 }

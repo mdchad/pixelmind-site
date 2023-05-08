@@ -1,7 +1,7 @@
-import { ImageResponse } from '@vercel/og';
+import { ImageResponse } from "@vercel/og";
 
 export const config = {
-	runtime: 'edge',
+	runtime: "edge",
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -11,13 +11,13 @@ export default function () {
 			<div
 				style={{
 					fontSize: 128,
-					background: 'white',
-					width: '100%',
-					height: '100%',
-					display: 'flex',
-					textAlign: 'center',
-					alignItems: 'center',
-					justifyContent: 'center',
+					background: "white",
+					width: "100%",
+					height: "100%",
+					display: "flex",
+					textAlign: "center",
+					alignItems: "center",
+					justifyContent: "center",
 				}}
 			>
 				Pixelmind Studio
@@ -26,6 +26,6 @@ export default function () {
 		{
 			width: 1200,
 			height: 600,
-		},
+		}
 	);
 }

@@ -79,14 +79,14 @@ interface Preview {
 }
 
 interface Cards {
-	className?: string
-	sm?: number,
-	md?: number,
-	lg?: number,
-	xl?: number,
-	children: React.ReactNode,
-	key?: any,
-	uid?: any
+	className?: string;
+	sm?: number;
+	md?: number;
+	lg?: number;
+	xl?: number;
+	children: React.ReactNode;
+	key?: any;
+	uid?: any;
 }
 
 interface Services extends Base {
