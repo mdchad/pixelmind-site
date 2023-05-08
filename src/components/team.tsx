@@ -21,7 +21,6 @@ export default function Team() {
 						about what we do and dedicated to delivering the best
 						results for our clients.
 					</p>
-					<p> My boss is stupid/.</p>
 				</div>
 				<ul
 					role="list"
