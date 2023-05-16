@@ -22,6 +22,7 @@ import Blog from '@/components/blog'
 import { Inter } from 'next/font/google'
 
 import Head from 'next/head'
+import About from '@components/about'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -135,15 +136,12 @@ export default function IndexPage({
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
 					<Hero />
-					<Projects projects={data.getProjects} />
-					<div className="grid grid-cols-3">
-						<div className="col-span-3 lg:col-span-2 lg:col-start-2 p-5">
-							<Services services={data.getServices} />
-						</div>
-					</div>
-					{/* <Testimonials /> */}
+					{/*<Projects projects={data.getProjects} />*/}
+					<About />
+					<Services />
+				 	{/*<Testimonials />*/}
 					{/* <Team /> */}
-					<Blog allPost={data.allPost} featuredPost={data.featuredPost} />
+					{/*<Blog allPost={data.allPost} featuredPost={data.featuredPost} />*/}
 				</div>
 			</Layout>
 		</PreviewSuspense>

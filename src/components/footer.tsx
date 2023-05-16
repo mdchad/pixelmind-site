@@ -11,7 +11,7 @@ function footer() {
 					<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
 						Pixelmind Studio
 					</h1>
-					<p className="text-2xl md:text-3xl lg:text-4xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
+					<p className="text-2xl md:text-3xl lg:text-2xl font-light w-[100%] md:w-[60%] xl:w-[80%]">
 						Let's get in touch
 					</p>
 				</div>
@@ -30,7 +30,7 @@ function footer() {
 								href="mailto:hello@pixelmind.co"
 								className="hover:text-gray-700"
 							>
-								hello@pixelmind.co
+								irsyad.muhd@gmail.com
 							</a>
 							{/* <a href="tel:#">+1 (123) 456 7890</a> */}
 						</div>

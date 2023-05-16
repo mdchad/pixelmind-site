@@ -11,30 +11,44 @@ const Shine = () => {
 	)
 }
 
-function services({ services }: Services) {
+function services() {
 	return (
-		<section className="gap-10 flex flex-col">
-			<div className="mb-5">
-				<h4 className="text-3xl md:text-4xl font-bold">Services</h4>
-				{/* <p className="text-xl md:text-xl font-light">Our work spans brand identity, art direction, product design and packaging.</p> */}
-				<p className="text-xl md:text-xl font-light">
-					Transform your business with our comprehensive services.
-				</p>
-			</div>
-
-			{services &&
-				services.map((service: ServicesType, index: number) => (
-					<div
-						key={service._id}
-						className={`col-span-2 flex gap-5 ${
-							index % 2 === 0 ? 'flex-row-reverse' : ''
-						}`}
-					>
-						<p className="text-2xl md:text-3xl font-light">{service.title}</p>
-						<Shine />
+		<div className="bg-slate-50 rounded-2xl py-24 sm:py-32">
+			<div className="mx-auto max-w-7xl px-6 lg:px-8">
+				<div className="mb-5">
+					<h2 className="mb-8 text-center text-lg font-semibold leading-8 text-gray-900">
+						Services
+					</h2>
+				 	{/*<p className="text-gray-900 text-xl md:text-xl font-light mb-20">Our work spans brand identity, art direction, product design and packaging.</p>*/}
+					<div className="gap-10 flex flex-row">
+						<div>
+							<h1 className="mb-6 text-gray-900 text-xl md:text-xl font-semibold">
+								<span className="bg-[#5afac5]">Mobile app development</span>
+							</h1>
+							<p className="text-gray-600">Unlock the power of mobile with our expert team of developers. We create innovative, user-friendly apps for iOS, Android, and cross-platform solutions that captivate your audience and amplify your brand's presence.</p>
+						</div>
+						<div>
+							<h1 className="mb-6 text-gray-900 text-xl md:text-xl font-semibold">
+								<span className="bg-[#5afac5]">Web app development</span>
+							</h1>
+							<p className="text-gray-600">Streamline your operations and enhance user experiences with our dynamic web applications. Our scalable, secure, and high-performance solutions are tailored to your specific needs, leveraging the latest web technologies.</p>
+						</div>
+						<div>
+							<h1 className="mb-6 text-gray-900 text-xl md:text-xl font-semibold">
+								<span className="bg-[#5afac5]">Landing Page</span>
+							</h1>
+							<p className="text-gray-600">Maximize lead generation and conversions with our optimized landing pages. Our conversion-focused designs and persuasive copywriting create visually compelling pages that align with your brand and drive results.</p>
+						</div>
+						<div>
+							<h1 className="mb-6 text-gray-900 text-xl md:text-xl font-semibold">
+								<span className="bg-[#5afac5]">Ecommerce</span>
+							</h1>
+							<p className="text-gray-600">Thrive in the online retail world with our visually stunning and user-friendly ecommerce websites. We create captivating platforms that showcase your products, streamline shopping experiences, and drive conversions.</p>
+						</div>
 					</div>
-				))}
-		</section>
+				</div>
+			</div>
+		</div>
 	)
 }
 

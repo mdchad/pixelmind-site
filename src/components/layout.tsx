@@ -18,7 +18,7 @@ function layout({ children }: any) {
 					<div className="bg-black h-5"></div>
 				</div>
 
-				<Menu />
+				{/*<Menu />*/}
 
 				{children}
 
