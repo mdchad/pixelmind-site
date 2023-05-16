@@ -38,7 +38,7 @@ export default function PreviewDocumentsCount() {
 					<Projects projects={data.getProjects} />
 					<div className="grid grid-cols-3">
 						<div className="col-span-3 lg:col-span-2 lg:col-start-2 p-5">
-							<Services services={data.getServices} />
+							<Services />
 						</div>
 					</div>
 					{/* <Testimonials /> */}
