@@ -18,7 +18,6 @@ import Testimonials from '@/components/testimonials'
 import Blog from '@/components/blog'
 
 import { Inter } from 'next/font/google'
-import HeadMeta from '@/components/head-meta'
 import { NextSeo } from 'next-seo'
 import ogUrl from '@/common/imageUrl'
 
