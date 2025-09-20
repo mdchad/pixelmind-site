@@ -1,67 +1,74 @@
 import React from 'react'
 import { FiArrowUpRight } from 'react-icons/fi'
-import { Projects } from '@root/typings'
-import { HiDotsVertical } from 'react-icons/hi'
 
-const data = [
+const projectsData = [
 	{
 		id: 1,
-		image: '',
-		title: 'Out of Space',
-		client: 'Adiddas',
-		className: 'col-span-2 md:col-span-2',
+		title: 'MyWay',
+		description: 'An Islamic education app for students.',
+		slug: 'ecommerce-platform'
 	},
 	{
 		id: 2,
-		image: '',
-		title: 'Zeboro Magma',
-		client: 'Converse',
-		className: 'col-span-2 md:col-span-2 lg:col-span-1',
+		title: 'Lumiq',
+		description: 'An investment service app to maximize returns.',
+		slug: 'mobile-banking-app'
 	},
 	{
 		id: 3,
-		image: '',
-		title: 'Spring',
-		client: 'Yellow Pages',
-		className: 'col-span-2 md:col-span-2 lg:col-span-1',
+		title: 'Meja',
+		description: 'Meja is a GUI database for mongoDB.',
+		slug: 'healthcare-dashboard'
 	},
+	{
+		id: 4,
+		title: 'Wordmaker',
+		description: 'Wordpress AI builder to generate themes quickly',
+		slug: 'social-media-platform'
+	}
 ]
 
-interface ProjectsProps {
-	projects: Projects
-	uid: number
+interface ProjectItemProps {
+	title: string
+	description: string
+	slug: string
 }
 
-const Container = ({ projects, uid }: ProjectsProps) => {
+const ProjectItem = ({ title, description, slug }: ProjectItemProps) => {
 	return (
-		// <a href={`projects/${projects._id}`} className={`${className ?? ''} projects-con`}>
-		<a
-			href={`projects/${projects.slug.current}`}
-			className={`projects-con ${
-				uid % 3 === 0
-					? 'col-span-2 md:col-span-2'
-					: 'col-span-2 md:col-span-2 lg:col-span-1'
-			}`}
-		>
-			<div className="project-title-con rounded-tr-2xl">
-				<div className="arrow-con">
-					<FiArrowUpRight className="arrow text-2xl" />
-				</div>
-				<div className="text">
-					<h5 className="font-light">{projects.title}</h5>
-					<p className="font-bold">{projects.client}</p>
-				</div>
+		<div className="mb-8">
+			<div className="group block">
+				<h1 className="text-gray-900 text-xl md:text-xl font-semibold group-hover:underline">
+					<span className="">{title}</span>
+					{/*<FiArrowUpRight className="inline-block ml-2 text-lg transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />*/}
+				</h1>
+				<p className="text-gray-500">{description}</p>
 			</div>
-		</a>
+		</div>
 	)
 }
 
-function projects({ projects }: { projects: Projects[] }) {
+function projects() {
 	return (
-		<div className="projects">
-			{projects.map((item, index) => (
-				<Container key={index} projects={item} uid={index} />
-			))}
+		<div className="bg-slate-50 rounded-2xl py-12 overflow-x-auto">
+			<div className="mx-auto max-w-7xl px-6 lg:px-8">
+				<div className="mb-5">
+					<h2 className="mb-4 text-center text-3xl font-semibold leading-8 text-gray-900">
+						Projects
+					</h2>
+					<p className="text-gray-900 mb-16 text-center">Some of the work we've done for our clients</p>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+						{projectsData.map((project) => (
+							<ProjectItem
+								key={project.id}
+								title={project.title}
+								description={project.description}
+								slug={project.slug}
+							/>
+						))}
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }

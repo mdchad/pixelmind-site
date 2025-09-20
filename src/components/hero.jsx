@@ -73,7 +73,7 @@ function Hero() {
 				</a>
 			</div>
 			<div className="h-full xl:w-5/12 hidden xl:block">
-				<Spline scene="https://prod.spline.design/Xx3GVJIimtGkVwmI/scene.splinecode" />
+				{/*<Spline scene="https://prod.spline.design/Xx3GVJIimtGkVwmI/scene.splinecode" />*/}
 			</div>
 		</section>
 	)

@@ -136,9 +136,9 @@ export default function IndexPage({
 			<Layout>
 				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
 					<Hero />
-					{/*<Projects projects={data.getProjects} />*/}
 					<About />
 					<Services />
+					<Projects />
 				 	{/*<Testimonials />*/}
 					{/* <Team /> */}
 					{/*<Blog allPost={data.allPost} featuredPost={data.featuredPost} />*/}

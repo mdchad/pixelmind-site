@@ -27,10 +27,10 @@ function footer() {
 					<div className="flex-1 flex flex-col gap-5">
 						<div className="flex flex-col">
 							<a
-								href="mailto:hello@pixelmind.co"
+								href="mailto:irsyad@pixelmind.co"
 								className="hover:text-gray-700"
 							>
-								irsyad.muhd@gmail.com
+								irsyad@pixelmindstudio.co
 							</a>
 							{/* <a href="tel:#">+1 (123) 456 7890</a> */}
 						</div>

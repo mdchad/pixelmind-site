@@ -13,10 +13,10 @@ const Shine = () => {
 
 function services() {
 	return (
-		<div className="bg-slate-50 rounded-2xl py-24 sm:py-32">
+		<div className="bg-slate-50 rounded-2xl py-12 overflow-x-auto">
 			<div className="mx-auto max-w-7xl px-6 lg:px-8">
 				<div className="mb-5">
-					<h2 className="mb-8 text-center text-lg font-semibold leading-8 text-gray-900">
+					<h2 className="mb-12 text-center text-3xl font-semibold leading-8 text-gray-900">
 						Services
 					</h2>
 				 	{/*<p className="text-gray-900 text-xl md:text-xl font-light mb-20">Our work spans brand identity, art direction, product design and packaging.</p>*/}
