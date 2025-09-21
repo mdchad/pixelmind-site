@@ -4,6 +4,7 @@ const nextConfig = {
 	images: {
 		domains: ['images.unsplash.com', 'cdn.sanity.io'],
 	},
+	transpilePackages: ["geist"],
 	eslint: {
 		ignoreDuringBuilds: true,
 	},

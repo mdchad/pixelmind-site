@@ -1,17 +1,11 @@
 import Menu from '@/components/menu'
 import Footer from '@/components/footer'
 
-import { Inter } from 'next/font/google'
 import Link from 'next/link'
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
 
 function layout({ children }: any) {
 	return (
-		<main className={`${inter.variable} font-sans relative`}>
+		<main className={`font-sans relative`}>
 			<div className="fixed top-0 left-0 p-2 bg-black z-50 w-full flex justify-between">
 				<p className="text-sm font-sans text-green-500 flex items-center gap-2">
 					<span className="block bg-green-500 w-2 h-2 rounded-full"></span>

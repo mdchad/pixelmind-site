@@ -6,15 +6,9 @@ import { allProjects } from '@lib/sanity.queries'
 import Layout from '@/components/layout'
 import Projects from '@/components/projects'
 
-import { Inter } from 'next/font/google'
 import HeadMeta from '@/components/head-meta'
 import ogUrl from '@/common/imageUrl'
 import { NextSeo } from 'next-seo'
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
 
 const PreviewProjectPage = lazy(
 	() => import('@components/Studio/PreviewProjectPage')
@@ -37,7 +31,7 @@ export const getStaticProps = async ({ preview = false }) => {
 // loading the preview component
 export const loading = () => (
 	<div
-		className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}
+		className={`flex justify-center items-center h-screen w-screen font-sans`}
 	>
 		<h1>Loading...</h1>
 	</div>

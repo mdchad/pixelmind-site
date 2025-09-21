@@ -4,7 +4,6 @@ import { useGlitch } from 'react-powerglitch'
 import HeadMeta from '@/components/head-meta'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
 import { MdOutlineMail } from 'react-icons/md'
 import { NextSeo } from 'next-seo'
 import ogUrl from '@/common/imageUrl'
@@ -13,17 +12,12 @@ type Props = {
 	getLinktree: Linktree[]
 }
 
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
-
 function Linktree({ getLinktree }: Props) {
 	const glitch = useGlitch()
 
 	return (
 		<section
-			className={`grid place-content-center text-center h-screen gap-10 ${inter.variable} font-sans`}
+			className={`grid place-content-center text-center h-screen gap-10 font-sans`}
 		>
 			<div>
 				<h1

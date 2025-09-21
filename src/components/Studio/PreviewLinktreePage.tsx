@@ -6,15 +6,9 @@ import Blog from '@/components/blog'
 import { allLinktree } from '@lib/sanity.queries'
 import { Linktree as LinktreeType } from '@root/typings'
 import { MdOutlineMail } from 'react-icons/md'
-import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import { useGlitch } from 'react-powerglitch'
 import { urlForImage } from '@root/lib/sanity.image'
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
 
 export default function PreviewLinktreePage() {
 	const getLinktree = usePreview(null, allLinktree)
@@ -22,7 +16,7 @@ export default function PreviewLinktreePage() {
 
 	return (
 		<section
-			className={`grid place-content-center text-center h-screen gap-10 ${inter.variable} font-sans`}
+			className={`grid place-content-center text-center h-screen gap-10 font-sans`}
 		>
 			<div>
 				<h1

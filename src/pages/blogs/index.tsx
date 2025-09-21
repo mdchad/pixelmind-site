@@ -17,14 +17,8 @@ import Team from '@/components/team'
 import Testimonials from '@/components/testimonials'
 import Blog from '@/components/blog'
 
-import { Inter } from 'next/font/google'
 import { NextSeo } from 'next-seo'
 import ogUrl from '@/common/imageUrl'
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
 
 const PreviewBlogPage = lazy(() => import('@components/Studio/PreviewBlogPage'))
 
@@ -48,7 +42,7 @@ export const getStaticProps = async ({ preview = false }) => {
 // loading the preview component
 export const loading = () => (
 	<div
-		className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}
+		className={`flex justify-center items-center h-screen w-screen font-sans`}
 	>
 		<h1>Loading...</h1>
 	</div>

@@ -7,14 +7,8 @@ import { Post, Preview } from '@root/typings'
 import { postBySlugQuery, allPosts } from '@lib/sanity.queries'
 import { NextSeo } from 'next-seo'
 
-import { Inter } from 'next/font/google'
 import HeadMeta from '@/components/head-meta'
 import { urlForImage } from '@root/lib/sanity.image'
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
 
 const PreviewBlogInnerPage = lazy(
 	() => import('@components/Studio/PreviewBlogInnerPage')
@@ -58,7 +52,7 @@ export const getStaticProps = async ({ preview = false, params }: any) => {
 // loading the preview component
 export const loading = () => (
 	<div
-		className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}
+		className={`flex justify-center items-center h-screen w-screen font-sans`}
 	>
 		<h1>Loading...</h1>
 	</div>

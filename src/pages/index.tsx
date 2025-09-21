@@ -19,15 +19,9 @@ import Team from '@/components/team'
 import Testimonials from '@/components/testimonials'
 import Blog from '@/components/blog'
 
-import { Inter } from 'next/font/google'
 
 import Head from 'next/head'
 import About from '@components/about'
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
 
 const PreviewIndexPage = lazy(
 	() => import('@components/Studio/PreviewIndexPage')
@@ -103,7 +97,7 @@ export const getStaticProps = async ({ preview = false }) => {
 // loading the preview component
 export const loading = () => (
 	<div
-		className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}
+		className={`flex justify-center items-center h-screen w-screen font-sans`}
 	>
 		<h1>Loading...</h1>
 	</div>
@@ -134,7 +128,7 @@ export default function IndexPage({
 	return (
 		<PreviewSuspense fallback={loading()}>
 			<Layout>
-				<div className="rounded-xl overflow-hidden flex flex-col gap-5">
+				<div className="rounded-xl overflow-hidden flex flex-col gap-5 font-sans">
 					<Hero />
 					<About />
 					<Services />

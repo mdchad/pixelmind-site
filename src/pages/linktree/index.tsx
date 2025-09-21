@@ -5,15 +5,9 @@ import Layout from '@/components/layout'
 import { Preview, Linktree as LinktreeType } from '@root/typings'
 import { allLinktree } from '@lib/sanity.queries'
 
-import { Inter } from 'next/font/google'
 import Linktree from '@/components/linktree'
 import ogUrl from '@/common/imageUrl'
 import { NextSeo } from 'next-seo'
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-inter',
-})
 
 const PreviewLinktreePage = lazy(
 	() => import('@components/Studio/PreviewLinktreePage')
@@ -32,7 +26,7 @@ export const getStaticProps = async ({ preview = false }) => {
 // loading the preview component
 export const loading = () => (
 	<div
-		className={`flex justify-center items-center h-screen w-screen ${inter.variable} font-sans`}
+		className={`flex justify-center items-center h-screen w-screen font-sans`}
 	>
 		<h1>Loading...</h1>
 	</div>

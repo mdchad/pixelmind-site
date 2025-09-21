@@ -3,12 +3,13 @@ import '@/styles/styles.scss'
 import 'tailwindcss/tailwind.css'
 import type { AppProps } from 'next/app'
 import HeadMeta from '@components/head-meta'
+import { GeistSans } from "geist/font/sans";
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<HeadMeta />
-			<Component {...pageProps} />
+			<Component {...pageProps} className={GeistSans.className}/>
 		</>
 	)
 }
