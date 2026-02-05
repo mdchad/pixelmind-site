@@ -1,0 +1,114 @@
+
+@import "tailwindcss";
+
+@theme inline {
+	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-mono: var(--font-space-mono), 'Courier New', monospace;
+
+	--color-bg-primary: #1F3AFF;
+	--color-bg-secondary: #2E4CFF;
+	--color-card: #E6E6E6;
+	--color-text-primary: #000000;
+	--color-text-muted: #444444;
+	--color-accent: #000000;
+	--color-accent-text: #FFFFFF;
+
+	--spacing-sm: 1rem;
+	--spacing-md: 2rem;
+	--spacing-lg: 4rem;
+}
+
+@utility scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+:root {
+	--color-bg-primary: #1F3AFF;
+	--color-bg-secondary: #2E4CFF;
+	--color-card-bg: #E6E6E6;
+	--color-text-main: #000000;
+	--color-text-muted: #444444;
+	--color-accent: #000000;
+	--color-accent-text: #FFFFFF;
+	--radius: 0px;
+	--grid-unit: 8px;
+	--spacing-sm: 16px;
+	--spacing-md: 32px;
+	--spacing-lg: 64px;
+	--container-width: 1200px;
+	--font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-mono: 'Space Mono', 'Courier New', monospace;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: var(--color-bg-primary);
+	background-image: radial-gradient(var(--color-bg-secondary) 20%, transparent 20%);
+	background-size: 16px 16px;
+	background-position: 0 0;
+	color: var(--color-text-main);
+	font-family: var(--font-main);
+	line-height: 1.4;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	font-size: 1.1rem;
+	color: var(--color-text-muted);
+	line-height: 1.6;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+	font-weight: 400;
+	letter-spacing: -0.02em;
+}
+
+.mono-label {
+	font-family: var(--font-mono);
+	text-transform: uppercase;
+	font-size: 0.85rem;
+	letter-spacing: 0.05em;
+}
+
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--color-accent);
+	color: var(--color-accent-text);
+	font-family: var(--font-mono);
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	letter-spacing: 0.1em;
+	padding: 16px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: var(--radius);
+	transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+	opacity: 0.9;
+}
+
+.card {
+	background: var(--color-card-bg);
+	border-radius: var(--radius);
+}

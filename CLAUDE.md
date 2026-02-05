@@ -17,47 +17,47 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Architecture
 
-This is a Next.js 13 portfolio/agency website with Sanity CMS integration and modern styling frameworks.
+This is a modern Next.js 16 portfolio/agency website with a minimalist terminal-inspired design.
 
 ### Key Technologies
-- **Frontend**: Next.js 13 with TypeScript, React 18
-- **Styling**: Tailwind CSS with SCSS modules, Styled Components
-- **CMS**: Sanity v3 with custom studio at `/studio`
-- **Animations**: Framer Motion, React PowerGlitch, Spline 3D
+- **Frontend**: Next.js 16 with TypeScript, React 19
+- **Styling**: Tailwind CSS 4 with custom CSS variables
+- **Animations**: Framer Motion, React PowerGlitch, ASCII canvas animations
 - **Deployment**: Vercel with automatic sitemap generation
 
 ### Project Structure
 - `src/pages/` - Next.js pages with file-based routing
-- `src/components/` - Reusable React components
-- `src/sanity/schemas/` - Sanity schema definitions
-- `lib/` - Sanity client configuration and queries
-- `src/styles/` - Global CSS and SCSS files
+- `src/components/landing/` - Landing page components (Header, Hero, Services, Contact, etc.)
+- `src/styles/` - Global CSS with CSS variables and Tailwind
+- `lib/` - Utility functions
 
-### Sanity CMS Integration
-- Studio accessible at `/studio` route
-- Environment variables required: `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`
-- Client configured in `lib/sanity.client.ts`
-- Custom studio components in `src/components/Studio/`
-- Schemas define content types: projects, posts, services, authors, etc.
+### Design System
+- **Terminal-inspired aesthetic**: Monospace fonts, crosshair cursor, mix-blend-mode effects
+- **Color scheme**: Black background (#000), white foreground (#fff), dim accents (#444)
+- **Typography**: Space Mono for monospace, Inter for sans-serif
+- **Layout**: Grid-based services, horizontal scrolling testimonials
+- **Animations**: Rotating ASCII donut, blinking cursor, button hover effects
 
 ### Styling System
-- Tailwind CSS for utility-first styling
-- Custom font family configuration using Inter
-- SCSS modules for component-specific styles
-- Styled Components for dynamic styling
-- Custom shimmer animation keyframes
+- Tailwind CSS 4 for utility-first styling
+- CSS variables for theming (--bg, --fg, --dim, --accent)
+- Custom font configuration with Space Mono and Inter
+- Custom animations and transitions
+- Crosshair cursor throughout
 
 ### Code Conventions
 - TypeScript for type safety
 - ESLint with Next.js core web vitals rules
-- Prettier with single quotes, no semicolons, 2-space indentation
+- Prettier with single quotes, 2-space indentation
 - React strict mode enabled
 - Component imports use `@/` and `@components/` aliases
 
 ### Key Features
-- Blog system with Sanity CMS
-- Project portfolio with categories
-- Team/about pages
-- Link tree functionality
+- ASCII canvas animation background
+- Real-time clock in header
+- Smooth scroll navigation
+- Contact form with custom styling
+- Responsive grid layout
+- Mix-blend-mode visual effects
 - SEO optimization with next-seo
-- Responsive design with mobile-first approach
+- Mobile-first responsive design
