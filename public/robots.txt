@@ -1,14 +1,10 @@
 # *
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /api
-Disallow: /api/*
+Disallow: /api/
 
 # Host
-Host: https://www.pixelmindstudio.co/
+Host: https://www.pixelmindstudio.co
 
 # Sitemaps
 Sitemap: https://www.pixelmindstudio.co/sitemap.xml
-Sitemap: https://www.pixelmindstudio.co//sitemap.xml
-Sitemap: https://www.pixelmindstudio.co//server-sitemap.xml
