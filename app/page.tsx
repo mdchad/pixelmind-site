@@ -1,19 +1,19 @@
-import Header from '@/components/landing/Header'
 import Hero from '@/components/landing/Hero'
 import Services from '@/components/landing/Services'
-import Testimonials from '@/components/landing/Testimonials'
+import Projects from '@/components/landing/Projects'
 import Contact from '@/components/landing/Contact'
-import Footer from '@/components/landing/Footer'
 
 export default function Home() {
   return (
-    <>
-      <Header />
+    <div className="container max-w-[1200px] mx-auto px-8 py-16">
       <Hero />
       <Services />
-      <Testimonials />
+      <Projects />
       <Contact />
-      <Footer />
-    </>
+
+      <footer className="text-center text-white/50 font-mono text-sm mt-12">
+        PIXELMIND STUDIO © 2024. SYSTEM OPERATIONAL.
+      </footer>
+    </div>
   )
 }

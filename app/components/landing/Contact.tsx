@@ -26,73 +26,79 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-full py-32 relative border-b border-[#111] flex items-start mt-32">
-      <div className="w-full max-w-[1600px] mx-auto px-8 md:px-16">
-        <div className="grid grid-cols-2 gap-8 md:gap-0">
-          {/* Left side - Title and description */}
-          <div className="">
-            <h2 className="lowercase font-mono text-2xl mb-4 font-normal tracking-tight">uplink</h2>
-            <p className="text-[#888] text-sm">Available for new contracts. Response time &lt; 24h.</p>
+    <section
+      id="contact"
+      className="bg-[#E6E6E6] p-16 mb-16"
+    >
+      <div className="mb-8 font-mono text-black">
+        /// GET IN TOUCH
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        {/* Left side - Title and description */}
+        <div>
+          <h2 className="font-mono text-3xl mb-4 font-normal text-black">
+            Let's Build Something
+          </h2>
+          <p className="text-base text-[#444444] leading-relaxed max-w-md">
+            Available for new contracts and consultations. Average response time under 24 hours.
+          </p>
+        </div>
+
+        {/* Right side - Form */}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+          <div className="relative">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              onFocus={() => setFocusedField('name')}
+              onBlur={() => setFocusedField(null)}
+              placeholder="Your Name"
+              required
+              className={`w-full bg-transparent border-none border-b ${focusedField === 'name' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors`}
+            />
           </div>
 
-          {/* Right side - Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-12 md:pl-16">
-            <div className="relative">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                onFocus={() => setFocusedField('name')}
-                onBlur={() => setFocusedField(null)}
-                placeholder="client_id"
-                required
-                className="w-full bg-transparent border-none border-b border-[#333] focus:border-white text-white py-4 font-mono text-sm rounded-none outline-none transition-colors placeholder:text-[#666] placeholder:lowercase"
-                style={{ borderBottomColor: focusedField === 'name' ? 'var(--fg)' : '#333' }}
-              />
-            </div>
+          <div className="relative">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onFocus={() => setFocusedField('email')}
+              onBlur={() => setFocusedField(null)}
+              placeholder="Email Address"
+              required
+              className={`w-full bg-transparent border-none border-b ${focusedField === 'email' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors`}
+            />
+          </div>
 
-            <div className="relative">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                onFocus={() => setFocusedField('email')}
-                onBlur={() => setFocusedField(null)}
-                placeholder="comms_channel"
-                required
-                className="w-full bg-transparent border-none border-b border-[#333] focus:border-white text-white py-4 font-mono text-sm rounded-none outline-none transition-colors placeholder:text-[#666] placeholder:lowercase"
-                style={{ borderBottomColor: focusedField === 'email' ? 'var(--fg)' : '#333' }}
-              />
-            </div>
+          <div className="relative">
+            <textarea
+              id="msg"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              onFocus={() => setFocusedField('message')}
+              onBlur={() => setFocusedField(null)}
+              rows={4}
+              placeholder="Project Details"
+              required
+              className={`w-full bg-transparent border-none border-b ${focusedField === 'message' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors resize-vertical`}
+            />
+          </div>
 
-            <div className="relative">
-              <textarea
-                id="msg"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                onFocus={() => setFocusedField('message')}
-                onBlur={() => setFocusedField(null)}
-                rows={8}
-                placeholder="project_specs"
-                required
-                className="w-full bg-transparent border-none border-b border-[#333] focus:border-white text-white py-4 font-mono text-sm rounded-none outline-none transition-colors resize-none placeholder:text-[#666] placeholder:lowercase"
-                style={{ borderBottomColor: focusedField === 'message' ? 'var(--fg)' : '#333' }}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="btn-minimal lowercase w-fit font-mono text-sm border border-[#444] px-6 py-3 bg-transparent text-white transition-all duration-300 relative overflow-hidden cursor-pointer hover:text-black hover:border-white"
-            >
-              send_transmission
-            </button>
-          </form>
-        </div>
+          <button
+            type="submit"
+            className="btn-primary w-fit"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React from 'react';
 
 interface ServiceCardProps {
   icon: string;
@@ -9,20 +9,14 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div
-      className="bg-black hover:bg-[#050505] p-8 md:p-16 md:py-16 flex flex-col justify-between h-[300px] transition-colors duration-300"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="font-mono text-2xl mb-4 whitespace-pre">
+    <div className="bg-[#E6E6E6] p-8 flex flex-col gap-6">
+      <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-mono text-sm">
         {icon}
       </div>
       <div>
-        <h3 className="font-mono lowercase text-lg mb-2">{title}</h3>
-        <p className="lowercase text-[#888]">{description}</p>
+        <h3 className="text-black text-xl font-normal mb-5">{title}</h3>
+        <span className="text-[#444444] text-sm leading-relaxed">{description}</span>
       </div>
     </div>
   );
