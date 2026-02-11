@@ -14,13 +14,13 @@ const Hero = () => {
 					width={30}
 					height={30}
 				/>
-        <span className="mono-label mb-4 block font-mono uppercase text-[0.85rem] tracking-wider">
+        <span className="mb-4 block uppercase text-[0.85rem] tracking-wider font-geist-pixel-grid text-black">
           Pixelmind Studio
         </span>
-        <h1 className="text-5xl md:text-6xl leading-tight mb-8 font-normal tracking-tight text-black">
+        <h1 className="text-5xl md:text-6xl leading-tight mb-8 font-normal tracking-tight text-black font-geist-pixel-square">
           Engineered for the Next Intelligence.
         </h1>
-        <p className="mb-8 text-lg text-[#444444] leading-relaxed">
+        <p className="mb-8 text-lg text-[#444444] leading-relaxed font-geist-pixel-grid">
           We construct high-performance software solutions, mobile architectures, responsive web ecosystems for enterprise scalability.
         </p>
         <div>

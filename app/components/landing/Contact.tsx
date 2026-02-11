@@ -37,10 +37,10 @@ const Contact = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Left side - Title and description */}
         <div>
-          <h2 className="font-mono text-3xl mb-4 font-normal text-black">
+          <h2 className="text-3xl mb-4 font-normal text-black font-geist-pixel-square">
             Let's Build Something
           </h2>
-          <p className="text-base text-[#444444] leading-relaxed max-w-md">
+          <p className="text-base text-[#444444] leading-relaxed font-geist-pixel-grid">
             Available for new contracts and consultations. Average response time under 24 hours.
           </p>
         </div>
@@ -58,7 +58,7 @@ const Contact = () => {
               onBlur={() => setFocusedField(null)}
               placeholder="Your Name"
               required
-              className={`w-full bg-transparent border-none border-b ${focusedField === 'name' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors`}
+              className={`w-full bg-transparent border-b ${focusedField === 'name' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors`}
             />
           </div>
 
@@ -73,7 +73,7 @@ const Contact = () => {
               onBlur={() => setFocusedField(null)}
               placeholder="Email Address"
               required
-              className={`w-full bg-transparent border-none border-b ${focusedField === 'email' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors`}
+              className={`w-full bg-transparent border-b ${focusedField === 'email' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors`}
             />
           </div>
 
@@ -88,7 +88,7 @@ const Contact = () => {
               rows={4}
               placeholder="Project Details"
               required
-              className={`w-full bg-transparent border-none border-b ${focusedField === 'message' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors resize-vertical`}
+              className={`w-full bg-transparent border-b ${focusedField === 'message' ? 'border-black' : 'border-gray-300'} py-4 font-mono text-sm text-black placeholder:text-gray-500 outline-none transition-colors resize-vertical`}
             />
           </div>
 
