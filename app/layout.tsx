@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
-import { GeistSans } from "geist/font/sans"
-import { Space_Mono, Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Space_Mono } from 'next/font/google'
+import { GeistPixelSquare, GeistPixelGrid, GeistPixelCircle, GeistPixelTriangle, GeistPixelLine } from 'geist/font/pixel';
 import './globals.css'
 import StructuredData from '@/components/StructuredData'
 
@@ -83,16 +85,6 @@ export const metadata: Metadata = {
   },
 }
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
-
 const spaceMono = Space_Mono({
 	weight: '400',
 	variable: "--font-space-mono",
@@ -112,7 +104,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="zaNyWUg7p8IwSpbD_oEv_rVc8J_i4FGlHinRB3EZIZA" />
         <StructuredData />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${spaceMono.variable} antialiased`}>
+      <body className={`${GeistMono.variable} ${GeistSans.variable} ${spaceMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} antialiased`}>
         {children}
       </body>
     </html>

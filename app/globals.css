@@ -4,6 +4,10 @@
 @theme inline {
 	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 	--font-mono: var(--font-space-mono), 'Courier New', monospace;
+	--font-geist-sans: var(--font-geist-sans);
+	--font-geist-mono: var(--font-geist-mono);
+	--font-geist-pixel-square: var(--font-geist-pixel-square);
+	--font-geist-pixel-grid: var(--font-geist-pixel-grid);
 
 	--color-bg-primary: #1F3AFF;
 	--color-bg-secondary: #2E4CFF;
