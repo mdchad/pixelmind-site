@@ -11,10 +11,10 @@ const siteUrl = process.env.NEXT_PUBLIC_URL || 'https://www.pixelmindstudio.co'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Pixelmind Studio | Building Bridges Between Business and Technology',
+    default: 'Pixelmind Studio — We Craft Software, Pixel by Pixel',
     template: '%s | Pixelmind Studio',
   },
-  description: 'At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, mobile engineering, web platforms, point of sale systems, and AI-powered applications that help businesses grow.',
+  description: 'We craft software, with a pixel-perfect touch. Built for the ambitious.',
   keywords: [
     'custom technology solutions',
     'web design',
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: '/',
     siteName: 'Pixelmind Studio',
-    title: 'Pixelmind Studio | Building Bridges Between Business and Technology',
-    description: 'At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, mobile engineering, web platforms, and AI-powered applications.',
+    title: 'Pixelmind Studio — We Craft Software, Pixel by Pixel',
+    description: 'We craft software, with a pixel-perfect touch. Built for the ambitious.',
     images: [
       {
         url: '/api/og',
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@pixelmindstudio',
     creator: '@pixelmindstudio',
-    title: 'Pixelmind Studio | Building Bridges Between Business and Technology',
-    description: 'Custom software solutions, mobile engineering, web platforms, and AI-powered applications that help businesses grow.',
+    title: 'Pixelmind Studio — We Craft Software, Pixel by Pixel',
+    description: 'Pixelmind Studio builds custom software, mobile apps, web platforms, and AI-powered applications that help businesses grow.',
     images: ['/api/og'],
   },
   icons: {
