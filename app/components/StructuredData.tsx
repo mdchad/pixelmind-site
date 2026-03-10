@@ -10,6 +10,8 @@ export default function StructuredData() {
       'https://twitter.com/pixelmindstudio',
       'https://www.instagram.com/pixelmind.studio/',
       'https://www.facebook.com/pixelmindstudio.co',
+      'https://www.linkedin.com/company/pixelmindstudio',
+      'https://www.google.com/maps/place/Pixelmind+Studio/data=!4m2!3m1!1s0x0:0xf95e87fd2fe105c4',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
