@@ -9,6 +9,7 @@ const Contact = () => {
     message: ''
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,11 +19,22 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Transmission sent! We will respond within 24 hours.');
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('loading');
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      setStatus('error');
+    }
   };
 
   return (
@@ -94,10 +106,18 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="btn-primary w-fit"
+            disabled={status === 'loading'}
+            className="btn-primary w-fit disabled:opacity-50"
           >
-            Send Message
+            {status === 'loading' ? 'Sending...' : 'Send Message'}
           </button>
+
+          {status === 'success' && (
+            <p className="font-mono text-sm text-black">Transmission sent. We'll respond within 24 hours.</p>
+          )}
+          {status === 'error' && (
+            <p className="font-mono text-sm text-red-600">Something went wrong. Please try again.</p>
+          )}
         </form>
       </div>
     </section>

@@ -26,10 +26,10 @@ const Services = () => {
   ];
 
   return (
-    <section className="mb-16">
-      <div className="mb-4 text-white font-mono">
+    <section id="services" className="mb-16">
+      <h2 className="mb-4 text-white font-mono text-base font-normal">
         /// CAPABILITIES
-      </div>
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
