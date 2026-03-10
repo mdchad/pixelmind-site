@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Space_Mono } from 'next/font/google'
-import { GeistPixelSquare, GeistPixelGrid, GeistPixelCircle, GeistPixelTriangle, GeistPixelLine } from 'geist/font/pixel';
+import { GeistPixelSquare, GeistPixelGrid } from 'geist/font/pixel';
 import './globals.css'
 import StructuredData from '@/components/StructuredData'
 
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     site: '@pixelmindstudio',
     creator: '@pixelmindstudio',
     title: 'Pixelmind Studio — We Craft Software, Pixel by Pixel',
-    description: 'Pixelmind Studio builds custom software, mobile apps, web platforms, and AI-powered applications that help businesses grow.',
+    description: 'We craft software, with a pixel-perfect touch. Built for the ambitious.',
     images: ['/api/og'],
   },
   icons: {

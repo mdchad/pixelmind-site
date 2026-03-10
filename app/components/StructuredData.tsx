@@ -4,10 +4,12 @@ export default function StructuredData() {
     '@type': 'Organization',
     name: 'Pixelmind Studio',
     url: 'https://www.pixelmindstudio.co',
-    logo: 'https://www.pixelmindstudio.co/api/og',
-    description: 'At Pixelmind Studio, we specialize in bridging the gap between business and technology. Our team delivers custom software solutions, mobile engineering, web platforms, point of sale systems, and AI-powered applications.',
+    logo: 'https://www.pixelmindstudio.co/android-chrome-512x512.png',
+    description: 'We craft software, with a pixel-perfect touch. Built for the ambitious.',
     sameAs: [
       'https://twitter.com/pixelmindstudio',
+      'https://www.instagram.com/pixelmind.studio/',
+      'https://www.facebook.com/pixelmindstudio.co',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
@@ -21,7 +23,7 @@ export default function StructuredData() {
     '@type': 'WebSite',
     name: 'Pixelmind Studio',
     url: 'https://www.pixelmindstudio.co',
-    description: 'Building Bridges Between Business and Technology',
+    description: 'We craft software, with a pixel-perfect touch. Built for the ambitious.',
     publisher: {
       '@type': 'Organization',
       name: 'Pixelmind Studio',
@@ -32,9 +34,9 @@ export default function StructuredData() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'Pixelmind Studio',
-    image: 'https://www.pixelmindstudio.co/api/og',
+    image: 'https://www.pixelmindstudio.co/android-chrome-512x512.png',
     url: 'https://www.pixelmindstudio.co',
-    description: 'Custom software development, mobile engineering, web platforms, and AI solutions.',
+    description: 'We craft software, with a pixel-perfect touch. Built for the ambitious.',
     priceRange: '$$',
     areaServed: 'Worldwide',
     serviceType: [

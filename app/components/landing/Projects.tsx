@@ -20,6 +20,7 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}
@@ -113,10 +114,10 @@ const Projects = () => {
   ];
 
   return (
-    <section className="mb-16 md:mb-16 -mx-8 md:mx-0 px-8 md:px-0 py-8 md:py-0 bg-white md:bg-transparent">
-      <div className="mb-8 text-black md:text-white font-mono">
+    <section id="work" className="mb-16 md:mb-16 -mx-8 md:mx-0 px-8 md:px-0 py-8 md:py-0 bg-white md:bg-transparent">
+      <h2 className="mb-8 text-black md:text-white font-mono text-base font-normal">
         /// SELECTED WORK
-      </div>
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />

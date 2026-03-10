@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Hero from '@/components/landing/Hero'
 import Services from '@/components/landing/Services'
 import Projects from '@/components/landing/Projects'
@@ -11,8 +12,11 @@ export default function Home() {
       <Projects />
       <Contact />
 
-      <footer className="text-center text-white/50 font-mono text-sm mt-12">
-        PIXELMIND STUDIO © 2024. SYSTEM OPERATIONAL.
+      <footer className="text-center text-white/50 font-mono text-sm mt-12 flex flex-col gap-2 items-center">
+        <span>PIXELMIND STUDIO © {new Date().getFullYear()}. SYSTEM OPERATIONAL.</span>
+        <Link href="/privacy" className="hover:text-white transition-colors text-xs">
+          privacy policy
+        </Link>
       </footer>
     </div>
   )

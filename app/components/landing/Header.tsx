@@ -25,9 +25,11 @@ const Header = () => {
         <span>{time}</span>
         <span className="ml-4 text-[#444]">system_ready</span>
       </div>
-      <div className="pointer-events-auto font-mono lowercase">
-        <span>menu</span>
-      </div>
+      <nav className="pointer-events-auto font-mono lowercase flex gap-6 text-sm">
+        <a href="#services">services</a>
+        <a href="#work">work</a>
+        <a href="#contact">contact</a>
+      </nav>
     </header>
   );
 };
