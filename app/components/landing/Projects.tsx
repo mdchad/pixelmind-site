@@ -90,15 +90,15 @@ const Projects = () => {
 			image: '',
 			link: 'https://www.tebuk.app/'
     },
-    {
-      title: 'Tour with Nour',
-      category: 'Tourism',
-			platform: 'Web, Mobile, AI',
-      year: '2026',
-      description: 'Tour guide booking platform connecting travelers with multilingual tour guides. Features trip selection, transport coordination, and language-based guide matching. Built with Next.js and Expo for seamless cross-platform experience.',
+		{
+			title: 'Tour with Nour',
+			category: 'Tourism',
+			platform: 'Web, Mobile',
+			year: '2026',
+			description: 'Tour guide booking platform connecting travellers with a Singapore-based guide. Features trip selection, transport coordination, and seamless booking experience. Built with Next.js and Expo.',
 			image: '/projects/tour.png',
-			link: 'https://rnadventure.pixelmindstudio.co'
-    },
+			link: 'https://thetourwithnour.com'
+		},
     // {
     //   title: 'Healthcare Management Platform',
     //   category: 'Web Ecosystem',
