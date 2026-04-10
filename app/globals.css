@@ -6,15 +6,19 @@
   --font-display: var(--font-cardo), Georgia, 'Times New Roman', serif;
   --font-serif: var(--font-cardo), Georgia, 'Times New Roman', serif;
 
+  /* Design tokens — generates text-*, bg-*, border-* utilities */
+  --color-bg: #000000;
+  --color-bg-card: #0D0D0D;
+  --color-bg-soft: #111111;
+  --color-fg: #FFFFFF;
+  --color-muted: #AAAAAA;
+  --color-subtle: #777777;
+  --color-border: #1F1F1F;
+  --color-accent: #5AFAC5;
   --color-mint: #5AFAC5;
+  --color-stone: #AAAAAA;
   --color-white: #FFFFFF;
   --color-black: #000000;
-  --color-gray-900: #111111;
-  --color-gray-800: #1A1A1A;
-  --color-gray-700: #222222;
-  --color-gray-500: #555555;
-  --color-gray-400: #888888;
-  --color-stone: #888888;
 }
 
 @utility scrollbar-hide {
@@ -31,8 +35,8 @@
   --bg-card: #0D0D0D;
   --bg-soft: #111111;
   --fg: #FFFFFF;
-  --muted: #888888;
-  --subtle: #444444;
+  --muted: #AAAAAA;
+  --subtle: #777777;
   --border: #1F1F1F;
   --accent: #5AFAC5;
   --accent-hover: #3EE8B0;
@@ -47,7 +51,7 @@
 
   /* Token aliases — used in components */
   --parchment: #1A1A1A;
-  --stone: #888888;
+  --stone: #AAAAAA;
 
   /* Accent safe on dark backgrounds */
   --accent-on-light: #5AFAC5;
@@ -65,50 +69,52 @@
   /*padding: 0;*/
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-html, body {
-  background-color: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-figtree), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  html, body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-figtree), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-p {
-  color: var(--muted);
-  line-height: 1.75;
-}
+  p {
+    color: var(--muted);
+    line-height: 1.75;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  color: var(--fg);
-}
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    color: var(--fg);
+  }
 
-h1, h2 {
-  font-family: var(--font-cardo), Georgia, 'Times New Roman', serif;
-  font-weight: 400;
-  letter-spacing: 0;
-}
+  h1, h2 {
+    font-family: var(--font-cardo), Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
 
-h3, h4, h5, h6 {
-  font-family: var(--font-figtree), -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-}
+  h3, h4, h5, h6 {
+    font-family: var(--font-figtree), -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
 
-::selection {
-  background: var(--accent);
-  color: #000;
+  ::selection {
+    background: var(--accent);
+    color: #000;
+  }
 }
 
 /* Skip link for accessibility */
@@ -150,7 +156,7 @@ h3, h4, h5, h6 {
   padding: 14px 28px;
   border: none;
   cursor: pointer;
-  border-radius: var(--radius-full);
+  /*border-radius: var(--radius-full);*/
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
@@ -178,7 +184,7 @@ h3, h4, h5, h6 {
   padding: 14px 28px;
   border: 1px solid #333;
   cursor: pointer;
-  border-radius: var(--radius-full);
+  /*border-radius: var(--radius-full);*/
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }

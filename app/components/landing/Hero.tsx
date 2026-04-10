@@ -36,7 +36,7 @@ const HeroVisual = () => (
         <span
           style={{
             fontSize: 10,
-            color: '#444',
+            color: '#777',
             fontFamily: 'monospace',
             letterSpacing: '0.06em',
             textTransform: 'uppercase',
@@ -50,8 +50,8 @@ const HeroVisual = () => (
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         {[
           { value: '10+', label: 'shipped' },
-          { value: '2020', label: 'founded' },
-          { value: '3', label: 'countries' },
+          { value: '2023', label: 'founded' },
+          { value: '3+', label: 'countries' },
           { value: '24h', label: 'response' },
         ].map(({ value, label }, i) => (
           <div
@@ -77,7 +77,7 @@ const HeroVisual = () => (
             <div
               style={{
                 fontSize: 10,
-                color: '#555',
+                color: '#888',
                 marginTop: 6,
                 textTransform: 'uppercase',
                 letterSpacing: '0.07em',
@@ -96,7 +96,7 @@ const HeroVisual = () => (
             padding: '12px 16px',
             borderBottom: '1px solid #141414',
             fontSize: 10,
-            color: '#444',
+            color: '#777',
             letterSpacing: '0.07em',
             textTransform: 'uppercase',
           }}
@@ -129,7 +129,7 @@ const HeroVisual = () => (
               >
                 {name}
               </span>
-              <span style={{ fontSize: 10, color: '#555' }}>{cat}</span>
+              <span style={{ fontSize: 10, color: '#888' }}>{cat}</span>
             </div>
             <span
               style={{
@@ -191,7 +191,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left — copy */}
           <div>
-            <div className="section-label mb-8">Software studio</div>
+            <div className="section-label mb-8">Software development agency</div>
 
             <h1
               className="mb-6"

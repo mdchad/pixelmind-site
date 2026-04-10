@@ -53,8 +53,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, t
               className="text-xs px-2.5 py-1"
               style={{
                 background: '#111',
-                color: '#666',
-                border: '1px solid #222',
+                color: '#999',
+                border: '1px solid #2A2A2A',
               }}
             >
               {tag}

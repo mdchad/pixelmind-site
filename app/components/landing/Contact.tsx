@@ -174,7 +174,7 @@ const Contact = () => {
                     onChange={handleChange}
                     onFocus={() => setFocusedField('name')}
                     onBlur={() => setFocusedField(null)}
-                    placeholder="Aisha Rahman"
+                    placeholder="John Doe"
                     required
                     style={focusedField === 'name' ? inputFocused : inputBase}
                   />
@@ -196,7 +196,7 @@ const Contact = () => {
                     onChange={handleChange}
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
-                    placeholder="aisha@company.com"
+                    placeholder="john@acme.com"
                     required
                     style={focusedField === 'email' ? inputFocused : inputBase}
                   />
