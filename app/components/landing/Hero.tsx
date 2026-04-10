@@ -50,8 +50,8 @@ const HeroVisual = () => (
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         {[
           { value: '10+', label: 'shipped' },
-          { value: '2020', label: 'founded' },
-          { value: '3', label: 'countries' },
+          { value: '2023', label: 'founded' },
+          { value: '3+', label: 'countries' },
           { value: '24h', label: 'response' },
         ].map(({ value, label }, i) => (
           <div
