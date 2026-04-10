@@ -4,36 +4,68 @@ import ServiceCard from './ServiceCard';
 const Services = () => {
   const services = [
     {
-      icon: 'M',
-      title: 'Mobile Architecture',
-      description: 'Native iOS and Android development with React Native and Expo. Cross-platform solutions optimized for performance, scalability, and seamless user experiences across devices.'
+      number: '01',
+      title: 'Mobile development',
+      description: 'Native-quality iOS and Android apps built with React Native and Expo. Performant, polished, and ready to scale from day one.',
+      tags: ['React Native', 'Expo', 'iOS', 'Android'],
     },
     {
-      icon: 'W',
-      title: 'Web Ecosystems',
-      description: 'Full-stack web applications built with Next.js, React, and modern frameworks. From MVPs to enterprise platforms, we architect scalable solutions with clean code and best practices.'
+      number: '02',
+      title: 'Web platforms',
+      description: 'Full-stack applications from landing pages to complex SaaS products. We work with Next.js, React, and whatever fits the problem.',
+      tags: ['Next.js', 'React', 'TypeScript', 'API design'],
     },
     {
-      icon: 'P',
-      title: 'POS & Retail',
-      description: 'Integrated point-of-sale systems connecting hardware and software. Real-time transaction processing, inventory management, and seamless payment integrations for modern retail environments.'
+      number: '03',
+      title: 'AI integration',
+      description: 'Practical AI features — semantic search, natural language interfaces, intelligent automation — built into products people actually use.',
+      tags: ['LLMs', 'RAG', 'Embeddings', 'OpenAI'],
     },
     {
-      icon: 'AI',
-      title: 'AI Systems',
-      description: 'AI-powered features including semantic search, natural language processing, and intelligent automation. From chatbots to predictive analytics, we integrate cutting-edge AI into your products.'
-    }
+      number: '04',
+      title: 'Systems & integrations',
+      description: 'Backend infrastructure, third-party integrations, and automation pipelines that power your product behind the scenes. APIs, microservices, and custom tooling built to last.',
+      tags: ['Node.js', 'APIs', 'Microservices', 'Automation'],
+    },
   ];
 
   return (
-    <section id="services" className="mb-16">
-      <h2 className="mb-4 text-white font-mono text-base font-normal">
-        /// CAPABILITIES
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {services.map((service, index) => (
-          <ServiceCard key={index} {...service} />
-        ))}
+    <section
+      id="services"
+      className="py-24 md:py-32"
+      style={{ background: 'var(--bg)' }}
+    >
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10">
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div>
+            <div className="section-label mb-4">What we do</div>
+            <h2
+              className="max-w-sm"
+              style={{
+                fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+                fontWeight: 400,
+                letterSpacing: '-0.01em',
+                color: 'var(--fg)',
+              }}
+            >
+              Built for every layer of your product
+            </h2>
+          </div>
+          <p
+            className="max-w-xs text-sm md:text-right"
+            style={{ color: 'var(--muted)', lineHeight: 1.7 }}
+          >
+            From idea to production, we cover the full stack — design, engineering, and delivery.
+          </p>
+        </div>
+
+        {/* Editorial list */}
+        <div style={{ borderTop: '1px solid var(--border)' }}>
+          {services.map((service) => (
+            <ServiceCard key={service.number} {...service} />
+          ))}
+        </div>
       </div>
     </section>
   );

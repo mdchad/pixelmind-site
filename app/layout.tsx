@@ -1,10 +1,22 @@
 import type { Metadata } from 'next'
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { Space_Mono } from 'next/font/google'
-import { GeistPixelSquare, GeistPixelGrid } from 'geist/font/pixel';
+import { Cardo, Figtree } from 'next/font/google'
 import './globals.css'
 import StructuredData from '@/components/StructuredData'
+
+const cardo = Cardo({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-cardo',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const figtree = Figtree({
+  weight: ['400', '500', '600'],
+  variable: '--font-figtree',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const siteUrl = process.env.NEXT_PUBLIC_URL || 'https://www.pixelmindstudio.co'
 
@@ -28,7 +40,7 @@ export const metadata: Metadata = {
     'artificial intelligence',
     'project management',
     'user experience',
-    'point of sale systems',
+    'backend systems',
     'web platforms',
   ],
   authors: [{ name: 'Pixelmind Studio' }],
@@ -85,12 +97,6 @@ export const metadata: Metadata = {
   },
 }
 
-const spaceMono = Space_Mono({
-	weight: '400',
-	variable: "--font-space-mono",
-	subsets: ["latin"],
-});
-
 export default function RootLayout({
   children,
 }: {
@@ -99,12 +105,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5AFAC5" />
         <meta name="theme-color" content="#000000" />
         <meta name="google-site-verification" content="zaNyWUg7p8IwSpbD_oEv_rVc8J_i4FGlHinRB3EZIZA" />
         <StructuredData />
       </head>
-      <body className={`${GeistMono.variable} ${GeistSans.variable} ${spaceMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} antialiased`}>
+      <body className={`${cardo.variable} ${figtree.variable} antialiased`}>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         {children}
       </body>
     </html>
