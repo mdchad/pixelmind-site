@@ -34,7 +34,7 @@ const Header = () => {
             className="transition-transform duration-200 group-hover:scale-105 bg-black"
           />
           <span className="text-sm font-semibold tracking-tight" style={{ color: 'var(--fg)' }}>
-            Pixelmind
+            Pixelmind Studio
           </span>
         </a>
 
