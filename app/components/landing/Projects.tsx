@@ -91,7 +91,7 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
         <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid var(--border)' }}>
           <span
             className="text-xs px-2.5 py-1"
-            style={{ background: '#111', color: '#666', border: '1px solid #222' }}
+            style={{ background: '#111', color: '#999', border: '1px solid #2A2A2A' }}
           >
             {platform}
           </span>

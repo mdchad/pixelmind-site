@@ -11,12 +11,12 @@
   --color-bg-card: #0D0D0D;
   --color-bg-soft: #111111;
   --color-fg: #FFFFFF;
-  --color-muted: #888888;
-  --color-subtle: #444444;
+  --color-muted: #AAAAAA;
+  --color-subtle: #777777;
   --color-border: #1F1F1F;
   --color-accent: #5AFAC5;
   --color-mint: #5AFAC5;
-  --color-stone: #888888;
+  --color-stone: #AAAAAA;
   --color-white: #FFFFFF;
   --color-black: #000000;
 }
@@ -35,8 +35,8 @@
   --bg-card: #0D0D0D;
   --bg-soft: #111111;
   --fg: #FFFFFF;
-  --muted: #888888;
-  --subtle: #444444;
+  --muted: #AAAAAA;
+  --subtle: #777777;
   --border: #1F1F1F;
   --accent: #5AFAC5;
   --accent-hover: #3EE8B0;
@@ -51,7 +51,7 @@
 
   /* Token aliases — used in components */
   --parchment: #1A1A1A;
-  --stone: #888888;
+  --stone: #AAAAAA;
 
   /* Accent safe on dark backgrounds */
   --accent-on-light: #5AFAC5;

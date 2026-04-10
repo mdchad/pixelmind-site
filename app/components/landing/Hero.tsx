@@ -36,7 +36,7 @@ const HeroVisual = () => (
         <span
           style={{
             fontSize: 10,
-            color: '#444',
+            color: '#777',
             fontFamily: 'monospace',
             letterSpacing: '0.06em',
             textTransform: 'uppercase',
@@ -77,7 +77,7 @@ const HeroVisual = () => (
             <div
               style={{
                 fontSize: 10,
-                color: '#555',
+                color: '#888',
                 marginTop: 6,
                 textTransform: 'uppercase',
                 letterSpacing: '0.07em',
@@ -96,7 +96,7 @@ const HeroVisual = () => (
             padding: '12px 16px',
             borderBottom: '1px solid #141414',
             fontSize: 10,
-            color: '#444',
+            color: '#777',
             letterSpacing: '0.07em',
             textTransform: 'uppercase',
           }}
@@ -129,7 +129,7 @@ const HeroVisual = () => (
               >
                 {name}
               </span>
-              <span style={{ fontSize: 10, color: '#555' }}>{cat}</span>
+              <span style={{ fontSize: 10, color: '#888' }}>{cat}</span>
             </div>
             <span
               style={{
