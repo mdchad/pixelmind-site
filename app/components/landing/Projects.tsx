@@ -18,12 +18,12 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
 
   const content = (
     <article
-      className="rounded-2xl overflow-hidden flex flex-col transition-all duration-300"
+      className="overflow-hidden flex flex-col transition-all duration-300"
       style={{
         background: 'var(--bg-card)',
-        border: '1px solid var(--border)',
-        boxShadow: hovered ? 'var(--shadow-hover)' : 'var(--shadow-card)',
-        transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
+        border: hovered ? '1px solid #333' : '1px solid var(--border)',
+        boxShadow: hovered ? 'var(--shadow-hover)' : 'none',
+        transform: hovered ? 'translateY(-3px)' : 'translateY(0)',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -31,7 +31,7 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
       {/* Image */}
       <div
         className="relative w-full overflow-hidden"
-        style={{ height: '200px', background: 'var(--bg-soft)' }}
+        style={{ height: '200px', background: '#111' }}
       >
         {image ? (
           <Image
@@ -45,11 +45,11 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
         ) : (
           <div
             className="absolute inset-0 flex items-center justify-center"
-            style={{ background: 'var(--bg-soft)' }}
+            style={{ background: '#111' }}
           >
             <span
               className="text-3xl font-semibold"
-              style={{ color: 'var(--border)', letterSpacing: '-0.04em' }}
+              style={{ color: '#2A2A2A', letterSpacing: '-0.04em' }}
             >
               {title.charAt(0)}
             </span>
@@ -90,8 +90,8 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
 
         <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid var(--border)' }}>
           <span
-            className="text-xs px-2.5 py-1 rounded-full"
-            style={{ background: 'var(--bg-soft)', color: 'var(--stone)' }}
+            className="text-xs px-2.5 py-1"
+            style={{ background: '#111', color: '#666', border: '1px solid #222' }}
           >
             {platform}
           </span>

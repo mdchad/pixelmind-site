@@ -23,9 +23,9 @@ const Services = () => {
     },
     {
       number: '04',
-      title: 'POS & retail systems',
-      description: 'End-to-end point-of-sale platforms connecting hardware and software. Real-time inventory, payments, and analytics in one place.',
-      tags: ['Payments', 'Inventory', 'Hardware', 'Analytics'],
+      title: 'Systems & integrations',
+      description: 'Backend infrastructure, third-party integrations, and automation pipelines that power your product behind the scenes. APIs, microservices, and custom tooling built to last.',
+      tags: ['Node.js', 'APIs', 'Microservices', 'Automation'],
     },
   ];
 

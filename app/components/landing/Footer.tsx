@@ -15,8 +15,8 @@ const Footer = () => {
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2.5">
               <div
-                className="w-6 h-6 rounded-md flex items-center justify-center text-white text-xs font-semibold"
-                style={{ background: 'var(--accent)' }}
+                className="w-6 h-6 flex items-center justify-center text-black text-xs font-bold"
+                style={{ background: '#5AFAC5' }}
               >
                 P
               </div>
@@ -27,7 +27,7 @@ const Footer = () => {
                 Pixelmind Studio
               </span>
             </div>
-            <p className="text-xs" style={{ color: 'var(--muted)' }}>
+            <p className="text-xs" style={{ color: 'var(--subtle)' }}>
               © {currentYear} Pixelmind Studio. All rights reserved.
             </p>
           </div>
@@ -44,7 +44,7 @@ const Footer = () => {
                 key={href}
                 href={href}
                 className="footer-link text-xs py-3 px-3 transition-colors duration-200"
-                style={{ color: 'var(--muted)' }}
+                style={{ color: 'var(--subtle)' }}
               >
                 {label}
               </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
               className="w-1.5 h-1.5 rounded-full"
               style={{ background: 'var(--color-status-active)' }}
             />
-            <span className="text-xs" style={{ color: 'var(--muted)' }}>
+            <span className="text-xs" style={{ color: 'var(--subtle)' }}>
               Accepting new projects
             </span>
           </div>

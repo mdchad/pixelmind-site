@@ -6,16 +6,15 @@
   --font-display: var(--font-cardo), Georgia, 'Times New Roman', serif;
   --font-serif: var(--font-cardo), Georgia, 'Times New Roman', serif;
 
-  --color-cream: #FAF8F5;
-  --color-cream-deep: #F2EDE6;
-  --color-parchment: #E8DDD3;
-  --color-sand: #D5C5B5;
-  --color-terracotta: #C17A5B;
-  --color-terracotta-deep: #A8623F;
-  --color-bark: #1C1917;
-  --color-stone: #57534E;
-  --color-fog: #A8A29E;
+  --color-mint: #5AFAC5;
   --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-900: #111111;
+  --color-gray-800: #1A1A1A;
+  --color-gray-700: #222222;
+  --color-gray-500: #555555;
+  --color-gray-400: #888888;
+  --color-stone: #888888;
 }
 
 @utility scrollbar-hide {
@@ -28,36 +27,36 @@
 }
 
 :root {
-  --bg: #FAF8F5;
-  --bg-card: #FFFFFF;
-  --bg-soft: #F2EDE6;
-  --fg: #1C1917;
-  --muted: #78716C;
-  --subtle: #A8A29E;
-  --border: #E4DDD6;
-  --accent: #C17A5B;
-  --accent-hover: #A8623F;
-  --accent-text: #FFFFFF;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --bg: #000000;
+  --bg-card: #0D0D0D;
+  --bg-soft: #111111;
+  --fg: #FFFFFF;
+  --muted: #888888;
+  --subtle: #444444;
+  --border: #1F1F1F;
+  --accent: #5AFAC5;
+  --accent-hover: #3EE8B0;
+  --accent-text: #000000;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-full: 999px;
-  --shadow-soft: 0 1px 3px rgba(28, 25, 23, 0.06), 0 4px 16px rgba(28, 25, 23, 0.08);
-  --shadow-card: 0 2px 8px rgba(28, 25, 23, 0.06), 0 8px 32px rgba(28, 25, 23, 0.06);
-  --shadow-hover: 0 4px 20px rgba(28, 25, 23, 0.1), 0 16px 48px rgba(28, 25, 23, 0.08);
+  --shadow-soft: 0 1px 3px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.6), 0 8px 32px rgba(0,0,0,0.4);
+  --shadow-hover: 0 4px 24px rgba(90,250,197,0.10), 0 16px 48px rgba(0,0,0,0.6);
 
-  /* Token aliases — used in components with var(--parchment) / var(--stone) */
-  --parchment: #E8DDD3;
-  --stone: #57534E;
+  /* Token aliases — used in components */
+  --parchment: #1A1A1A;
+  --stone: #888888;
 
-  /* Text-safe accent for text on cream backgrounds — ~5.7:1 contrast */
-  --accent-on-light: #8B4A2C;
+  /* Accent safe on dark backgrounds */
+  --accent-on-light: #5AFAC5;
 
   /* Semantic state tokens */
-  --color-success: #1D7A4F;
-  --color-success-bg: #F0F9F5;
-  --color-error: #B91C1C;
-  --color-status-active: #4ADE80;
+  --color-success: #5AFAC5;
+  --color-success-bg: rgba(90, 250, 197, 0.08);
+  --color-error: #FF5555;
+  --color-status-active: #5AFAC5;
 }
 
 * {
@@ -109,7 +108,7 @@ h3, h4, h5, h6 {
 
 ::selection {
   background: var(--accent);
-  color: white;
+  color: #000;
 }
 
 /* Skip link for accessibility */
@@ -118,7 +117,7 @@ h3, h4, h5, h6 {
   top: -40px;
   left: 0;
   background: var(--accent);
-  color: white;
+  color: #000;
   padding: 8px 16px;
   z-index: 9999;
   border-radius: 0 0 var(--radius-sm) 0;
@@ -146,20 +145,21 @@ h3, h4, h5, h6 {
   background: var(--fg);
   color: var(--bg);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
   padding: 14px 28px;
   border: none;
   cursor: pointer;
   border-radius: var(--radius-full);
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
 
 .btn-primary:hover {
   background: var(--accent);
+  color: #000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(193, 122, 91, 0.3);
+  box-shadow: 0 4px 20px rgba(90, 250, 197, 0.30);
 }
 
 .btn-primary:active {
@@ -176,10 +176,10 @@ h3, h4, h5, h6 {
   font-size: 0.875rem;
   font-weight: 500;
   padding: 14px 28px;
-  border: 1px solid var(--border);
+  border: 1px solid #333;
   cursor: pointer;
   border-radius: var(--radius-full);
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
 
@@ -199,12 +199,7 @@ h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent-on-light);
-}
-
-/* Footer nav links */
-.footer-link:hover {
-  color: var(--fg);
+  color: var(--accent);
 }
 
 .section-label::before {
@@ -213,4 +208,9 @@ h3, h4, h5, h6 {
   width: 20px;
   height: 1px;
   background: var(--accent);
+}
+
+/* Footer nav links */
+.footer-link:hover {
+  color: var(--fg);
 }

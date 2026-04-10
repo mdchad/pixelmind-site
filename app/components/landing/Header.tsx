@@ -16,9 +16,9 @@ const Header = () => {
     <header
       className="fixed top-0 left-0 w-full z-50"
       style={{
-        background: scrolled ? 'rgba(250, 248, 245, 0.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+        background: scrolled ? 'rgba(0,0,0,0.85)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid #1F1F1F' : '1px solid transparent',
         transition: 'background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease',
       }}
     >
@@ -26,8 +26,8 @@ const Header = () => {
         {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 group" aria-label="Pixelmind Studio home">
           <div
-            className="w-7 h-7 rounded-md flex items-center justify-center text-white text-xs font-semibold transition-transform duration-200 group-hover:scale-105"
-            style={{ background: 'var(--accent)' }}
+            className="w-7 h-7 flex items-center justify-center text-black text-xs font-bold transition-all duration-200 group-hover:scale-105"
+            style={{ background: '#5AFAC5' }}
           >
             P
           </div>
@@ -106,7 +106,7 @@ const Header = () => {
         <div
           id="mobile-menu"
           className="md:hidden absolute top-full left-0 w-full py-6 px-6 flex flex-col gap-4"
-          style={{ background: 'var(--bg)', borderBottom: '1px solid var(--border)' }}
+          style={{ background: '#0D0D0D', borderBottom: '1px solid #1F1F1F' }}
         >
           {[
             { label: 'Services', href: '#services' },

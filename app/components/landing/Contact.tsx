@@ -4,12 +4,11 @@ import React, { useState } from 'react';
 
 const inputBase: React.CSSProperties = {
   width: '100%',
-  background: 'var(--bg-soft)',
-  border: '1px solid var(--border)',
-  borderRadius: '10px',
+  background: '#111',
+  border: '1px solid #222',
   padding: '14px 16px',
   fontSize: '0.9rem',
-  color: 'var(--fg)',
+  color: '#FFFFFF',
   outline: 'none',
   transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
   fontFamily: 'inherit',
@@ -17,9 +16,9 @@ const inputBase: React.CSSProperties = {
 
 const inputFocused: React.CSSProperties = {
   ...inputBase,
-  borderColor: 'var(--accent)',
-  boxShadow: '0 0 0 3px rgba(193, 122, 91, 0.12)',
-  background: 'var(--bg-card)',
+  borderColor: '#5AFAC5',
+  boxShadow: '0 0 0 3px rgba(90, 250, 197, 0.10)',
+  background: '#0D0D0D',
 };
 
 const Contact = () => {
@@ -78,7 +77,7 @@ const Contact = () => {
               Whether you have a product idea, want to improve an existing one, or just want to talk — we&apos;d love to hear from you. We respond within 24 hours.
             </p>
 
-            {/* Info rows — editorial, no icon boxes */}
+            {/* Info rows */}
             <div
               className="flex flex-col mt-10"
               style={{ borderTop: '1px solid var(--border)' }}
@@ -90,7 +89,7 @@ const Contact = () => {
                 <span
                   className="text-xs font-medium mb-1.5"
                   style={{
-                    color: 'var(--muted)',
+                    color: 'var(--subtle)',
                     letterSpacing: '0.07em',
                     textTransform: 'uppercase',
                   }}
@@ -111,7 +110,7 @@ const Contact = () => {
                 <span
                   className="text-xs font-medium mb-1.5"
                   style={{
-                    color: 'var(--muted)',
+                    color: 'var(--subtle)',
                     letterSpacing: '0.07em',
                     textTransform: 'uppercase',
                   }}
@@ -127,21 +126,20 @@ const Contact = () => {
 
           {/* Right — Form */}
           <div
-            className="rounded-2xl p-8"
+            className="p-8"
             style={{
               background: 'var(--bg-card)',
               border: '1px solid var(--border)',
-              boxShadow: 'var(--shadow-card)',
             }}
           >
             {status === 'success' ? (
               <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center"
-                  style={{ background: 'var(--bg-soft)' }}
+                  className="w-14 h-14 flex items-center justify-center"
+                  style={{ border: '1px solid #5AFAC5' }}
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M5 13L9 17L19 7" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M5 13L9 17L19 7" stroke="#5AFAC5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <h3 className="text-xl" style={{ color: 'var(--fg)', letterSpacing: '-0.025em' }}>
@@ -164,7 +162,7 @@ const Contact = () => {
                   <label
                     htmlFor="name"
                     className="block text-xs font-medium mb-2"
-                    style={{ color: 'var(--stone)' }}
+                    style={{ color: 'var(--muted)' }}
                   >
                     Your name
                   </label>
@@ -186,7 +184,7 @@ const Contact = () => {
                   <label
                     htmlFor="email"
                     className="block text-xs font-medium mb-2"
-                    style={{ color: 'var(--stone)' }}
+                    style={{ color: 'var(--muted)' }}
                   >
                     Email address
                   </label>
@@ -208,7 +206,7 @@ const Contact = () => {
                   <label
                     htmlFor="msg"
                     className="block text-xs font-medium mb-2"
-                    style={{ color: 'var(--stone)' }}
+                    style={{ color: 'var(--muted)' }}
                   >
                     Tell us about your project
                   </label>

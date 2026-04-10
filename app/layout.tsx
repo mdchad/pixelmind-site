@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'artificial intelligence',
     'project management',
     'user experience',
-    'point of sale systems',
+    'backend systems',
     'web platforms',
   ],
   authors: [{ name: 'Pixelmind Studio' }],
@@ -105,8 +105,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#C17A5B" />
-        <meta name="theme-color" content="#FAF8F5" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5AFAC5" />
+        <meta name="theme-color" content="#000000" />
         <meta name="google-site-verification" content="zaNyWUg7p8IwSpbD_oEv_rVc8J_i4FGlHinRB3EZIZA" />
         <StructuredData />
       </head>

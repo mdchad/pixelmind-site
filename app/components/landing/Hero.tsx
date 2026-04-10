@@ -2,249 +2,176 @@
 
 import React from 'react';
 
-const projects = [
-  { name: 'Myway', cat: 'Islamic app · AI', year: '2023' },
-  { name: 'Lumiq', cat: 'Wealth management', year: '2023' },
-  { name: 'Tebuk', cat: 'Quran memorisation', year: '2024' },
-  { name: 'Tour with Nour', cat: 'Tourism booking', year: '2026' },
-];
+const MINT = '#5AFAC5';
 
 const HeroVisual = () => (
   <div
     className="relative"
-    style={{ width: '380px', height: '440px' }}
+    style={{ width: '380px' }}
     aria-hidden="true"
   >
-    {/* Ambient glow */}
+    {/* Terminal dashboard panel */}
     <div
-      className="absolute inset-0 pointer-events-none"
       style={{
-        background: 'radial-gradient(ellipse at 55% 45%, rgba(193,122,91,0.10) 0%, transparent 60%)',
-        filter: 'blur(24px)',
-      }}
-    />
-
-    {/* Back card — rotated */}
-    <div
-      className="absolute rounded-2xl"
-      style={{
-        width: '300px',
-        height: '260px',
-        top: '52px',
-        left: '55px',
-        background: 'var(--parchment)',
-        border: '1px solid var(--sand, #D5C5B5)',
-        transform: 'rotate(4.5deg)',
-        boxShadow: '0 2px 12px rgba(28,25,23,0.05)',
-      }}
-    />
-
-    {/* Mid card */}
-    <div
-      className="absolute rounded-2xl"
-      style={{
-        width: '300px',
-        height: '260px',
-        top: '64px',
-        left: '40px',
-        background: 'var(--bg-soft)',
-        border: '1px solid var(--border)',
-        transform: 'rotate(-1.5deg)',
-        boxShadow: '0 2px 12px rgba(28,25,23,0.05)',
-      }}
-    />
-
-    {/* Main card */}
-    <div
-      className="absolute rounded-2xl flex flex-col"
-      style={{
-        width: '300px',
-        top: '76px',
-        left: '28px',
-        background: 'var(--bg-card)',
-        border: '1px solid var(--border)',
-        boxShadow: '0 4px 28px rgba(28,25,23,0.10)',
+        border: '1px solid #1F1F1F',
+        background: '#0A0A0A',
         overflow: 'hidden',
       }}
     >
-      {/* Card header */}
+      {/* Titlebar */}
       <div
         style={{
-          padding: '14px 20px 12px',
-          borderBottom: '1px solid var(--border)',
+          padding: '10px 16px',
+          borderBottom: '1px solid #1F1F1F',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
+        <div style={{ display: 'flex', gap: 6 }}>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#2A2A2A' }} />
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#2A2A2A' }} />
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: MINT }} />
+        </div>
         <span
           style={{
-            fontSize: '10px',
-            letterSpacing: '0.08em',
+            fontSize: 10,
+            color: '#444',
+            fontFamily: 'monospace',
+            letterSpacing: '0.06em',
             textTransform: 'uppercase',
-            color: 'var(--muted)',
-            fontFamily: 'var(--font-figtree)',
-            fontWeight: 500,
           }}
         >
-          From the studio
+          studio.status
         </span>
       </div>
 
-      {/* Featured project */}
-      <div style={{ padding: '18px 20px 14px' }}>
-        <div
-          style={{
-            fontSize: '10px',
-            color: 'var(--accent)',
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            marginBottom: '5px',
-            fontFamily: 'var(--font-figtree)',
-            fontWeight: 500,
-          }}
-        >
-          Islamic app · AI-powered
-        </div>
-        <div
-          style={{
-            fontSize: '28px',
-            fontFamily: 'var(--font-cardo)',
-            fontStyle: 'italic',
-            fontWeight: 400,
-            color: 'var(--fg)',
-            lineHeight: 1.15,
-            letterSpacing: '-0.01em',
-          }}
-        >
-          Myway
-        </div>
-        <div
-          style={{
-            fontSize: '11px',
-            color: 'var(--muted)',
-            fontFamily: 'var(--font-figtree)',
-            marginTop: '3px',
-          }}
-        >
-          Cross-platform · 2023
-        </div>
+      {/* Stats grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+        {[
+          { value: '4+', label: 'shipped' },
+          { value: '2020', label: 'founded' },
+          { value: '3', label: 'countries' },
+          { value: '24h', label: 'response' },
+        ].map(({ value, label }, i) => (
+          <div
+            key={label}
+            style={{
+              padding: '22px 20px',
+              borderRight: i % 2 === 0 ? '1px solid #1F1F1F' : 'none',
+              borderBottom: i < 2 ? '1px solid #1F1F1F' : 'none',
+            }}
+          >
+            <div
+              style={{
+                fontSize: 34,
+                fontWeight: 700,
+                color: '#FFFFFF',
+                lineHeight: 1,
+                letterSpacing: '-0.03em',
+                fontFamily: 'var(--font-figtree)',
+              }}
+            >
+              {value}
+            </div>
+            <div
+              style={{
+                fontSize: 10,
+                color: '#555',
+                marginTop: 6,
+                textTransform: 'uppercase',
+                letterSpacing: '0.07em',
+              }}
+            >
+              {label}
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Divider */}
-      <div style={{ height: '1px', background: 'var(--border)', margin: '0 20px' }} />
-
-      {/* Other projects */}
-      <div style={{ padding: '14px 20px 18px' }}>
+      {/* Recent builds */}
+      <div style={{ borderTop: '1px solid #1F1F1F' }}>
         <div
           style={{
-            fontSize: '10px',
-            color: 'var(--muted)',
+            padding: '12px 16px',
+            borderBottom: '1px solid #141414',
+            fontSize: 10,
+            color: '#444',
             letterSpacing: '0.07em',
             textTransform: 'uppercase',
-            marginBottom: '10px',
-            fontFamily: 'var(--font-figtree)',
-            fontWeight: 500,
           }}
         >
-          Also shipped
+          Recent builds
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '9px' }}>
-          {projects.slice(1).map(({ name, cat }) => (
-            <div
-              key={name}
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '8px' }}
-            >
+        {[
+          { name: 'Myway', cat: 'Islamic · AI' },
+          { name: 'Lumiq', cat: 'Fintech · Web' },
+          { name: 'Tour with Nour', cat: 'Tourism' },
+        ].map(({ name, cat }) => (
+          <div
+            key={name}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '10px 16px',
+              borderBottom: '1px solid #141414',
+            }}
+          >
+            <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
               <span
                 style={{
-                  fontSize: '13px',
-                  color: 'var(--fg)',
-                  fontFamily: 'var(--font-cardo)',
-                  fontWeight: 400,
-                  flexShrink: 0,
+                  fontSize: 13,
+                  color: '#FFFFFF',
+                  fontWeight: 500,
+                  fontFamily: 'var(--font-figtree)',
                 }}
               >
                 {name}
               </span>
-              <span
-                style={{
-                  fontSize: '10px',
-                  color: 'var(--muted)',
-                  fontFamily: 'var(--font-figtree)',
-                  textAlign: 'right',
-                }}
-              >
-                {cat}
-              </span>
+              <span style={{ fontSize: 10, color: '#555' }}>{cat}</span>
             </div>
-          ))}
-        </div>
+            <span
+              style={{
+                fontSize: 9,
+                color: MINT,
+                background: 'rgba(90,250,197,0.08)',
+                padding: '3px 8px',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+              }}
+            >
+              live
+            </span>
+          </div>
+        ))}
       </div>
-    </div>
 
-    {/* Studio badge — top right */}
-    <div
-      className="absolute flex flex-col items-start"
-      style={{
-        top: '16px',
-        right: '10px',
-        background: 'var(--fg)',
-        borderRadius: '14px',
-        padding: '10px 16px',
-        boxShadow: '0 4px 16px rgba(28,25,23,0.22)',
-      }}
-    >
+      {/* Status footer */}
       <div
         style={{
-          fontSize: '10px',
-          color: 'rgba(255,255,255,0.42)',
-          letterSpacing: '0.07em',
-          textTransform: 'uppercase',
-          fontFamily: 'var(--font-figtree)',
-          fontWeight: 500,
+          padding: '12px 16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          borderTop: '1px solid #1F1F1F',
+          background: 'rgba(90,250,197,0.03)',
         }}
       >
-        Est.
+        <div
+          style={{ width: 6, height: 6, borderRadius: '50%', background: MINT, flexShrink: 0 }}
+        />
+        <span
+          style={{
+            fontSize: 11,
+            color: MINT,
+            fontFamily: 'var(--font-figtree)',
+            fontWeight: 500,
+          }}
+        >
+          Accepting new projects
+        </span>
       </div>
-      <div
-        style={{
-          fontSize: '22px',
-          color: 'var(--bg)',
-          fontFamily: 'var(--font-cardo)',
-          fontWeight: 400,
-          lineHeight: 1.1,
-          letterSpacing: '-0.02em',
-        }}
-      >
-        2020
-      </div>
-    </div>
-
-    {/* Status pill — bottom */}
-    <div
-      className="absolute flex items-center gap-2"
-      style={{
-        bottom: '42px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        background: 'var(--bg-card)',
-        border: '1px solid var(--border)',
-        borderRadius: '999px',
-        padding: '8px 16px',
-        boxShadow: '0 2px 12px rgba(28,25,23,0.08)',
-        whiteSpace: 'nowrap',
-      }}
-    >
-      <div
-        style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-status-active)', flexShrink: 0 }}
-      />
-      <span
-        style={{
-          fontSize: '11px',
-          color: 'var(--fg)',
-          fontFamily: 'var(--font-figtree)',
-          fontWeight: 500,
-        }}
-      >
-        Accepting new projects
-      </span>
     </div>
   </div>
 );
@@ -252,12 +179,11 @@ const HeroVisual = () => (
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-[100dvh] flex items-center pt-16">
-      {/* Background texture */}
+      {/* Subtle background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, rgba(193,122,91,0.05) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(213,197,181,0.10) 0%, transparent 40%)`,
+          backgroundImage: `radial-gradient(ellipse at 70% 40%, rgba(90,250,197,0.04) 0%, transparent 55%)`,
         }}
       />
 
@@ -270,17 +196,17 @@ const Hero = () => {
             <h1
               className="mb-6"
               style={{
-                fontSize: 'clamp(2.6rem, 6vw, 4.2rem)',
+                fontSize: 'clamp(2.8rem, 6.5vw, 4.6rem)',
                 fontWeight: 400,
-                letterSpacing: '-0.01em',
-                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.08,
                 color: 'var(--fg)',
               }}
             >
-              Software built<br />
-              <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>carefully.</em>
-              <br />
-              Shipped with care.
+              Software crafted<br />
+              <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>pixel</em>
+              {' '}by{' '}
+              <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>pixel.</em>
             </h1>
 
             <p
@@ -291,7 +217,7 @@ const Hero = () => {
                 color: 'var(--muted)',
               }}
             >
-              We build mobile apps, web platforms, and AI-integrated products for founders and companies who care about the details.
+              We build mobile apps, web platforms, AI tools, and custom systems — for founders and companies who care about the details.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -312,7 +238,7 @@ const Hero = () => {
               style={{ borderTop: '1px solid var(--border)' }}
             >
               <div className="flex flex-wrap gap-x-5 gap-y-1.5">
-                {['Mobile apps', 'Web platforms', 'AI integration', 'POS systems'].map(domain => (
+                {['Mobile apps', 'Web platforms', 'AI tools', 'Custom systems'].map(domain => (
                   <span
                     key={domain}
                     className="text-sm"
@@ -322,13 +248,13 @@ const Hero = () => {
                   </span>
                 ))}
               </div>
-              <p className="text-xs mt-2.5" style={{ color: 'var(--muted)' }}>
-                What we build · Based in Malaysia
+              <p className="text-xs mt-2.5" style={{ color: 'var(--subtle)' }}>
+                What we build · Based in Singapore
               </p>
             </div>
           </div>
 
-          {/* Right — visual */}
+          {/* Right — terminal visual */}
           <div className="hidden lg:flex items-center justify-center">
             <HeroVisual />
           </div>
