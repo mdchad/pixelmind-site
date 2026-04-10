@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,12 +15,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2.5">
-              <div
-                className="w-6 h-6 flex items-center justify-center text-black text-xs font-bold"
-                style={{ background: '#5AFAC5' }}
-              >
-                P
-              </div>
+							<Image
+								src="/logo.png"
+								alt=""
+								width={28}
+								height={28}
+								className="transition-transform duration-200 group-hover:scale-105 bg-black"
+							/>
               <span
                 className="text-sm font-semibold tracking-tight"
                 style={{ color: 'var(--fg)' }}
