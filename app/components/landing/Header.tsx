@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,12 +26,13 @@ const Header = () => {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 group" aria-label="Pixelmind Studio home">
-          <div
-            className="w-7 h-7 flex items-center justify-center text-black text-xs font-bold transition-all duration-200 group-hover:scale-105"
-            style={{ background: '#5AFAC5' }}
-          >
-            P
-          </div>
+          <Image
+            src="/logo.png"
+            alt=""
+            width={28}
+            height={28}
+            className="transition-transform duration-200 group-hover:scale-105 bg-black"
+          />
           <span className="text-sm font-semibold tracking-tight" style={{ color: 'var(--fg)' }}>
             Pixelmind
           </span>

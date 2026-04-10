@@ -49,7 +49,7 @@ const HeroVisual = () => (
       {/* Stats grid */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         {[
-          { value: '4+', label: 'shipped' },
+          { value: '10+', label: 'shipped' },
           { value: '2020', label: 'founded' },
           { value: '3', label: 'countries' },
           { value: '24h', label: 'response' },
