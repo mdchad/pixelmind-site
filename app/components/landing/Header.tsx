@@ -3,33 +3,135 @@
 import React, { useState, useEffect } from 'react';
 
 const Header = () => {
-  const [time, setTime] = useState('14:10');
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      setTime(`${hours}:${minutes}`);
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 60000);
-
-    return () => clearInterval(interval);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full p-6 md:px-8 z-[100] flex justify-between items-start mix-blend-difference pointer-events-none">
-      <div className="pointer-events-auto font-mono lowercase">
-        <span>{time}</span>
-        <span className="ml-4 text-[#444]">system_ready</span>
+    <header
+      className="fixed top-0 left-0 w-full z-50"
+      style={{
+        background: scrolled ? 'rgba(250, 248, 245, 0.88)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+        transition: 'background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease',
+      }}
+    >
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <a href="/" className="flex items-center gap-2.5 group" aria-label="Pixelmind Studio home">
+          <div
+            className="w-7 h-7 rounded-md flex items-center justify-center text-white text-xs font-semibold transition-transform duration-200 group-hover:scale-105"
+            style={{ background: 'var(--accent)' }}
+          >
+            P
+          </div>
+          <span className="text-sm font-semibold tracking-tight" style={{ color: 'var(--fg)' }}>
+            Pixelmind
+          </span>
+        </a>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          {[
+            { label: 'Services', href: '#services' },
+            { label: 'Work', href: '#work' },
+            { label: 'Contact', href: '#contact' },
+          ].map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-sm"
+              style={{
+                color: 'var(--muted)',
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--fg)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="btn-primary"
+            style={{ padding: '10px 20px', fontSize: '0.875rem' }}
+          >
+            Start a project
+          </a>
+        </nav>
+
+        {/* Mobile hamburger — 44×44px touch target */}
+        <button
+          className="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+        >
+          <span
+            className="block w-5 h-px"
+            style={{
+              background: 'var(--fg)',
+              transform: menuOpen ? 'translateY(4px) rotate(45deg)' : 'none',
+              transition: 'transform 0.2s ease',
+            }}
+          />
+          <span
+            className="block w-5 h-px"
+            style={{
+              background: 'var(--fg)',
+              opacity: menuOpen ? 0 : 1,
+              transition: 'opacity 0.2s ease',
+            }}
+          />
+          <span
+            className="block w-5 h-px"
+            style={{
+              background: 'var(--fg)',
+              transform: menuOpen ? 'translateY(-4px) rotate(-45deg)' : 'none',
+              transition: 'transform 0.2s ease',
+            }}
+          />
+        </button>
       </div>
-      <nav className="pointer-events-auto font-mono lowercase flex gap-6 text-sm">
-        <a href="#services">services</a>
-        <a href="#work">work</a>
-        <a href="#contact">contact</a>
-      </nav>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden absolute top-full left-0 w-full py-6 px-6 flex flex-col gap-4"
+          style={{ background: 'var(--bg)', borderBottom: '1px solid var(--border)' }}
+        >
+          {[
+            { label: 'Services', href: '#services' },
+            { label: 'Work', href: '#work' },
+            { label: 'Contact', href: '#contact' },
+          ].map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-base py-1"
+              style={{ color: 'var(--muted)' }}
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="btn-primary w-fit mt-2"
+            onClick={() => setMenuOpen(false)}
+          >
+            Start a project
+          </a>
+        </div>
+      )}
     </header>
   );
 };

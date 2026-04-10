@@ -1,15 +1,67 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="font-mono lowercase p-16 px-8 border-t border-[#111] flex justify-between items-end">
-      <div className="flex gap-8">
-        <a href="#" className="text-white no-underline transition-opacity hover:opacity-60">privacy</a>
-        <a href="#" className="text-white no-underline transition-opacity hover:opacity-60">terms</a>
-      </div>
-      <div className="text-right text-[#444]">
-        v.2.0.4<br />
-        all systems normal
+    <footer
+      className="py-12"
+      style={{ borderTop: '1px solid var(--border)', background: 'var(--bg)' }}
+    >
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          {/* Brand */}
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2.5">
+              <div
+                className="w-6 h-6 rounded-md flex items-center justify-center text-white text-xs font-semibold"
+                style={{ background: 'var(--accent)' }}
+              >
+                P
+              </div>
+              <span
+                className="text-sm font-semibold tracking-tight"
+                style={{ color: 'var(--fg)' }}
+              >
+                Pixelmind Studio
+              </span>
+            </div>
+            <p className="text-xs" style={{ color: 'var(--muted)' }}>
+              © {currentYear} Pixelmind Studio. All rights reserved.
+            </p>
+          </div>
+
+          {/* Links — py-3 for 44px touch target on mobile */}
+          <nav className="flex items-center gap-1 flex-wrap" aria-label="Footer navigation">
+            {[
+              { label: 'Services', href: '#services' },
+              { label: 'Work', href: '#work' },
+              { label: 'Contact', href: '#contact' },
+              { label: 'Privacy policy', href: '/privacy' },
+            ].map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className="footer-link text-xs py-3 px-3 transition-colors duration-200"
+                style={{ color: 'var(--muted)' }}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Status */}
+          <div className="flex items-center gap-2">
+            <div
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: 'var(--color-status-active)' }}
+            />
+            <span className="text-xs" style={{ color: 'var(--muted)' }}>
+              Accepting new projects
+            </span>
+          </div>
+        </div>
       </div>
     </footer>
   );
