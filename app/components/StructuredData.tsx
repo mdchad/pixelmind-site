@@ -11,10 +11,10 @@ export default function StructuredData() {
     description: 'Custom software development agency building mobile apps, web platforms, AI tools, and backend systems for ambitious founders and companies.',
     areaServed: 'Worldwide',
     sameAs: [
-      'https://twitter.com/pixelmindstudio',
-      'https://www.instagram.com/pixelmind.studio/',
       'https://www.facebook.com/pixelmindstudio.co',
       'https://www.linkedin.com/company/pixelmindstudio',
+      'https://www.instagram.com/pixelmind.studio/',
+      'https://www.google.com/maps/place/Pixelmind+Studio/@1.2943816,103.8554961,17z/data=!3m1!4b1!4m6!3m5!1s0x31da1732c47aae11:0xf95e87fd2fe105c4!8m2!3d1.2943816!4d103.858071!16s%2Fg%2F11n99ngfzq',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
@@ -50,6 +50,12 @@ export default function StructuredData() {
       '@type': 'PostalAddress',
       addressCountry: 'SG',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 1.2943816,
+      longitude: 103.858071,
+    },
+    hasMap: 'https://www.google.com/maps/place/Pixelmind+Studio/@1.2943816,103.8554961,17z/data=!3m1!4b1!4m6!3m5!1s0x31da1732c47aae11:0xf95e87fd2fe105c4!8m2!3d1.2943816!4d103.858071!16s%2Fg%2F11n99ngfzq',
     serviceType: [
       'Custom Software Development',
       'Mobile App Development',
