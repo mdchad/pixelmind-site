@@ -31,7 +31,7 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
       {/* Image */}
       <div
         className="relative w-full overflow-hidden"
-        style={{ height: '200px', background: '#111' }}
+        style={{ height: '220px', background: '#0D0D0D' }}
       >
         {image ? (
           <Image
@@ -39,19 +39,41 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
             alt={`${title} — ${category}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500"
-            style={{ transform: hovered ? 'scale(1.03)' : 'scale(1)' }}
+            className="object-cover"
+            style={{
+              transform: hovered ? 'scale(1.04)' : 'scale(1)',
+              filter: hovered ? 'grayscale(0%)' : 'grayscale(100%)',
+              transition: 'transform 0.5s ease, filter 0.5s ease',
+            }}
           />
         ) : (
+          /* Intentional no-image state */
           <div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ background: '#111' }}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-3"
+            style={{ background: '#0D0D0D' }}
           >
             <span
-              className="text-3xl font-semibold"
-              style={{ color: '#2A2A2A', letterSpacing: '-0.04em' }}
+              style={{
+                fontSize: '10px',
+                color: 'var(--accent)',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                fontFamily: 'var(--font-figtree)',
+              }}
             >
-              {title.charAt(0)}
+              {category}
+            </span>
+            <span
+              style={{
+                fontSize: '2rem',
+                fontFamily: 'var(--font-cardo)',
+                fontStyle: 'italic',
+                color: hovered ? '#FFFFFF' : '#333',
+                letterSpacing: '-0.02em',
+                transition: 'color 0.4s ease',
+              }}
+            >
+              {title}
             </span>
           </div>
         )}
