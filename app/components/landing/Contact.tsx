@@ -74,7 +74,7 @@ const Contact = () => {
               className="max-w-sm"
               style={{ color: 'var(--muted)', lineHeight: 1.75 }}
             >
-              Whether you have a product idea, want to improve an existing one, or just want to talk — we&apos;d love to hear from you. We respond within 24 hours.
+              Whether you have a product idea, want to improve an existing one, or just want to talk — we&apos;d love to hear from you.
             </p>
 
             {/* Info rows */}
