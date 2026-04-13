@@ -265,7 +265,7 @@ const Hero = () => {
 							color="#5afac5"
 							maxOpacity={0.5}
 							flickerChance={0.1}
-							height={800}
+							height={500}
 							width={800}
 						/>
           </div>
