@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import { FlickeringGrid } from '@/components/ui/flickering-grid'
 
 const MINT = '#5AFAC5';
 
@@ -256,7 +257,17 @@ const Hero = () => {
 
           {/* Right — terminal visual */}
           <div className="hidden lg:flex items-center justify-center">
-            <HeroVisual />
+            {/*<HeroVisual />*/}
+						<FlickeringGrid
+							className="relative inset-0 z-0 [mask-image:radial-gradient(450px_circle_at_center,white,transparent)]"
+							squareSize={4}
+							gridGap={6}
+							color="#5afac5"
+							maxOpacity={0.5}
+							flickerChance={0.1}
+							height={800}
+							width={800}
+						/>
           </div>
         </div>
       </div>
