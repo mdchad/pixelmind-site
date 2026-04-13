@@ -257,7 +257,7 @@ const Hero = () => {
 
           {/* Right — terminal visual */}
           <div className="hidden lg:flex items-center justify-center">
-            <HeroVisual />
+            {/*<HeroVisual />*/}
 						<FlickeringGrid
 							className="relative inset-0 z-0 [mask-image:radial-gradient(450px_circle_at_center,white,transparent)]"
 							squareSize={4}
