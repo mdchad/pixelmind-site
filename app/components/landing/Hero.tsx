@@ -192,7 +192,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left — copy */}
           <div>
-            <div className="section-label mb-8">Software development agency</div>
+            {/*<div className="section-label mb-8">Software development agency</div>*/}
 
             <h1
               className="mb-6"
