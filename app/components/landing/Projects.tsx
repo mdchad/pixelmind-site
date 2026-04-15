@@ -161,7 +161,7 @@ const Projects = () => {
     },
     {
       title: 'Myway',
-      category: 'Islamic app',
+      category: 'Edutech',
       platform: 'Web · Mobile · AI',
       year: '2023',
       description: 'Comprehensive hadith collection with AI-powered Q&A, semantic search, and voiceover narration. Cross-platform with Next.js and Expo.',
@@ -223,7 +223,7 @@ const Projects = () => {
             className="max-w-xs text-sm"
             style={{ color: 'var(--muted)', lineHeight: 1.7 }}
           >
-            A selection of projects across fintech, Islamic apps, and tourism.
+            A selection of projects across fintech, Edutech and tourism.
           </p>
         </div>
 
