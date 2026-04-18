@@ -233,13 +233,13 @@
   color: var(--accent);
 }
 
-.section-label::before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 1px;
-  background: var(--accent);
-}
+/*.section-label::before {*/
+/*  content: '';*/
+/*  display: block;*/
+/*  width: 20px;*/
+/*  height: 1px;*/
+/*  background: var(--accent);*/
+/*}*/
 
 /* Footer nav links */
 .footer-link:hover {

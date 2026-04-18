@@ -207,7 +207,7 @@ const Projects = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-4">Selected work</div>
+            <div className="section-label mb-4">[ Selected work ]</div>
             <h2
               style={{
                 fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
