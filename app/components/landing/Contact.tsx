@@ -57,7 +57,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left */}
           <div>
-            <div className="section-label mb-6">Get in touch</div>
+            <div className="section-label mb-6">[ Get in touch ]</div>
             <h2
               className="mb-5"
               style={{
@@ -106,21 +106,21 @@ const Contact = () => {
                   hello@pixelmindstudio.co
                 </a>
               </div>
-              <div className="flex flex-col py-5">
-                <span
-                  className="text-xs font-medium mb-1.5"
-                  style={{
-                    color: 'var(--subtle)',
-                    letterSpacing: '0.07em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Response time
-                </span>
-                <span className="text-sm" style={{ color: 'var(--fg)' }}>
-                  Under 24 hours
-                </span>
-              </div>
+              {/*<div className="flex flex-col py-5">*/}
+              {/*  <span*/}
+              {/*    className="text-xs font-medium mb-1.5"*/}
+              {/*    style={{*/}
+              {/*      color: 'var(--subtle)',*/}
+              {/*      letterSpacing: '0.07em',*/}
+              {/*      textTransform: 'uppercase',*/}
+              {/*    }}*/}
+              {/*  >*/}
+              {/*    Response time*/}
+              {/*  </span>*/}
+              {/*  <span className="text-sm" style={{ color: 'var(--fg)' }}>*/}
+              {/*    Under 24 hours*/}
+              {/*  </span>*/}
+              {/*</div>*/}
             </div>
           </div>
 
