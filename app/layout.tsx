@@ -9,6 +9,7 @@ const cardo = Cardo({
   variable: '--font-cardo',
   subsets: ['latin'],
   display: 'swap',
+	preload: true,
 })
 
 const figtree = Figtree({
@@ -16,6 +17,7 @@ const figtree = Figtree({
   variable: '--font-figtree',
   subsets: ['latin'],
   display: 'swap',
+	preload: true,
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_URL || 'https://www.pixelmindstudio.co'

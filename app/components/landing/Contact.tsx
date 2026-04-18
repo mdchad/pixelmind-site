@@ -57,7 +57,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left */}
           <div>
-            <div className="section-label mb-6">[ Get in touch ]</div>
+            <p className="uppercase tracking-widest text-[0.75rem] font-mono text-accent font-semibold mb-6">[ Get in touch ]</p>
             <h2
               className="mb-5"
               style={{
