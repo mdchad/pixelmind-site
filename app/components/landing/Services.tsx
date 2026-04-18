@@ -39,7 +39,7 @@ const Services = () => {
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-4">[ What we do ]</div>
+						<p className="uppercase tracking-widest text-[0.75rem] font-mono text-accent font-semibold mb-6">[ What we do ]</p>
             <h2
               className="max-w-sm"
               style={{

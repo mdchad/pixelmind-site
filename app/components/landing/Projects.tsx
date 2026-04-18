@@ -49,8 +49,7 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
         ) : (
           /* Intentional no-image state */
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-            style={{ background: '#0D0D0D' }}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#0D0D0D]"
           >
             <span
               style={{
@@ -68,7 +67,7 @@ const ProjectCard = ({ title, category, description, year, platform, image, link
                 fontSize: '2rem',
                 fontFamily: 'var(--font-cardo)',
                 fontStyle: 'italic',
-                color: hovered ? '#FFFFFF' : '#333',
+                color: hovered ? '#333' : '#FFFFFF',
                 letterSpacing: '-0.02em',
                 transition: 'color 0.4s ease',
               }}
@@ -207,7 +206,7 @@ const Projects = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="section-label mb-4">[ Selected work ]</div>
+						<p className="uppercase tracking-widest text-[0.75rem] font-mono text-accent font-semibold mb-6">[ Selected work ]</p>
             <h2
               style={{
                 fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
