@@ -177,7 +177,7 @@ const Projects = () => {
     //   link: 'https://www.tebuk.app/',
     // },
 		{
-		  title: 'Paveway Exploreres',
+		  title: 'Paveway Explorers',
 		  category: 'Tourism',
 		  platform: 'Web',
 		  year: '2026',
