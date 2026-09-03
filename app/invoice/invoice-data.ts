@@ -32,11 +32,41 @@ export interface InvoiceData {
 export interface InvoiceInput extends InvoiceDates {
 	/** Zero-padded running number, the `0015` in `PMS-0015-20260702`. */
 	sequence: string
+	/** Single line item, e.g. "AI Audio". */
+	service: string
+	/** Amount in ringgit as a plain number string, e.g. "4000" or "4000.50". */
+	amount: string
 }
+
+export const DEFAULT_SERVICE = 'AI Audio'
+export const DEFAULT_AMOUNT = '4000'
+export const CURRENCY = 'RM'
+
+const SERVICE_MAX = 80
+const AMOUNT = /^\d{1,9}(\.\d{1,2})?$/
+
+/** Trims and bounds the service label. Returns null when empty or too long. */
+export const parseService = (value: string | null | undefined): string | null => {
+	const trimmed = value?.trim() ?? ''
+	return trimmed.length > 0 && trimmed.length <= SERVICE_MAX ? trimmed : null
+}
+
+/** Accepts digits with an optional 2dp fraction; strips a leading currency and thousands separators. */
+export const parseAmount = (value: string | null | undefined): string | null => {
+	const cleaned = (value ?? '')
+		.replace(new RegExp(`^\\s*${CURRENCY}\\s*`, 'i'), '')
+		.replaceAll(',', '')
+		.trim()
+	return AMOUNT.test(cleaned) ? cleaned : null
+}
+
+export const formatAmount = (amount: string): string => `${CURRENCY} ${amount}`
 
 /** Builds the ATHAR Audio invoice. Due date is invoice date + 10 days. */
 export const buildAtharAudioInvoice = ({
 	sequence,
+	service,
+	amount,
 	invoiceDate,
 	billingFrom,
 	billingTo,
@@ -63,7 +93,7 @@ export const buildAtharAudioInvoice = ({
 			'Johor Bahru',
 		],
 	},
-	items: [{ service: 'AI Audio', amount: 'RM 4000' }],
+	items: [{ service, amount: formatAmount(amount) }],
 	bank: {
 		accountName: 'Muhammad Irsyad Bin Abd Wahab',
 		accountType: 'POSB Savings Account',

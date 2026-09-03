@@ -3,7 +3,13 @@ import path from 'node:path'
 
 import { render } from 'takumi-pdf/next'
 
-import { buildAtharAudioInvoice } from '@/app/invoice/invoice-data'
+import {
+	DEFAULT_AMOUNT,
+	DEFAULT_SERVICE,
+	buildAtharAudioInvoice,
+	parseAmount,
+	parseService,
+} from '@/app/invoice/invoice-data'
 import {
 	DEFAULT_SEQUENCE,
 	defaultInvoiceDates,
@@ -17,7 +23,7 @@ import {
 } from '@/app/invoice/invoice-document'
 
 /**
- * GET /api/invoice?seq=0015&invoiceDate=YYYY-MM-DD&from=YYYY-MM-DD&to=YYYY-MM-DD
+ * GET /api/invoice?seq=0015&service=AI%20Audio&amount=4000&invoiceDate=YYYY-MM-DD&from=YYYY-MM-DD&to=YYYY-MM-DD
  * Missing params fall back to sequence 0015, today, and the previous month. Due date is invoiceDate + 10 days.
  */
 export const GET = async (request: Request) => {
@@ -39,6 +45,20 @@ export const GET = async (request: Request) => {
 		return new Response('Invalid seq (expected 1 to 4 digits)', { status: 400 })
 	}
 
+	const serviceParam = searchParams.get('service')
+	const service = serviceParam === null ? DEFAULT_SERVICE : parseService(serviceParam)
+	if (!service) {
+		return new Response('Invalid service (expected 1 to 80 characters)', { status: 400 })
+	}
+
+	const amountParam = searchParams.get('amount')
+	const amount = amountParam === null ? DEFAULT_AMOUNT : parseAmount(amountParam)
+	if (!amount) {
+		return new Response('Invalid amount (expected a number like 4000 or 4000.50)', {
+			status: 400,
+		})
+	}
+
 	const billingFrom = parseIsoDate(searchParams.get('from')) ?? defaults.billingFrom
 	const billingTo = parseIsoDate(searchParams.get('to')) ?? defaults.billingTo
 	if (billingFrom > billingTo) {
@@ -47,6 +67,8 @@ export const GET = async (request: Request) => {
 
 	const data = buildAtharAudioInvoice({
 		sequence,
+		service,
+		amount,
 		invoiceDate: parseIsoDate(searchParams.get('invoiceDate')) ?? defaults.invoiceDate,
 		billingFrom,
 		billingTo,
