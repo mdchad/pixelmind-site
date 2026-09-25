@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import { DEFAULT_AMOUNT, DEFAULT_SERVICE } from './invoice-data'
+import {
+	DEFAULT_AMOUNT,
+	DEFAULT_BILL_TO,
+	DEFAULT_CURRENCY,
+	DEFAULT_SERVICE,
+} from './invoice-data'
 import { DEFAULT_SEQUENCE, defaultInvoiceDates, toIsoDate } from './invoice-dates'
 import { InvoiceForm } from './invoice-form'
 
@@ -26,13 +31,16 @@ export default function InvoicePage() {
 			</Link>
 
 			<h1 className="text-2xl mb-2">Invoice</h1>
-			<p className="text-[#444] text-sm mb-12">ATHAR Foundation</p>
+			<p className="text-[#444] text-sm mb-12">Pixelmind Studio</p>
 
 			<InvoiceForm
 				defaults={{
 					sequence: DEFAULT_SEQUENCE,
 					service: DEFAULT_SERVICE,
 					amount: DEFAULT_AMOUNT,
+					currency: DEFAULT_CURRENCY,
+					billToName: DEFAULT_BILL_TO.name,
+					billToAddress: DEFAULT_BILL_TO.addressLines.join('\n'),
 					invoiceDate: toIsoDate(dates.invoiceDate),
 					billingFrom: toIsoDate(dates.billingFrom),
 					billingTo: toIsoDate(dates.billingTo),

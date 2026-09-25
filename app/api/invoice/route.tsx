@@ -4,10 +4,16 @@ import path from 'node:path'
 import { render } from 'takumi-pdf/next'
 
 import {
+	CURRENCIES,
 	DEFAULT_AMOUNT,
+	DEFAULT_BILL_TO,
+	DEFAULT_CURRENCY,
 	DEFAULT_SERVICE,
-	buildAtharAudioInvoice,
+	buildInvoice,
 	parseAmount,
+	parseBillToAddress,
+	parseBillToName,
+	parseCurrency,
 	parseService,
 } from '@/app/invoice/invoice-data'
 import {
@@ -23,8 +29,10 @@ import {
 } from '@/app/invoice/invoice-document'
 
 /**
- * GET /api/invoice?seq=0015&service=AI%20Audio&amount=4000&invoiceDate=YYYY-MM-DD&from=YYYY-MM-DD&to=YYYY-MM-DD
- * Missing params fall back to sequence 0015, today, and the previous month. Due date is invoiceDate + 10 days.
+ * GET /api/invoice?seq=0015&service=AI%20Audio&amount=4000&currency=RM
+ *   &billToName=...&billToAddress=line1%0Aline2&invoiceDate=YYYY-MM-DD&from=YYYY-MM-DD&to=YYYY-MM-DD
+ * Missing params fall back to sequence 0015, RM, ATHAR Foundation, today, and the previous month.
+ * Due date is invoiceDate + 10 days.
  */
 export const GET = async (request: Request) => {
 	const { searchParams } = new URL(request.url)
@@ -59,16 +67,48 @@ export const GET = async (request: Request) => {
 		})
 	}
 
+	const currencyParam = searchParams.get('currency')
+	const currency =
+		currencyParam === null ? DEFAULT_CURRENCY : parseCurrency(currencyParam)
+	if (!currency) {
+		return new Response(`Invalid currency (expected one of ${CURRENCIES.join(', ')})`, {
+			status: 400,
+		})
+	}
+
+	const billToNameParam = searchParams.get('billToName')
+	const billToName =
+		billToNameParam === null ? DEFAULT_BILL_TO.name : parseBillToName(billToNameParam)
+	if (!billToName) {
+		return new Response('Invalid billToName (expected 1 to 120 characters)', {
+			status: 400,
+		})
+	}
+
+	const billToAddressParam = searchParams.get('billToAddress')
+	const billToAddress =
+		billToAddressParam === null
+			? DEFAULT_BILL_TO.addressLines
+			: parseBillToAddress(billToAddressParam)
+	if (!billToAddress) {
+		return new Response(
+			'Invalid billToAddress (expected 1 to 8 lines of up to 120 characters)',
+			{ status: 400 }
+		)
+	}
+
 	const billingFrom = parseIsoDate(searchParams.get('from')) ?? defaults.billingFrom
 	const billingTo = parseIsoDate(searchParams.get('to')) ?? defaults.billingTo
 	if (billingFrom > billingTo) {
 		return new Response('Billing period end must be after the start', { status: 400 })
 	}
 
-	const data = buildAtharAudioInvoice({
+	const data = buildInvoice({
 		sequence,
 		service,
 		amount,
+		currency,
+		billTo: { name: billToName, addressLines: billToAddress },
 		invoiceDate: parseIsoDate(searchParams.get('invoiceDate')) ?? defaults.invoiceDate,
 		billingFrom,
 		billingTo,

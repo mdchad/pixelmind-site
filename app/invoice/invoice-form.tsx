@@ -3,9 +3,12 @@
 import { useEffect, useState } from 'react'
 
 import {
-	CURRENCY,
+	CURRENCIES,
+	type Currency,
 	formatAmount,
 	parseAmount,
+	parseBillToAddress,
+	parseBillToName,
 	parseService,
 } from './invoice-data'
 import {
@@ -23,6 +26,10 @@ interface InvoiceFormProps {
 		sequence: string
 		service: string
 		amount: string
+		currency: Currency
+		billToName: string
+		/** Newline-separated address lines. */
+		billToAddress: string
 		invoiceDate: string
 		billingFrom: string
 		billingTo: string
@@ -48,6 +55,9 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 	const [sequence, setSequence] = useState(defaults.sequence)
 	const [service, setService] = useState(defaults.service)
 	const [amount, setAmount] = useState(defaults.amount)
+	const [currency, setCurrency] = useState<Currency>(defaults.currency)
+	const [billToName, setBillToName] = useState(defaults.billToName)
+	const [billToAddress, setBillToAddress] = useState(defaults.billToAddress)
 	const [invoiceDate, setInvoiceDate] = useState(defaults.invoiceDate)
 	const [billingFrom, setBillingFrom] = useState(defaults.billingFrom)
 	const [billingTo, setBillingTo] = useState(defaults.billingTo)
@@ -64,10 +74,14 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 			: null
 	const parsedService = parseService(service)
 	const parsedAmount = parseAmount(amount)
+	const parsedBillToName = parseBillToName(billToName)
+	const parsedBillToAddress = parseBillToAddress(billToAddress)
 	const valid = Boolean(
 		invoiceNumber &&
 		parsedService &&
 		parsedAmount &&
+		parsedBillToName &&
+		parsedBillToAddress &&
 		from &&
 		to &&
 		!periodInvalid,
@@ -79,6 +93,9 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 				seq: parsedSequence!,
 				service: parsedService!,
 				amount: parsedAmount!,
+				currency,
+				billToName: parsedBillToName!,
+				billToAddress: parsedBillToAddress!.join('\n'),
 				invoiceDate,
 				from: billingFrom,
 				to: billingTo,
@@ -100,6 +117,35 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 				target="_blank"
 				className="flex flex-col gap-6"
 			>
+				<fieldset className="flex flex-col gap-3">
+					<legend className="text-sm text-[#888] mb-2">Bill to</legend>
+					<label className="flex flex-col gap-1 text-xs text-[#444]">
+						name
+						<input
+							type="text"
+							name="billToName"
+							value={billToName}
+							onChange={(e) => setBillToName(e.target.value)}
+							maxLength={120}
+							required
+							aria-invalid={!parsedBillToName}
+							className={field}
+						/>
+					</label>
+					<label className="flex flex-col gap-1 text-xs text-[#444]">
+						address (one line per row)
+						<textarea
+							name="billToAddress"
+							value={billToAddress}
+							onChange={(e) => setBillToAddress(e.target.value)}
+							rows={4}
+							required
+							aria-invalid={!parsedBillToAddress}
+							className={`${field} resize-y`}
+						/>
+					</label>
+				</fieldset>
+
 				<fieldset className="flex flex-col gap-2">
 					<legend className="text-sm text-[#888] mb-2">Billing period</legend>
 					<div className="grid grid-cols-2 gap-3">
@@ -175,7 +221,7 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 					</div>
 				</div>
 
-				<div className="grid grid-cols-[1fr_160px] gap-3">
+				<div className="grid grid-cols-[1fr_88px_120px] gap-3">
 					<label className="flex flex-col gap-1 text-xs text-[#444]">
 						service
 						<input
@@ -190,7 +236,22 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 						/>
 					</label>
 					<label className="flex flex-col gap-1 text-xs text-[#444]">
-						amount ({CURRENCY})
+						currency
+						<select
+							name="currency"
+							value={currency}
+							onChange={(e) => setCurrency(e.target.value as Currency)}
+							className={`${field} cursor-pointer`}
+						>
+							{CURRENCIES.map((code) => (
+								<option key={code} value={code} className="bg-black text-white">
+									{code}
+								</option>
+							))}
+						</select>
+					</label>
+					<label className="flex flex-col gap-1 text-xs text-[#444]">
+						amount
 						<input
 							type="text"
 							name="amount"
@@ -212,10 +273,10 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 					Generate PDF →
 				</button>
 
-				{invoiceNumber && parsedService && parsedAmount && from && to ? (
+				{invoiceNumber && parsedService && parsedAmount && parsedBillToName && from && to ? (
 					<p className="text-xs text-[#444]">
-						Invoice {invoiceNumber} · {parsedService} ·{' '}
-						{formatAmount(parsedAmount)} · period {formatDate(from)} to{' '}
+						Invoice {invoiceNumber} · {parsedBillToName} · {parsedService} ·{' '}
+						{formatAmount(parsedAmount, currency)} · period {formatDate(from)} to{' '}
 						{formatDate(to)}
 					</p>
 				) : null}
