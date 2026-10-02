@@ -5,6 +5,7 @@ import {
 	DEFAULT_AMOUNT,
 	DEFAULT_BILL_TO,
 	DEFAULT_CURRENCY,
+	DEFAULT_FROM_NAME,
 	DEFAULT_SERVICE,
 } from './invoice-data'
 import { DEFAULT_SEQUENCE, defaultInvoiceDates, toIsoDate } from './invoice-dates'
@@ -39,6 +40,7 @@ export default function InvoicePage() {
 					service: DEFAULT_SERVICE,
 					amount: DEFAULT_AMOUNT,
 					currency: DEFAULT_CURRENCY,
+					fromName: DEFAULT_FROM_NAME,
 					billToName: DEFAULT_BILL_TO.name,
 					billToAddress: DEFAULT_BILL_TO.addressLines.join('\n'),
 					invoiceDate: toIsoDate(dates.invoiceDate),

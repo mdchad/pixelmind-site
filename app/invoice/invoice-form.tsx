@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 import {
 	CURRENCIES,
 	type Currency,
+	FROM_NAMES,
+	type FromName,
 	formatAmount,
 	parseAmount,
 	parseBillToAddress,
@@ -27,6 +29,7 @@ interface InvoiceFormProps {
 		service: string
 		amount: string
 		currency: Currency
+		fromName: FromName
 		billToName: string
 		/** Newline-separated address lines. */
 		billToAddress: string
@@ -56,6 +59,7 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 	const [service, setService] = useState(defaults.service)
 	const [amount, setAmount] = useState(defaults.amount)
 	const [currency, setCurrency] = useState<Currency>(defaults.currency)
+	const [fromName, setFromName] = useState<FromName>(defaults.fromName)
 	const [billToName, setBillToName] = useState(defaults.billToName)
 	const [billToAddress, setBillToAddress] = useState(defaults.billToAddress)
 	const [invoiceDate, setInvoiceDate] = useState(defaults.invoiceDate)
@@ -94,6 +98,7 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 				service: parsedService!,
 				amount: parsedAmount!,
 				currency,
+				fromName,
 				billToName: parsedBillToName!,
 				billToAddress: parsedBillToAddress!.join('\n'),
 				invoiceDate,
@@ -117,6 +122,22 @@ export function InvoiceForm({ defaults }: InvoiceFormProps) {
 				target="_blank"
 				className="flex flex-col gap-6"
 			>
+				<label className="flex flex-col gap-1 text-xs text-[#444]">
+					from
+					<select
+						name="fromName"
+						value={fromName}
+						onChange={(e) => setFromName(e.target.value as FromName)}
+						className={`${field} cursor-pointer`}
+					>
+						{FROM_NAMES.map((name) => (
+							<option key={name} value={name} className="bg-black text-white">
+								{name}
+							</option>
+						))}
+					</select>
+				</label>
+
 				<fieldset className="flex flex-col gap-3">
 					<legend className="text-sm text-[#888] mb-2">Bill to</legend>
 					<label className="flex flex-col gap-1 text-xs text-[#444]">

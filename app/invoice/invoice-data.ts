@@ -28,6 +28,7 @@ export interface InvoiceData {
 		accountName: string
 		accountType: string
 		accountNumber: string
+		payNow: string
 		details: { label: string; value: string }[]
 	}
 	signature: { name: string; date: string }
@@ -36,6 +37,9 @@ export interface InvoiceData {
 
 export const CURRENCIES = ['RM', 'SGD', 'USD', 'EUR', 'GBP', 'AUD', 'IDR'] as const
 export type Currency = (typeof CURRENCIES)[number]
+
+export const FROM_NAMES = ['Muhammad Irsyad Bin Abd Wahab', 'Pixelmind Studio'] as const
+export type FromName = (typeof FROM_NAMES)[number]
 
 export interface InvoiceInput extends InvoiceDates {
 	/** Zero-padded running number, the `0015` in `PMS-0015-20260702`. */
@@ -48,11 +52,14 @@ export interface InvoiceInput extends InvoiceDates {
 	currency: Currency
 	/** Recipient shown under "Bill To". */
 	billTo: InvoiceParty
+	/** Sender name shown under "From". */
+	fromName: FromName
 }
 
 export const DEFAULT_SERVICE = 'AI Audio'
 export const DEFAULT_AMOUNT = '4000'
 export const DEFAULT_CURRENCY: Currency = 'RM'
+export const DEFAULT_FROM_NAME: FromName = FROM_NAMES[0]
 export const DEFAULT_BILL_TO: InvoiceParty = {
 	name: 'ATHAR Foundation',
 	addressLines: [
@@ -90,6 +97,10 @@ export const parseCurrency = (value: string | null | undefined): Currency | null
 	return (CURRENCIES as readonly string[]).includes(upper) ? (upper as Currency) : null
 }
 
+/** Accepts one of `FROM_NAMES` exactly. */
+export const parseFromName = (value: string | null | undefined): FromName | null =>
+	(FROM_NAMES as readonly string[]).includes(value ?? '') ? (value as FromName) : null
+
 /** Trims and bounds the recipient name. Returns null when empty or too long. */
 export const parseBillToName = (value: string | null | undefined): string | null => {
 	const trimmed = value?.trim() ?? ''
@@ -122,6 +133,7 @@ export const buildInvoice = ({
 	amount,
 	currency,
 	billTo,
+	fromName,
 	invoiceDate,
 	billingFrom,
 	billingTo,
@@ -131,7 +143,7 @@ export const buildInvoice = ({
 	dueDate: formatDate(addDays(invoiceDate, DUE_DAYS), true),
 	billingPeriod: { from: formatDate(billingFrom), to: formatDate(billingTo) },
 	from: {
-		name: 'Muhammad Irsyad Bin Abd Wahab',
+		name: fromName,
 		addressLines: [
 			'Eunos Spring,',
 			'151 Bedok Reservoir Road',
@@ -145,6 +157,7 @@ export const buildInvoice = ({
 		accountName: 'Muhammad Irsyad Bin Abd Wahab',
 		accountType: 'POSB Savings Account',
 		accountNumber: '002751135',
+		payNow: '86844625',
 		details: [
 			{ label: 'Country', value: 'Singapore' },
 			{ label: 'Swift Code', value: 'DBSSSGSG' },

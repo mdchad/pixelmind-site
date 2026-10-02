@@ -8,12 +8,15 @@ import {
 	DEFAULT_AMOUNT,
 	DEFAULT_BILL_TO,
 	DEFAULT_CURRENCY,
+	DEFAULT_FROM_NAME,
 	DEFAULT_SERVICE,
+	FROM_NAMES,
 	buildInvoice,
 	parseAmount,
 	parseBillToAddress,
 	parseBillToName,
 	parseCurrency,
+	parseFromName,
 	parseService,
 } from '@/app/invoice/invoice-data'
 import {
@@ -30,7 +33,7 @@ import {
 
 /**
  * GET /api/invoice?seq=0015&service=AI%20Audio&amount=4000&currency=RM
- *   &billToName=...&billToAddress=line1%0Aline2&invoiceDate=YYYY-MM-DD&from=YYYY-MM-DD&to=YYYY-MM-DD
+ *   &fromName=Pixelmind%20Studio&billToName=...&billToAddress=line1%0Aline2&invoiceDate=YYYY-MM-DD&from=YYYY-MM-DD&to=YYYY-MM-DD
  * Missing params fall back to sequence 0015, RM, ATHAR Foundation, today, and the previous month.
  * Due date is invoiceDate + 10 days.
  */
@@ -76,6 +79,15 @@ export const GET = async (request: Request) => {
 		})
 	}
 
+	const fromNameParam = searchParams.get('fromName')
+	const fromName =
+		fromNameParam === null ? DEFAULT_FROM_NAME : parseFromName(fromNameParam)
+	if (!fromName) {
+		return new Response(`Invalid fromName (expected one of ${FROM_NAMES.join(', ')})`, {
+			status: 400,
+		})
+	}
+
 	const billToNameParam = searchParams.get('billToName')
 	const billToName =
 		billToNameParam === null ? DEFAULT_BILL_TO.name : parseBillToName(billToNameParam)
@@ -109,6 +121,7 @@ export const GET = async (request: Request) => {
 		amount,
 		currency,
 		billTo: { name: billToName, addressLines: billToAddress },
+		fromName,
 		invoiceDate: parseIsoDate(searchParams.get('invoiceDate')) ?? defaults.invoiceDate,
 		billingFrom,
 		billingTo,
