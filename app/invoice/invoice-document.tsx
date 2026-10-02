@@ -144,6 +144,7 @@ const InvoiceBody = ({ data }: { data: InvoiceData }) => (
 							data.bank.accountName,
 							data.bank.accountType,
 							data.bank.accountNumber,
+							`PayNow : ${data.bank.payNow}`,
 						]}
 					/>
 					<Lines
